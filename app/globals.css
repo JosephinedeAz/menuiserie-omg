@@ -1,26 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
 
+/* ─── Design tokens ─────────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Primary – forest green scale */
+  --primary-100: #dcebdc;
+  --primary-200: #b8c5b8;
+  --primary-300: #93a093;
+  --primary-400: #6f7a6f;
+  --primary-500: #4a544a;
+  --primary-600: #2e342e;
+  --primary-700: #111411;
+
+  /* Secondary – warm sand */
+  --secondary-300: #b8976d;
+
+  /* Tertiary – terracotta */
+  --tertiary-400: #b85a3c;
+
+  /* Neutral */
+  --neutral-300: #a5a5a5;
+
+  /* Typography – sizes */
+  --display-01: 70px;
+  --display-02: 60px;
+  --heading-01: 50px;
+  --heading-02: 39px;
+  --body-01: 25px;
+  --body-02: 18px;
+  --nav: 22px;
+  --footer: 12px;
+
+  /* Grid */
+  --grid-max-width: 1440px;
+  --grid-margin: 32px;
+  --grid-gutter: 24px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+/* ─── Mobile – all type sizes ÷ 1.5 ────────────────────────────── */
+@media (max-width: 390px) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --display-01: 46.67px;
+    --display-02: 40px;
+    --heading-01: 33.33px;
+    --heading-02: 26px;
+    --body-01: 16.67px;
+    --body-02: 12px;
+    --nav: 14.67px;
+    --footer: 8px;
   }
 }
 
+/* ─── Base ──────────────────────────────────────────────────────── */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Work Sans", sans-serif;
+  background: #ffffff;
+  color: var(--primary-700);
 }
