@@ -38,7 +38,7 @@ function Navbar() {
           <div className="px-5 py-2">
             <div className="relative size-[100px] rounded-full overflow-hidden shrink-0">
               <Image
-                src="/images/logo-atelier.png"
+                src="/images/img-logo.svg"
                 alt="OMG logo"
                 fill
                 className="object-cover"
@@ -52,25 +52,25 @@ function Navbar() {
               href="#propos"
               className="text-[22px] text-black text-center w-[149px]"
             >
-              à propos
+              À propos
             </Link>
             <Link
               href="#services"
               className="text-[22px] text-black text-center w-[149px]"
             >
-              services
+              Services
             </Link>
             <Link
               href="#realisations"
               className="text-[22px] text-black text-center w-[149px]"
             >
-              réalisations
+              Réalisations
             </Link>
             <Link
               href="#contact"
               className="text-[22px] text-black text-center w-[149px]"
             >
-              contact
+              Contact
             </Link>
           </div>
         </div>
@@ -239,7 +239,7 @@ function SectionServices() {
           {services.map((s) => (
             <div
               key={s.title}
-              className="bg-[#b8976d] flex-1 p-5 flex flex-col gap-[14px]"
+              className="group bg-[#b8976d] flex-1 p-5 flex flex-col gap-[14px]"
             >
               <div className="relative h-[655px] w-full">
                 <Image
@@ -258,7 +258,7 @@ function SectionServices() {
                     {s.subtitle}
                   </p>
                 </div>
-                <button className="btn-plus">+</button>
+                <button className="btn-plus group-hover:border-[3px]">+</button>
               </div>
             </div>
           ))}
