@@ -1,5 +1,13 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import MegaMenu from "@/components/MegaMenu";
+import Navbar from "@/components/Navbar";
+import CardService from "@/components/CardService";
+import SectionContact from "@/components/SectionContact";
+import Footer from "@/components/Footer";
 
 // Temporary Figma SVG icon URLs (valid ~7 days)
 const figmaGoogleIcon =
@@ -12,88 +20,6 @@ const figmaInstagram =
   "https://www.figma.com/api/mcp/asset/4f07b7eb-ffaf-42fb-899c-de955cebde7f";
 const figmaLinkedin =
   "https://www.figma.com/api/mcp/asset/a9d5709f-1615-43da-85ba-c50453aa50cc";
-
-/* ─── Navbar ──────────────────────────────────────────────────────── */
-
-function Navbar() {
-  return (
-    <nav className="border-b-2 border-[#b8976d]">
-      {/* Top info bar */}
-      <div className="bg-[#e5bc89] flex items-center px-[30px] py-[10px]">
-        <p className="flex-1 text-center text-[25px] text-black">
-          contact@email.com
-        </p>
-        <p className="flex-1 text-center text-[25px] text-black">
-          tel: 06 01 02 03 04
-        </p>
-        <p className="flex-1 text-center text-[25px] text-black">
-          OMG, Menuiserie à Nantes et sa région
-        </p>
-      </div>
-
-      {/* Main nav */}
-      <div className="flex items-center justify-between">
-        <div className="flex flex-1 items-center gap-10">
-          {/* Logo */}
-          <div className="px-5 py-2">
-            <div className="relative size-[100px] rounded-full overflow-hidden shrink-0">
-              <Image
-                src="/images/img-logo.svg"
-                alt="OMG logo"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-
-          {/* Links */}
-          <div className="flex flex-1 items-center justify-center gap-[70px]">
-            <Link
-              href="#propos"
-              className="text-[22px] text-black text-center w-[149px]"
-            >
-              À propos
-            </Link>
-            <Link
-              href="#services"
-              className="text-[22px] text-black text-center w-[149px]"
-            >
-              Services
-            </Link>
-            <Link
-              href="#realisations"
-              className="text-[22px] text-black text-center w-[149px]"
-            >
-              Réalisations
-            </Link>
-            <Link
-              href="#contact"
-              className="text-[22px] text-black text-center w-[149px]"
-            >
-              Contact
-            </Link>
-          </div>
-        </div>
-
-        {/* CTAs */}
-        <div className="flex items-center gap-[21px] border-l border-[#4a544a] px-5">
-          <Link
-            href="#contact"
-            className="btn-secondary text-[25px] font-medium tracking-[0.25px] text-black whitespace-nowrap"
-          >
-            Rencontrons-nous
-          </Link>
-          <Link
-            href="#contact"
-            className="btn-secondary bg-[#b85a3c] text-[25px] font-medium tracking-[0.25px] text-black whitespace-nowrap"
-          >
-            Devis gratuit
-          </Link>
-        </div>
-      </div>
-    </nav>
-  );
-}
 
 /* ─── Hero ────────────────────────────────────────────────────────── */
 
@@ -237,30 +163,13 @@ function SectionServices() {
 
         <div className="flex rounded-[10px] overflow-hidden">
           {services.map((s) => (
-            <div
+            <CardService
               key={s.title}
-              className="group bg-[#b8976d] flex-1 p-5 flex flex-col gap-[14px]"
-            >
-              <div className="relative h-[655px] w-full">
-                <Image
-                  src={s.img}
-                  alt={s.alt}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="flex items-start gap-[38px]">
-                <div className="flex-1 text-black">
-                  <p className="font-bold text-[22px] leading-[30px]">
-                    {s.title}
-                  </p>
-                  <p className="italic text-[22px] leading-[30px]">
-                    {s.subtitle}
-                  </p>
-                </div>
-                <button className="btn-plus group-hover:border-[3px]">+</button>
-              </div>
-            </div>
+              img={s.img}
+              alt={s.alt}
+              title={s.title}
+              subtitle={s.subtitle}
+            />
           ))}
         </div>
       </div>
@@ -358,152 +267,16 @@ function SectionConfiance() {
   );
 }
 
-/* ─── Section Contact ─────────────────────────────────────────────── */
-
-function SectionContact() {
-  return (
-    <section
-      id="contact"
-      className="border border-[#833e28] mx-0 mt-[80px] px-[60px] py-[10px]"
-    >
-      <div className="bg-[#f5efe7] flex flex-col gap-8 items-center px-[80px] py-[70px]">
-        <div className="flex flex-col gap-[25px] items-center">
-          <h2 className="font-medium text-[48px] text-[#4a544a] leading-[48px] text-center">
-            Parlons de votre projet!
-          </h2>
-          <p className="text-[25px] text-[rgba(74,84,74,0.8)] text-center leading-[36px] max-w-[637px]">
-            Que vous souhaitiez échanger autour de votre projet ou demander un
-            devis, nous prenons le temps de comprendre vos besoins et de vous
-            accompagner avec attention et expertise.
-          </p>
-        </div>
-        <div className="flex gap-4 items-center justify-center">
-          <Link
-            href="#contact"
-            className="btn-primary text-[20px] font-medium tracking-[0.2px]"
-          >
-            Demander un devis gratuit
-          </Link>
-          <Link
-            href="#contact"
-            className="btn-primary text-[20px] font-medium tracking-[0.2px]"
-          >
-            Parlons-en
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ─── Footer ──────────────────────────────────────────────────────── */
-
-function Footer() {
-  return (
-    <footer className="bg-[#4a544a] relative flex items-stretch overflow-hidden">
-      <div className="flex flex-1 flex-col gap-[60px] pl-[60px] pr-10 py-[40px] z-10">
-        {/* Links columns */}
-        <div className="flex gap-8">
-          <div className="flex-1 flex flex-col gap-6">
-            <p className="font-semibold text-[18px] text-[#b8976d] leading-7">
-              À propos
-            </p>
-            <div className="flex flex-col gap-3">
-              <Link href="#" className="text-[16px] text-white/80 leading-6">
-                Qui sommes-nous
-              </Link>
-              <Link href="#" className="text-[16px] text-white/80 leading-6">
-                Notre expertise
-              </Link>
-              <Link href="#" className="text-[16px] text-white/80 leading-6">
-                Notre approche
-              </Link>
-            </div>
-          </div>
-
-          <div className="flex-1 flex flex-col gap-6">
-            <p className="font-semibold text-[18px] text-[#b8976d] leading-7">
-              Services
-            </p>
-            <div className="flex flex-col gap-3">
-              <Link href="#" className="text-[16px] text-white/80 leading-6">
-                Menuiserie intérieure
-              </Link>
-              <Link href="#" className="text-[16px] text-white/80 leading-6">
-                Menuiserie extérieure
-              </Link>
-              <Link href="#" className="text-[16px] text-white/80 leading-6">
-                Ameublement &amp; rangement
-              </Link>
-            </div>
-          </div>
-
-          <div className="flex-1 flex flex-col gap-6">
-            <p className="font-semibold text-[18px] text-[#b8976d] leading-7">
-              Réalisations
-            </p>
-            <Link href="#" className="text-[16px] text-white/80 leading-6">
-              Notre sélection
-            </Link>
-          </div>
-
-          <div className="flex-1 flex flex-col gap-6">
-            <p className="font-semibold text-[18px] text-[#b8976d] leading-7">
-              Contact
-            </p>
-            <Link
-              href="#contact"
-              className="btn-primary text-[16px] font-medium w-fit leading-6"
-            >
-              Nous contacter
-            </Link>
-            <div className="flex gap-4">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={figmaInstagram} alt="Instagram" className="size-6" />
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={figmaLinkedin} alt="LinkedIn" className="size-6" />
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom bar */}
-        <div className="border-t border-white/20 pt-[25px] px-6">
-          <div className="flex items-center justify-between">
-            <Link href="#" className="text-[14px] text-white/60 leading-5">
-              Mentions légales
-            </Link>
-            <p className="text-[14px] text-white/40 leading-5">
-              Menuiserie Ouest Générale — OMG
-            </p>
-            <p className="text-[14px] text-white/40 leading-5">
-              Réalisé par deazstudio
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Blurred logo — decorative background */}
-      <div className="absolute right-0 inset-y-0 flex items-center justify-center p-[10px] opacity-30 w-[278px]">
-        <div className="relative size-[258px] rounded-full overflow-hidden blur-sm">
-          <div className="absolute inset-0 bg-black/50 rounded-full z-10" />
-          <Image
-            src="/images/logo-atelier.png"
-            alt=""
-            fill
-            className="object-cover opacity-60"
-          />
-        </div>
-      </div>
-    </footer>
-  );
-}
-
 /* ─── Page ────────────────────────────────────────────────────────── */
 
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <main className="bg-[#f6e9dd]">
-      <Navbar />
+      <div className="relative">
+        <Navbar onServicesClick={() => setMenuOpen((m) => !m)} />
+        <MegaMenu isOpen={menuOpen} />
+      </div>
       <Hero />
       <SectionRealisation />
       <SectionServices />
