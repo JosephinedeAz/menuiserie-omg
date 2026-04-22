@@ -63,6 +63,27 @@
   }
 }
 
+/* ─── Button utilities ──────────────────────────────────────────── */
+@layer components {
+  .btn-primary {
+    @apply bg-[#b85a3c] text-[#f1f1f1] rounded-[18px] px-5 py-[10px]
+           transition-all duration-200
+           hover:bg-transparent hover:border hover:border-[#b85a3c] hover:text-[#1d1d1d];
+  }
+
+  .btn-secondary {
+    @apply border border-[#b85a3c] rounded-[10px] p-[10px]
+           transition-all duration-200
+           hover:shadow-[0px_6px_10px_0px_rgba(0,0,0,0.15),0px_2px_3px_0px_rgba(0,0,0,0.3)];
+  }
+
+  .btn-tertiary {
+    @apply border border-[#6a786a] rounded-[10px] p-[10px]
+           transition-all duration-200
+           hover:bg-[#b85a3c] hover:border-[#b85a3c];
+  }
+}
+
 /* ─── Base ──────────────────────────────────────────────────────── */
 body {
   font-family: "Work Sans", sans-serif;

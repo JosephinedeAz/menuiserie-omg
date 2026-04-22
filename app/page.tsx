@@ -79,13 +79,13 @@ function Navbar() {
         <div className="flex items-center gap-5 border-l border-[#4a544a] px-5 py-5">
           <Link
             href="#contact"
-            className="border-2 border-[#b85a3c] rounded-[20px] px-[15px] py-5 text-[25px] font-medium text-black whitespace-nowrap"
+            className="btn-secondary text-[25px] font-medium text-black whitespace-nowrap"
           >
             rencontrons-nous
           </Link>
           <Link
             href="#contact"
-            className="bg-[#b85a3c] rounded-[20px] px-[15px] py-5 text-[25px] font-medium text-black whitespace-nowrap"
+            className="btn-primary text-[25px] font-medium text-black whitespace-nowrap"
           >
             devis gratuit
           </Link>
@@ -101,7 +101,7 @@ function Hero() {
   return (
     <section id="hero" className="flex flex-col gap-[40px] mx-[40px] pt-[10px]">
       {/* Image + overlay */}
-      <div className="relative h-[919px] border border-[#b8976d] overflow-hidden">
+      <div className="relative h-screen border border-[#b8976d] overflow-hidden">
         <Image
           src="/images/hero-facade-terrasse.jpg"
           alt="Façade menuiserie"
@@ -116,7 +116,7 @@ function Hero() {
           <div className="flex flex-col items-center gap-0 text-[#eb7a59] text-center">
             <p
               className="font-thunder font-black leading-none"
-              style={{ fontSize: "270px", letterSpacing: "54px" }}
+              style={{ fontSize: "180px", letterSpacing: "36px" }}
             >
               OMG
             </p>
@@ -130,13 +130,13 @@ function Hero() {
           <div className="flex flex-col items-center gap-5">
             <Link
               href="#services"
-              className="bg-[#b85a3c] rounded-[18px] px-5 py-[10px] text-[30px] text-[#f1f1f1] leading-[36px]"
+              className="btn-primary text-[30px] leading-[36px]"
             >
               Découvrir nos services
             </Link>
             <Link
               href="#realisations"
-              className="bg-[#b85a3c] rounded-[18px] px-5 py-[10px] text-[30px] text-[#f1f1f1] leading-[36px]"
+              className="btn-primary text-[30px] leading-[36px]"
             >
               Voir nos réalisations
             </Link>
@@ -180,7 +180,7 @@ function SectionRealisation() {
           </p>
           <Link
             href="#realisations"
-            className="border border-[#6a786a] rounded-[10px] px-[10px] py-[10px] text-[20px] font-medium text-black tracking-[0.2px]"
+            className="btn-tertiary text-[20px] font-medium text-black tracking-[0.2px]"
           >
             voir nos réalisations
           </Link>
@@ -382,13 +382,13 @@ function SectionContact() {
         <div className="flex gap-4 items-center justify-center">
           <Link
             href="#contact"
-            className="bg-[#b85a3c] border border-[#b85a3c] rounded-[10px] px-[10px] py-[10px] text-[20px] font-medium text-[#f1f1f1] tracking-[0.2px]"
+            className="btn-primary text-[20px] font-medium tracking-[0.2px]"
           >
             Demander un devis gratuit
           </Link>
           <Link
             href="#contact"
-            className="border-2 border-[#4a544a] rounded-[10px] px-[10px] py-[10px] text-[20px] font-medium text-[#1d1d1d] tracking-[0.2px]"
+            className="btn-secondary text-[20px] font-medium text-[#1d1d1d] tracking-[0.2px]"
           >
             Parlons-en
           </Link>
@@ -455,7 +455,7 @@ function Footer() {
             </p>
             <Link
               href="#contact"
-              className="bg-[#b85a3c] rounded-[8px] px-4 py-3 text-[16px] font-medium text-white w-fit leading-6"
+              className="btn-primary text-[16px] font-medium w-fit leading-6"
             >
               Nous contacter
             </Link>
