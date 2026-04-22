@@ -115,7 +115,7 @@ function Hero() {
         <div className="absolute inset-0 flex flex-col items-center pt-[120px]">
           <div className="flex flex-col items-center gap-0 text-[#eb7a59] text-center">
             <p
-              className="font-black leading-none"
+              className="font-thunder font-black leading-none"
               style={{ fontSize: "270px", letterSpacing: "54px" }}
             >
               OMG
