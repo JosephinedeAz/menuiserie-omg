@@ -112,7 +112,7 @@ function Hero() {
         <div className="absolute inset-0 bg-black/40" />
 
         {/* OMG title + CTAs */}
-        <div className="absolute inset-0 flex flex-col items-center pt-[120px]">
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-[160px]">
           <div className="flex flex-col items-center gap-0 text-[#eb7a59] text-center">
             <p
               className="font-thunder font-black leading-none"
@@ -127,7 +127,7 @@ function Hero() {
               Ouest Menuiserie Générale
             </p>
           </div>
-          <div className="flex flex-col items-center gap-5 mt-[160px]">
+          <div className="flex flex-col items-center gap-5">
             <Link
               href="#services"
               className="bg-[#b85a3c] rounded-[18px] px-5 py-[10px] text-[30px] text-[#f1f1f1] leading-[36px]"
