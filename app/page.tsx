@@ -76,18 +76,18 @@ function Navbar() {
         </div>
 
         {/* CTAs */}
-        <div className="flex items-center gap-5 border-l border-[#4a544a] px-5 py-5">
+        <div className="flex items-center gap-[21px] border-l border-[#4a544a] px-5">
           <Link
             href="#contact"
-            className="btn-secondary text-[25px] font-medium text-black whitespace-nowrap"
+            className="btn-secondary text-[25px] font-medium tracking-[0.25px] text-black whitespace-nowrap"
           >
-            rencontrons-nous
+            Rencontrons-nous
           </Link>
           <Link
             href="#contact"
-            className="btn-primary text-[25px] font-medium text-black whitespace-nowrap"
+            className="btn-secondary bg-[#b85a3c] text-[25px] font-medium tracking-[0.25px] text-black whitespace-nowrap"
           >
-            devis gratuit
+            Devis gratuit
           </Link>
         </div>
       </div>
@@ -127,16 +127,16 @@ function Hero() {
               Ouest Menuiserie Générale
             </p>
           </div>
-          <div className="flex flex-col items-center gap-5">
+          <div className="flex flex-col items-center gap-5 w-[400px]">
             <Link
               href="#services"
-              className="btn-primary text-[30px] leading-[36px]"
+              className="btn-primary text-[30px] leading-[36px] w-full"
             >
               Découvrir nos services
             </Link>
             <Link
               href="#realisations"
-              className="btn-primary text-[30px] leading-[36px]"
+              className="btn-primary text-[30px] leading-[36px] w-full"
             >
               Voir nos réalisations
             </Link>
