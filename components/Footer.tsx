@@ -1,6 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 
+interface FooterProps {
+  mobile?: boolean;
+}
+
 const columns = [
   {
     heading: "À propos",
@@ -24,7 +28,65 @@ const columns = [
   },
 ];
 
-export default function Footer() {
+export default function Footer({ mobile }: FooterProps) {
+  if (mobile) {
+    return (
+      <footer
+        className="relative overflow-hidden"
+        style={{ backgroundColor: "var(--primary-500)" }}
+      >
+        <div className="flex flex-col gap-[32px] px-[24px] py-[32px]">
+          {/* Link columns */}
+          <div className="flex flex-col gap-[32px]">
+            {columns.map((col) => (
+              <div key={col.heading} className="flex flex-col gap-4">
+                <p className="font-semibold text-[18px] leading-7" style={{ color: "var(--secondary-300)" }}>
+                  {col.heading}
+                </p>
+                <div className="flex flex-col gap-3">
+                  {col.links.map((link) => (
+                    <Link key={link.label} href={link.href} className="text-[16px] text-white/80 leading-6">
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ))}
+
+            {/* Contact column */}
+            <div className="flex flex-col gap-4">
+              <p className="font-semibold text-[18px] leading-7" style={{ color: "var(--secondary-300)" }}>
+                Contact
+              </p>
+              <Link href="/contact" className="btn-primary text-[16px] font-medium w-fit leading-6">
+                Nous contacter
+              </Link>
+              <div className="flex gap-4">
+                {/* TODO: SVG Instagram */}
+                {/* TODO: SVG LinkedIn */}
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom bar */}
+          <div className="border-t border-white/20 pt-[25px]">
+            <div className="flex flex-col items-center gap-2 text-center">
+              <Link href="#" className="text-[14px] text-white/60 leading-5">
+                Mentions légales
+              </Link>
+              <p className="text-[14px] text-white/40 leading-5">
+                Menuiserie Ouest Générale — OMG
+              </p>
+              <p className="text-[14px] text-white/40 leading-5">
+                Réalisé par deazstudio
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    );
+  }
+
   return (
     <footer
       className="relative flex items-stretch overflow-hidden"
@@ -36,19 +98,12 @@ export default function Footer() {
         <div className="flex gap-8">
           {columns.map((col) => (
             <div key={col.heading} className="flex-1 flex flex-col gap-6">
-              <p
-                className="font-semibold text-[18px] leading-7"
-                style={{ color: "var(--secondary-300)" }}
-              >
+              <p className="font-semibold text-[18px] leading-7" style={{ color: "var(--secondary-300)" }}>
                 {col.heading}
               </p>
               <div className="flex flex-col gap-3">
                 {col.links.map((link) => (
-                  <Link
-                    key={link.label}
-                    href={link.href}
-                    className="text-[16px] text-white/80 leading-6"
-                  >
+                  <Link key={link.label} href={link.href} className="text-[16px] text-white/80 leading-6">
                     {link.label}
                   </Link>
                 ))}
@@ -58,70 +113,15 @@ export default function Footer() {
 
           {/* Contact column */}
           <div className="flex-1 flex flex-col gap-6">
-            <p
-              className="font-semibold text-[18px] leading-7"
-              style={{ color: "var(--secondary-300)" }}
-            >
+            <p className="font-semibold text-[18px] leading-7" style={{ color: "var(--secondary-300)" }}>
               Contact
             </p>
-            <Link
-              href="/contact"
-              className="btn-primary text-[16px] font-medium w-fit leading-6"
-            >
+            <Link href="/contact" className="btn-primary text-[16px] font-medium w-fit leading-6">
               Nous contacter
             </Link>
             <div className="flex gap-4">
-              {/* Instagram */}
-              <Link href="https://instagram.com" aria-label="Instagram">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect
-                    x="2"
-                    y="2"
-                    width="20"
-                    height="20"
-                    rx="5"
-                    stroke="white"
-                    strokeWidth="2"
-                  />
-                  <circle cx="12" cy="12" r="4" stroke="white" strokeWidth="2" />
-                  <circle cx="17.5" cy="6.5" r="1.5" fill="white" />
-                </svg>
-              </Link>
-              {/* LinkedIn */}
-              <Link href="https://linkedin.com" aria-label="LinkedIn">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <rect
-                    x="2"
-                    y="9"
-                    width="4"
-                    height="12"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <circle cx="4" cy="4" r="2" stroke="white" strokeWidth="2" />
-                </svg>
-              </Link>
+              {/* TODO: SVG Instagram */}
+              {/* TODO: SVG LinkedIn */}
             </div>
           </div>
         </div>
@@ -146,12 +146,7 @@ export default function Footer() {
       <div className="absolute right-0 inset-y-0 flex items-center justify-center p-[10px] opacity-30 w-[278px]">
         <div className="relative size-[258px] rounded-full overflow-hidden blur-sm">
           <div className="absolute inset-0 bg-black/50 rounded-full z-10" />
-          <Image
-            src="/images/img-logo.svg"
-            alt=""
-            fill
-            className="object-cover opacity-60"
-          />
+          <Image src="/images/img-logo.svg" alt="" fill className="object-cover opacity-60" />
         </div>
       </div>
     </footer>

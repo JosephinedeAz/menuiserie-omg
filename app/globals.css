@@ -92,4 +92,11 @@
   .btn-plus:hover {
     border-width: 3px;
   }
+
+  .btn-fab {
+    @apply fixed bottom-6 right-6 z-50 md:hidden bg-[#f03612] text-white text-[12px] tracking-[-0.24px] leading-[20px] px-[7px] py-[5px] rounded-[20px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] whitespace-nowrap;
+  }
+  .btn-fab:hover {
+    background-color: #eb7a59;
+  }
 }

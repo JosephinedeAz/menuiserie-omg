@@ -2,10 +2,15 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import NavMobile from "@/components/NavMobile";
 
 export default function Navbar({ onServicesClick }: { onServicesClick: () => void }) {
   return (
-    <nav className="border-b-2 border-[#b8976d]">
+    <>
+    <div className="md:hidden">
+      <NavMobile />
+    </div>
+    <nav className="border-b-2 border-[#b8976d] hidden md:block">
       {/* Top info bar */}
       <div className="bg-[#e5bc89] flex items-center px-[30px] py-[10px]">
         <p className="flex-1 text-center text-[25px] text-black">
@@ -80,5 +85,6 @@ export default function Navbar({ onServicesClick }: { onServicesClick: () => voi
         </div>
       </div>
     </nav>
+    </>
   );
 }

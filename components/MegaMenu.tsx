@@ -11,21 +11,21 @@ const services = [
     alt: "Parquet intérieur",
     title: "Menuiserie intérieure",
     subtitle: "parquet, cuisines, agencement",
-    href: "#services",
+    href: "/services/menuiserie-interieure",
   },
   {
     img: "/images/service-menuiserie-exterieure.png",
     alt: "Terrasse extérieure",
     title: "Menuiserie extérieure",
     subtitle: "terrasse, palissade, aménagements durables",
-    href: "#services",
+    href: "/services/menuiserie-exterieure",
   },
   {
     img: "/images/service-mobilier-lampe.png",
     alt: "Mobilier et lampe",
     title: "Agencement",
     subtitle: "rangement & mobilier",
-    href: "#services",
+    href: "/services/ameublement",
   },
 ];
 
