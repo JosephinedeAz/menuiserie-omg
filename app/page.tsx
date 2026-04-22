@@ -70,7 +70,7 @@ function Navbar() {
               href="#contact"
               className="text-[22px] text-black text-center w-[149px]"
             >
-              Contact
+              Contact 56
             </Link>
           </div>
         </div>
