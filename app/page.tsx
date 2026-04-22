@@ -258,9 +258,7 @@ function SectionServices() {
                     {s.subtitle}
                   </p>
                 </div>
-                <button className="border border-black rounded-full size-[90px] flex items-center justify-center text-[50px] text-black shrink-0 leading-none">
-                  +
-                </button>
+                <button className="btn-plus">+</button>
               </div>
             </div>
           ))}
@@ -388,7 +386,7 @@ function SectionContact() {
           </Link>
           <Link
             href="#contact"
-            className="btn-secondary text-[20px] font-medium text-[#1d1d1d] tracking-[0.2px]"
+            className="btn-primary text-[20px] font-medium tracking-[0.2px]"
           >
             Parlons-en
           </Link>
