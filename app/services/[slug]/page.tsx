@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation'
 import { client } from '@/lib/sanity'
 import Navbar from '@/components/Navbar'
 import SectionServiceHeader from '@/components/SectionServiceHeader'
@@ -35,6 +36,8 @@ export default async function ServicePage({
       { slug }
     ),
   ])
+
+  if (!service) { notFound() }
 
   void projets
 

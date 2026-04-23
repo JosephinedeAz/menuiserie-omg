@@ -17,12 +17,16 @@ export default function SectionServiceHeader({
     <section className="flex items-start gap-[40px] px-[60px] py-[10px]">
       <div className="border border-[#b8976d] flex-1 min-w-0 p-[10px]">
         <div className="relative h-[451px] w-full">
-          <Image
-            src={urlFor(imageHero).url()}
-            alt={titre}
-            fill
-            className="object-cover"
-          />
+          {imageHero ? (
+            <Image
+              src={urlFor(imageHero).url()}
+              alt={titre}
+              fill
+              className="object-cover"
+            />
+          ) : (
+            <div className="absolute inset-0 bg-[#d6c4ad]" />
+          )}
           <div className="absolute inset-0 bg-[rgba(100,81,57,0.2)]" />
         </div>
       </div>
