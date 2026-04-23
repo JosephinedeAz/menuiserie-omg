@@ -5,6 +5,7 @@ import SectionServiceHeader from '@/components/SectionServiceHeader'
 import SectionServiceFigures from '@/components/SectionServiceFigures'
 import SectionServiceImage from '@/components/SectionServiceImage'
 import SectionServicePhilosophie from '@/components/SectionServicePhilosophie'
+import SectionServiceRealisations from '@/components/SectionServiceRealisations'
 
 const SLUGS = ['menuiserie-exterieure', 'menuiserie-interieure', 'ameublement'] as const
 
@@ -43,7 +44,8 @@ export default async function ServicePage({
 
   if (!service) { notFound() }
 
-  void projets
+  console.log('slug:', slug)
+  console.log('projets:', projets)
 
   return (
     <main className="bg-[#f6e9dd]">
@@ -59,6 +61,7 @@ export default async function ServicePage({
         titre={service?.titre ?? ''}
       />
       <SectionServicePhilosophie />
+      <SectionServiceRealisations projets={projets} />
     </main>
   )
 }
