@@ -35,5 +35,11 @@ export const serviceType = defineType({
       title: 'Image hero',
       type: 'image',
     }),
+    defineField({
+      name: 'imageSecondaire',
+      title: 'Image secondaire (section milieu de page)',
+      type: 'image',
+      options: { hotspot: true },
+    }),
   ],
 })

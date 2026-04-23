@@ -3,6 +3,8 @@ import { client } from '@/lib/sanity'
 import Navbar from '@/components/Navbar'
 import SectionServiceHeader from '@/components/SectionServiceHeader'
 import SectionServiceFigures from '@/components/SectionServiceFigures'
+import SectionServiceImage from '@/components/SectionServiceImage'
+import SectionServicePhilosophie from '@/components/SectionServicePhilosophie'
 
 const SLUGS = ['menuiserie-exterieure', 'menuiserie-interieure', 'ameublement'] as const
 
@@ -23,7 +25,8 @@ export default async function ServicePage({
         titre,
         sousTitre,
         description,
-        imageHero
+        imageHero,
+        imageSecondaire
       }`,
       { slug }
     ),
@@ -51,6 +54,11 @@ export default async function ServicePage({
         imageHero={service?.imageHero}
       />
       <SectionServiceFigures />
+      <SectionServiceImage
+        image={service?.imageSecondaire}
+        titre={service?.titre ?? ''}
+      />
+      <SectionServicePhilosophie />
     </main>
   )
 }
