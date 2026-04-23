@@ -58,7 +58,7 @@ export default function Navbar() {
               Services
             </button>
             <Link
-              href="#realisations"
+              href="/realisations/une-chambre-douce"
               className="text-[15px] lg:text-[22px] text-black text-center whitespace-nowrap"
             >
               Réalisations
@@ -89,7 +89,7 @@ export default function Navbar() {
         </div>
       </div>
     </nav>
-    <MegaMenu isOpen={menuOpen} />
+    <MegaMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
     </div>
   );
 }

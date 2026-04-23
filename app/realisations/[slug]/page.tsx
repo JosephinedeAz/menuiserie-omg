@@ -4,8 +4,8 @@ export const dynamicParams = true
 import { notFound } from 'next/navigation'
 import { client } from '@/lib/sanity'
 import Navbar from '@/components/Navbar'
-import MegaMenu from '@/components/MegaMenu'
 import SectionHeroRealisation from '@/components/SectionHeroRealisation'
+import SectionDescriptionRealisation from '@/components/SectionDescriptionRealisation'
 
 export async function generateStaticParams() {
   const slugs: { slug: string }[] = await client.fetch(
@@ -41,11 +41,14 @@ export default async function RealisationPage({
   return (
     <main className="bg-[#f6e9dd]">
       <Navbar />
-      <MegaMenu />
       <SectionHeroRealisation
         titre={realisation.titre}
         imageHeroUrl={realisation.imageHeroUrl}
         imageHeroAlt={realisation.imageHeroAlt}
+      />
+      <SectionDescriptionRealisation
+        description={realisation.description}
+        detailsTechniques={realisation.detailsTechniques}
       />
     </main>
   )

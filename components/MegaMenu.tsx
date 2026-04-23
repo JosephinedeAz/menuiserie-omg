@@ -3,6 +3,7 @@ import Link from "next/link";
 
 interface MegaMenuProps {
   isOpen: boolean;
+  onClose: () => void;
 }
 
 const services = [
@@ -29,7 +30,7 @@ const services = [
   },
 ];
 
-export default function MegaMenu({ isOpen }: MegaMenuProps) {
+export default function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
   return (
     // Clip wrapper — hides the panel when it's translated above this boundary
     <div
@@ -65,12 +66,12 @@ export default function MegaMenu({ isOpen }: MegaMenuProps) {
                   <p className="text-[25px] leading-[36px]">{s.subtitle}</p>
                 </div>
               </div>
-              <Link
-                href={s.href}
+              <button
+                onClick={onClose}
                 className="btn-secondary text-[25px] font-medium text-[#f1f1f1] tracking-[0.25px] whitespace-nowrap"
               >
                 Découvrir
-              </Link>
+              </button>
             </div>
           ))}
         </div>
