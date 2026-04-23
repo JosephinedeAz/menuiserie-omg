@@ -18,8 +18,8 @@ export const realisationType = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'image',
-      title: 'Image',
+      name: 'imageHero',
+      title: 'Image principale',
       type: 'image',
       options: { hotspot: true },
       fields: [
@@ -30,6 +30,29 @@ export const realisationType = defineType({
         }),
       ],
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'detailsTechniques',
+      title: 'Détails techniques',
+      type: 'text',
+    }),
+    defineField({
+      name: 'imagesGalerie',
+      title: 'Galerie d\'images',
+      type: 'array',
+      of: [
+        {
+          type: 'image',
+          options: { hotspot: true },
+          fields: [
+            defineField({
+              name: 'alt',
+              title: 'Texte alternatif',
+              type: 'string',
+            }),
+          ],
+        },
+      ],
     }),
     defineField({
       name: 'slug',
