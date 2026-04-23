@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import { client } from '@/lib/sanity'
 import Navbar from '@/components/Navbar'
 import SectionServiceHeader from '@/components/SectionServiceHeader'
+import SectionServiceFigures from '@/components/SectionServiceFigures'
 
 const SLUGS = ['menuiserie-exterieure', 'menuiserie-interieure', 'ameublement'] as const
 
@@ -49,6 +50,7 @@ export default async function ServicePage({
         description={service?.description}
         imageHero={service?.imageHero}
       />
+      <SectionServiceFigures />
     </main>
   )
 }
