@@ -1,13 +1,10 @@
-"use client";
-
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import MegaMenu from "@/components/MegaMenu";
 import Navbar from "@/components/Navbar";
 import CardService from "@/components/CardService";
 import SectionContact from "@/components/SectionContact";
 import Footer from "@/components/Footer";
+import TestimonialCarousel from "@/components/TestimonialCarousel";
 
 // Temporary Figma SVG icon URLs (valid ~7 days)
 const figmaGoogleIcon =
@@ -322,16 +319,7 @@ function SectionConfiance() {
         </div>
 
         {/* Verbatim mobile */}
-        <div className="flex flex-col gap-[20px]">
-          <p className="italic text-[33px] text-black tracking-[-1.32px] leading-[37px]">
-            &ldquo;Très satisfait de ma nouvelle terrasse, excellent devis et
-            délais de chantier plus court que prévu, je recommande
-            vivement&rdquo;
-          </p>
-          <p className="text-[21px] text-black text-right">
-            Laurent, mars 2025, Nantes
-          </p>
-        </div>
+        <TestimonialCarousel testimonials={[]} />
       </div>
 
       {/* ── Confiance desktop ───────────────────────────────────────── */}
@@ -371,19 +359,10 @@ function SectionConfiance() {
 
         {/* Testimonial */}
         <div className="flex flex-col gap-[40px]">
-          <div className="flex flex-col gap-[49px]">
-            <p className="italic text-[50px] text-black tracking-[-2px] leading-[56px]">
-              &ldquo;Très satisfait de ma nouvelle terrasse, excellent devis et
-              délais de chantier plus court que prévu, je recommande
-              vivement&rdquo;
-            </p>
-            <p className="text-[32px] text-black text-right tracking-[-0.64px] leading-[38px]">
-              Laurent, mars 2025, Nantes
-            </p>
-          </div>
+          <TestimonialCarousel testimonials={[]} />
 
-          {/* Google badge + arrow */}
-          <div className="flex items-center justify-between py-[30px]">
+          {/* Google badge */}
+          <div className="py-[30px]">
             <div className="bg-white border border-[#e5e7eb] rounded-[14px] shadow-sm flex flex-col gap-3 px-4 py-3 w-[161px]">
               <div className="flex items-center gap-2">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -397,8 +376,6 @@ function SectionConfiance() {
                 <span className="text-[14px] text-[#4a5565]">2 avis</span>
               </div>
             </div>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={figmaArrow} alt="" className="w-[97px]" />
           </div>
         </div>
       </div>
@@ -411,13 +388,9 @@ function SectionConfiance() {
 /* ─── Page ────────────────────────────────────────────────────────── */
 
 export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <main className="bg-[#f6e9dd]">
-      <div className="relative">
-        <Navbar onServicesClick={() => setMenuOpen((m) => !m)} />
-        <MegaMenu isOpen={menuOpen} />
-      </div>
+      <Navbar />
       <Hero />
       <SectionRealisation />
       <SectionServices />

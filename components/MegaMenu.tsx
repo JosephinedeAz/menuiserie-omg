@@ -59,9 +59,9 @@ export default function MegaMenu({ isOpen }: MegaMenuProps) {
                   />
                 </div>
                 <div className="flex flex-col gap-[5px] text-[#f1f1f1]">
-                  <p className="text-[32px] leading-[38px] tracking-[-0.64px]">
+                  <Link href={s.href} className="text-[32px] leading-[38px] tracking-[-0.64px] hover:underline">
                     {s.title}
-                  </p>
+                  </Link>
                   <p className="text-[25px] leading-[36px]">{s.subtitle}</p>
                 </div>
               </div>

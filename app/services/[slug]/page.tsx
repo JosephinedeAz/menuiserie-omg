@@ -1,4 +1,6 @@
 import { client } from '@/lib/sanity'
+import Navbar from '@/components/Navbar'
+import SectionServiceHeader from '@/components/SectionServiceHeader'
 
 const SLUGS = ['menuiserie-exterieure', 'menuiserie-interieure', 'ameublement'] as const
 
@@ -34,10 +36,16 @@ export default async function ServicePage({
     ),
   ])
 
+  void projets
+
   return (
-    <main>
-      <h1>{service?.titre}</h1>
-      <p>{service?.description}</p>
+    <main className="bg-[#f6e9dd]">
+      <Navbar />
+      <SectionServiceHeader
+        titre={service?.titre}
+        description={service?.description}
+        imageHero={service?.imageHero}
+      />
     </main>
   )
 }
