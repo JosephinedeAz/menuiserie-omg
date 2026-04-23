@@ -8,6 +8,9 @@ import SectionServiceFigures from '@/components/SectionServiceFigures'
 import SectionServiceImage from '@/components/SectionServiceImage'
 import SectionServicePhilosophie from '@/components/SectionServicePhilosophie'
 import SectionServiceRealisations from '@/components/SectionServiceRealisations'
+import SectionConfiance from '@/components/SectionConfiance'
+import SectionContact from '@/components/SectionContact'
+import Footer from '@/components/Footer'
 
 const SLUGS = ['menuiserie-exterieure', 'menuiserie-interieure', 'ameublement'] as const
 
@@ -64,6 +67,9 @@ export default async function ServicePage({
       />
       <SectionServicePhilosophie />
       <SectionServiceRealisations projets={projets} />
+      <SectionConfiance />
+      <SectionContact />
+      <Footer />
     </main>
   )
 }
