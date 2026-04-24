@@ -12,21 +12,15 @@ export default function SectionHeroRealisation({
   imageHeroAlt,
 }: SectionHeroRealisationProps) {
   return (
-    <section className="flex flex-col gap-[44px] px-[60px] py-[10px]">
+    <section className="flex flex-col gap-[44px] px-[12px] py-[10px] md:px-[60px]">
       <h1
-        style={{
-          fontFamily: "'Work Sans', sans-serif",
-          fontWeight: 900,
-          fontSize: '70px',
-          lineHeight: '80px',
-          letterSpacing: '-2.8px',
-        }}
-        className="text-black"
+        className="text-black font-black text-[47px] leading-[54px] tracking-[-1.88px] md:text-[70px] md:leading-[80px] md:tracking-[-2.8px] md:font-black"
+        style={{ fontFamily: "'Work Sans', sans-serif" }}
       >
         {titre}
       </h1>
 
-      <div className="relative h-[843px] w-full border border-[#b8976d]">
+      <div className="relative h-[260px] md:h-[843px] w-full border border-[#b8976d]">
         <Image
           src={imageHeroUrl}
           alt={imageHeroAlt ?? titre}

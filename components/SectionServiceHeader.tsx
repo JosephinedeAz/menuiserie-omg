@@ -14,15 +14,15 @@ export default function SectionServiceHeader({
   imageHero,
 }: SectionServiceHeaderProps) {
   return (
-    <section className="flex items-start gap-[40px] px-[60px] py-[10px]">
-      <div className="border border-[#b8976d] flex-1 min-w-0 p-[10px]">
+    <section className="flex flex-col items-start gap-[40px] px-[12px] py-[10px] md:flex-row md:px-[60px]">
+      <div className="border border-[#b8976d] w-full min-w-0 p-[10px] md:flex-1">
         <div className="relative h-[451px] w-full">
           {imageHero ? (
             <Image
               src={urlFor(imageHero).url()}
               alt={titre}
               fill
-              className="object-cover"
+              className="object-cover w-full"
             />
           ) : (
             <div className="absolute inset-0 bg-[#d6c4ad]" />
@@ -31,11 +31,11 @@ export default function SectionServiceHeader({
         </div>
       </div>
 
-      <div className="flex flex-1 min-w-0 max-w-[600px] flex-col gap-[26px] px-[20px] text-black">
-        <h1 className="font-black text-[70px] leading-[80px] tracking-[-0.04em]">
+      <div className="flex w-full min-w-0 flex-col gap-[26px] px-[20px] text-black md:flex-1 md:max-w-[600px]">
+        <h1 className="font-black text-[47px] leading-[54px] tracking-[-1.88px] md:text-[70px] md:leading-[80px] md:tracking-[-0.04em]">
           {titre}
         </h1>
-        <p className="text-[25px] leading-[36px]">
+        <p className="text-[17px] leading-[24px] md:text-[25px] md:leading-[36px]">
           {description}
         </p>
       </div>

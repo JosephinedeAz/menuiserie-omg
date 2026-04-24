@@ -8,10 +8,10 @@ type Props = {
 
 export default function SectionDescriptionRealisation({ description, detailsTechniques }: Props) {
   return (
-    <section className="px-[60px] py-[10px]">
+    <section className="px-[12px] py-[10px] md:px-[60px]">
       <p
-        className="w-full text-black"
-        style={{ fontFamily: 'Work Sans', fontWeight: 400, fontSize: 32, lineHeight: '38px', letterSpacing: '-0.64px' }}
+        className="w-full text-black font-normal text-[21px] leading-[25px] tracking-[-0.42px] md:text-[32px] md:leading-[38px] md:tracking-[-0.64px]"
+        style={{ fontFamily: 'Work Sans' }}
       >
         {description}
       </p>

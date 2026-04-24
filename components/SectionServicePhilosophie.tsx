@@ -2,10 +2,10 @@ export default function SectionServicePhilosophie() {
   return (
     <section className="px-[60px] py-[10px]">
       <div className="flex flex-col gap-[30px] px-[10px] text-black">
-        <p className="font-medium text-[60px] leading-[72px]">
+        <p className="font-medium text-[40px] leading-[48px] md:text-[60px] md:leading-[72px]">
           A la croisée entre le design d'espace et l'exécution
         </p>
-        <div className="flex flex-col gap-[16px] text-[25px] leading-[36px]">
+        <div className="flex flex-col gap-[16px] text-[17px] leading-[24px] md:text-[25px] md:leading-[36px]">
           <p>
             <span className="font-bold text-[#4a544a]">
               Chaque projet est avant tout une collaboration.

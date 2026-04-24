@@ -68,8 +68,10 @@ export default async function ServicePage({
       <SectionServicePhilosophie />
       <SectionServiceRealisations projets={projets} />
       <SectionConfiance />
-      <SectionContact />
-      <Footer />
+      <div className="md:hidden"><SectionContact mobile /></div>
+      <div className="hidden md:block"><SectionContact /></div>
+      <div className="md:hidden"><Footer mobile /></div>
+      <div className="hidden md:block"><Footer /></div>
     </main>
   )
 }

@@ -44,17 +44,17 @@ export default function SectionServiceRealisations({
 
   return (
     <section className="flex flex-col gap-[30px] items-center px-[60px] py-[10px]">
-      <p className="font-medium text-[60px] leading-[72px] text-black w-full">
+      <p className="font-semibold text-[40px] leading-[48px] tracking-[-1.6px] text-black w-full md:font-medium md:text-[60px] md:leading-[72px] md:tracking-normal">
         Nos plus belles réalisations.
       </p>
 
       <div
         ref={scrollRef}
-        className="w-full overflow-x-auto overflow-y-hidden flex snap-x snap-mandatory scroll-smooth gap-[70px] px-[30px] py-[30px]"
+        className="w-full overflow-x-auto overflow-y-hidden flex items-stretch snap-x snap-mandatory scroll-smooth gap-[70px] px-[30px] py-[30px]"
         style={{ scrollbarWidth: 'none' }}
       >
         {projets.map((projet) => (
-          <div key={projet.slug.current} className="shrink-0 w-full snap-center">
+          <div key={projet.slug.current} className="w-[249px] shrink-0 snap-center h-full md:w-full md:h-auto">
             <CardRealisation
               titre={projet.titre}
               description={projet.description}
@@ -87,7 +87,7 @@ export default function SectionServiceRealisations({
 
       <Link
         href="/realisations"
-        className="btn-secondary text-[25px] font-medium tracking-[0.01em]"
+        className="btn-secondary w-full text-center text-[20px] font-medium tracking-[0.01em] md:w-auto md:text-[25px]"
       >
         voir toutes nos réalisations
       </Link>

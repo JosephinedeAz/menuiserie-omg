@@ -17,14 +17,14 @@ const etapes = [
 
 export default function SectionServiceFigures() {
   return (
-    <section className="flex flex-col gap-[35px] items-center px-[40px] py-[10px]">
-      <div className="flex gap-[50px] items-start w-full">
+    <section className="flex flex-col gap-[35px] items-center px-[12px] py-[10px] md:px-[40px]">
+      <div className="flex flex-col gap-[30px] items-start w-full md:flex-row md:gap-[50px]">
         {etapes.map((etape) => (
-          <div key={etape.numero} className="flex flex-1 flex-col gap-[5px] px-[5px] text-black">
-            <p className="font-black text-[70px] leading-[80px] tracking-[-0.04em]">
+          <div key={etape.numero} className="flex w-full flex-col gap-[5px] px-[5px] text-black md:flex-1">
+            <p className="font-black text-[47px] leading-[54px] tracking-[-1.88px] md:text-[70px] md:leading-[80px] md:tracking-[-0.04em]">
               {etape.numero}
             </p>
-            <p className="text-[25px] leading-[36px] whitespace-pre-line">
+            <p className="text-[17px] leading-[24px] whitespace-pre-line md:text-[25px] md:leading-[36px]">
               {etape.texte}
             </p>
           </div>
@@ -32,7 +32,7 @@ export default function SectionServiceFigures() {
       </div>
       <Link
         href="/a-propos"
-        className="btn-secondary text-[25px] font-medium tracking-[0.01em]"
+        className="btn-secondary w-full text-center text-[25px] font-medium tracking-[0.01em] md:w-auto"
       >
         Découvrez notre philosophie
       </Link>

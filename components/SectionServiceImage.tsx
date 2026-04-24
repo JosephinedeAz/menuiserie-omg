@@ -11,7 +11,7 @@ interface SectionServiceImageProps {
 export default function SectionServiceImage({ image, titre }: SectionServiceImageProps) {
   return (
     <section className="flex flex-col items-end gap-[30px] p-[10px]">
-      <div className="w-[959px] shrink-0">
+      <div className="w-full md:w-[959px] md:shrink-0">
         <div className="border border-[#b8976d] p-[10px]">
           <div className="relative w-full aspect-[1081/700]">
             {image ? (

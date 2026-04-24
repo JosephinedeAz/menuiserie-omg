@@ -6,10 +6,10 @@ export default function SectionGalerieRealisation({ images }: Props) {
   const displayed = images.slice(0, 2)
 
   return (
-    <section className="px-[120px] py-[10px]">
-      <div className="flex gap-[50px] items-center">
+    <section className="px-[4px] py-[10px] md:px-[120px]">
+      <div className="flex flex-col gap-[12px] items-center md:flex-row md:gap-[50px]">
         {displayed.map((image, index) => (
-          <div key={index} className="flex-1 relative h-[629px]">
+          <div key={index} className="w-full h-[629px] relative md:flex-1">
             <img
               src={image.url}
               alt={image.alt}
