@@ -37,4 +37,18 @@
     border-width: 3px;
   }
 }
+## Sanity + Next.js — règles pages dynamiques
+
+- Toujours garder `if (!data) { notFound() }` après chaque fetch dans une page dynamique
+- Toujours générer `generateStaticParams` depuis Sanity, jamais hardcodé :
+
+```tsx
+export async function generateStaticParams() {
+  const slugs = await client.fetch(`*[_type == "service"].slug.current`)
+  return slugs.map((slug: string) => ({ slug }))
+}
+```
+
+- Les données Sanity sont renseignées depuis le Studio en fin de projet — ne pas bloquer le dev sur des données manquantes
+- `urlFor(image)` ne s'appelle jamais sans vérifier que `image` est défini au préalable
 ```

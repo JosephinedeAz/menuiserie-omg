@@ -34,7 +34,8 @@ export const realisationType = defineType({
     defineField({
       name: 'detailsTechniques',
       title: 'Détails techniques',
-      type: 'text',
+      type: 'array',
+      of: [{ type: 'block' }],
     }),
     defineField({
       name: 'imagesGalerie',

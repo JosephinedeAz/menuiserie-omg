@@ -6,6 +6,10 @@ import { client } from '@/lib/sanity'
 import Navbar from '@/components/Navbar'
 import SectionHeroRealisation from '@/components/SectionHeroRealisation'
 import SectionDescriptionRealisation from '@/components/SectionDescriptionRealisation'
+import SectionGalerieRealisation from '@/components/SectionGalerieRealisation'
+import SectionCTARealisation from '@/components/SectionCTARealisation'
+import SectionContact from '@/components/SectionContact'
+import Footer from '@/components/Footer'
 
 export async function generateStaticParams() {
   const slugs: { slug: string }[] = await client.fetch(
@@ -50,6 +54,10 @@ export default async function RealisationPage({
         description={realisation.description}
         detailsTechniques={realisation.detailsTechniques}
       />
+      <SectionGalerieRealisation images={realisation.imagesGalerie ?? []} />
+      <SectionCTARealisation />
+      <SectionContact />
+      <Footer />
     </main>
   )
 }
