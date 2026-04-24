@@ -24,9 +24,10 @@ type ProjetsParCategorie = {
 const CATEGORIES = ['menuiserie-interieure', 'menuiserie-exterieure', 'ameublement'] as const
 
 export default async function RealisationsPage() {
-  const projets: Projet[] = await client.fetch(
-    `*[_type == "projet"]{ titre, description, images, slug, categorie }`
-  )
+  const [projets, pageRealisations]: [Projet[], { imageHero: any } | null] = await Promise.all([
+    client.fetch(`*[_type == "projet"]{ titre, description, images, slug, categorie }`),
+    client.fetch(`*[_type == "pageRealisations"][0]{ imageHero }`),
+  ])
 
   const projetsParCategorie: ProjetsParCategorie = {
     'menuiserie-interieure': [],
@@ -43,7 +44,7 @@ export default async function RealisationsPage() {
   return (
     <main className="bg-[#f6e9dd]">
       <Navbar />
-      <SectionRealisationsHero />
+      <SectionRealisationsHero imageHero={pageRealisations?.imageHero ?? null} />
       <SectionRealisationsGalerie projetsParCategorie={projetsParCategorie} />
       <div className="md:hidden"><SectionContact mobile /></div>
       <div className="hidden md:block"><SectionContact /></div>

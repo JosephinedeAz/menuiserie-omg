@@ -1,44 +1,56 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
+import { urlFor } from '@/lib/sanity'
 
-export default function SectionRealisationsHero() {
+interface Props {
+  imageHero: SanityImageSource | null
+}
+
+export default function SectionRealisationsHero({ imageHero }: Props) {
   return (
-    <section className="relative h-[400px] w-full md:h-[771px]">
-      {/* Image hero — placer l'image dans /public/realisations-hero.jpg */}
-      <Image
-        src="/realisations-hero.jpg"
-        alt="Réalisations Ouest Menuiserie Générale"
-        fill
-        className="object-cover"
-        priority
-      />
+    <section className="relative w-full h-[500px] md:h-[771px]">
+      {imageHero ? (
+        <Image
+          src={urlFor(imageHero).url()}
+          alt="Réalisations Ouest Menuiserie Générale"
+          fill
+          className="absolute inset-0 w-full h-full object-cover opacity-90"
+          priority
+        />
+      ) : (
+        <div className="absolute inset-0 bg-[#4a544a]" />
+      )}
 
-      {/* Overlay */}
       <div
         className="absolute inset-0"
-        style={{ background: 'linear-gradient(90deg, rgba(0,0,0,0.1), rgba(0,0,0,0.1))' }}
+        style={{
+          backgroundImage:
+            'linear-gradient(90deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.1) 100%), linear-gradient(90deg, rgba(229,188,137,0.1) 0%, rgba(229,188,137,0.1) 100%)',
+        }}
       />
 
-      {/* Contenu */}
-      <div className="relative h-full flex flex-col justify-end gap-[30px] px-[12px] py-[30px] md:px-[60px] md:py-[50px]">
-        <div className="flex flex-col gap-[16px]">
-          <h1
-            className="text-[40px] leading-[48px] font-medium text-black md:text-[60px] md:leading-[72px]"
-            style={{ fontFamily: 'Work Sans' }}
-          >
-            Nos réalisations
-          </h1>
-          <p
-            className="text-[21px] leading-[25px] font-normal text-black md:text-[32px] md:leading-[38px] md:tracking-[-0.64px]"
-            style={{ fontFamily: 'Work Sans' }}
-          >
-            Chaque chantier est unique, comme votre espace de vie.
-          </p>
-        </div>
+      <div className="relative px-[20px] md:px-[60px] py-[10px]">
+        <div className="flex flex-col gap-[70px] items-start w-full">
+          <div className="flex flex-col gap-[15px] items-start text-black pr-0 md:pr-[60px]">
+            <h1
+              className="text-[40px] leading-[48px] font-medium md:text-[60px] md:leading-[72px]"
+              style={{ fontFamily: 'Work Sans' }}
+            >
+              Découvrez une sélection de nos projets les plus récents.
+            </h1>
+            <p
+              className="text-[21px] leading-[25px] font-normal md:text-[32px] md:leading-[38px] tracking-[-0.64px]"
+              style={{ fontFamily: 'Work Sans' }}
+            >
+              Inspirez-vous et confiez-nous vos idées pour transformer vos espaces avec un service efficace et prestigieux.
+            </p>
+          </div>
 
-        <Link href="/#contact" className="btn-primary w-full text-center md:w-fit">
-          Echangeons sur votre projet
-        </Link>
+          <Link href="/#contact" className="btn-primary shrink-0 w-auto">
+            Echangeons sur votre projet
+          </Link>
+        </div>
       </div>
     </section>
   )

@@ -47,7 +47,7 @@ export default function SectionRealisationsGalerie({ projetsParCategorie }: Prop
               onClick={() => setActif(onglet.id)}
               className={`text-[14px] leading-[18px] md:text-[25px] md:leading-[30px] transition-all duration-200 ${
                 isActif
-                  ? 'border-4 border-[#eb7a59] underline font-bold px-[10px] py-[6px] rounded-[10px]'
+                  ? 'font-semibold underline'
                   : 'font-normal cursor-pointer'
               }`}
             >
