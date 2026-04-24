@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
+type SanityImageSource = string | { asset: { _ref: string } | { _id: string } } | null
 import { urlFor } from '@/lib/sanity'
 
 interface Props {
@@ -34,20 +34,20 @@ export default function SectionRealisationsHero({ imageHero }: Props) {
         <div className="flex flex-col gap-[70px] items-start w-full">
           <div className="flex flex-col gap-[15px] items-start text-black pr-0 md:pr-[60px]">
             <h1
-              className="text-[40px] leading-[48px] font-medium md:text-[60px] md:leading-[72px]"
+              className="text-[33px] leading-[37px] tracking-[-1.32px] font-normal md:text-[60px] md:leading-[72px] md:tracking-normal md:font-medium"
               style={{ fontFamily: 'Work Sans' }}
             >
               Découvrez une sélection de nos projets les plus récents.
             </h1>
             <p
-              className="text-[21px] leading-[25px] font-normal md:text-[32px] md:leading-[38px] tracking-[-0.64px]"
+              className="text-[17px] leading-[24px] font-normal md:text-[32px] md:leading-[38px] tracking-[-0.64px]"
               style={{ fontFamily: 'Work Sans' }}
             >
               Inspirez-vous et confiez-nous vos idées pour transformer vos espaces avec un service efficace et prestigieux.
             </p>
           </div>
 
-          <Link href="/#contact" className="btn-primary shrink-0 w-auto">
+          <Link href="/#contact" className="btn-primary shrink-0 w-full md:w-auto">
             Echangeons sur votre projet
           </Link>
         </div>
