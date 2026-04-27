@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import Navbar from '@/components/Navbar'
@@ -80,10 +83,12 @@ function SectionAboutServices() {
 }
 
 export default function AboutPage() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <main className="bg-[#f6e9dd]">
       <Navbar />
-      <MegaMenu />
+      <MegaMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
 
       {/* ── Header ──────────────────────────────────────────────────── */}
       <section className="relative bg-[#8c9e8c] px-[60px] pt-[20px] pb-[80px] flex flex-col gap-[40px] rounded-b-[120px] overflow-visible">
