@@ -36,9 +36,9 @@ export default function SectionRealisationsGalerie({ projetsParCategorie }: Prop
   const projets = projetsParCategorie[actif]
 
   return (
-    <section className="flex flex-col gap-[40px] border-2 border-[#f6e9dd] rounded-[30px] px-[12px] pt-[4px] pb-[16px] md:border-0 md:rounded-none md:pt-[40px] md:pb-[40px] md:px-[60px]">
+    <section className="flex flex-col gap-[40px] bg-white border-2 border-[#f6e9dd] rounded-[30px] px-[12px] pt-[4px] pb-[16px] md:bg-transparent md:border-0 md:rounded-none md:pt-[40px] md:pb-[40px] md:px-[60px]">
       {/* Onglets — mobile : pills scrollables / desktop : onglets texte */}
-      <div className="md:hidden border-2 border-[#f6e9dd] rounded-[30px] px-[12px] py-[4px] overflow-x-auto flex gap-[3px]">
+      <div className="md:hidden overflow-x-auto flex gap-[3px] mx-auto">
         {onglets.map((onglet) => {
           const isActif = actif === onglet.id
           return (
