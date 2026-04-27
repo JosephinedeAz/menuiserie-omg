@@ -1,10 +1,6 @@
-"use client";
-
-import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import Navbar from '@/components/Navbar'
-import MegaMenu from '@/components/MegaMenu'
 import CardService from '@/components/CardService'
 import SectionContact from '@/components/SectionContact'
 import Footer from '@/components/Footer'
@@ -38,16 +34,13 @@ function SectionAboutServices() {
     <section className="mt-[60px]">
 
       {/* Mobile */}
-      <div className="md:hidden flex flex-col gap-[10px] py-[20px] px-[10px]">
+      <div className="md:hidden flex flex-col gap-[10px] py-[20px] px-[4px]">
+        <p className="font-normal text-[33px] leading-[37px] tracking-[-1.32px] text-black">
+          Découvrez nos services
+        </p>
         {services.map((s) => (
           <Link key={s.href} href={s.href}>
-            <CardService
-              img={s.img}
-              alt={s.alt}
-              title={s.title}
-              subtitle={s.subtitle}
-              mobile
-            />
+            <CardService img={s.img} alt={s.alt} title={s.title} subtitle={s.subtitle} mobile />
           </Link>
         ))}
       </div>
@@ -83,24 +76,60 @@ function SectionAboutServices() {
 }
 
 export default function AboutPage() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
   return (
     <main className="bg-[#f6e9dd]">
       <Navbar />
-      <MegaMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
 
       {/* ── Header ──────────────────────────────────────────────────── */}
-      <section className="relative bg-[#8c9e8c] px-[60px] pt-[20px] pb-[80px] flex flex-col gap-[40px] rounded-b-[120px] overflow-visible">
 
-        {/* Titre */}
+      {/* Mobile header + image — wrapper relatif pour le chevauchement */}
+      <div className="md:hidden relative">
+        <section className="bg-[#8c9e8c] mx-[16px] px-[12px] py-[10px] pb-[160px] flex flex-col gap-[10px] rounded-b-[30px]">
+          <div className="px-[10px] py-[10px]">
+            <p className="font-black text-[40px] leading-[48px] tracking-[-1.6px] text-[#833e28]">
+              &ldquo;Créer, transformer, révéler le potentiel d&apos;un espace&rdquo;
+            </p>
+          </div>
+          <div className="py-[4px] font-normal text-[17px] leading-[24px] text-black flex flex-col gap-[16px]">
+            <p>
+              Romain Glémain est artisan menuisier et fondateur de{' '}
+              <span className="font-bold text-[#833e28]">Ouest Menuiserie Générale</span>
+              .<br />
+              Sa passion pour le bois et l&apos;aménagement est née sur le terrain, dès les
+              premières années au sein de Decobois, à Lorient, où il apprend la rigueur
+              de l&apos;agencement intérieur et extérieur.
+            </p>
+            <p>
+              Aujourd&apos;hui, Romain met ses compétences techniques, son expérience et sa
+              créativité au service de ses clients.<br />
+              Ouest Menuiserie Générale est née de cette envie&nbsp;: proposer un
+              accompagnement complet, humain et maîtrisé, pour tous les projets
+              d&apos;aménagement, du plus simple au plus ambitieux.
+            </p>
+          </div>
+        </section>
+
+        {/* Image à cheval — dépasse sous le bloc vert */}
+        <div className="absolute bottom-[-130px] left-1/2 -translate-x-1/2 w-[245px] aspect-[880/804]">
+          <Image
+            src="/images/romain__ID.jpeg"
+            alt="Romain Glémain, artisan menuisier fondateur de Ouest Menuiserie Générale"
+            fill
+            className="object-cover"
+          />
+        </div>
+      </div>
+
+      {/* Spacer mobile pour compenser le débordement de l'image */}
+      <div className="md:hidden h-[130px]" />
+
+      {/* Desktop */}
+      <section className="hidden md:flex relative bg-[#8c9e8c] px-[60px] pt-[20px] pb-[80px] flex-col gap-[40px] rounded-b-[120px] overflow-visible">
         <div className="w-full px-[50px]">
           <p className="font-black text-[70px] leading-[80px] tracking-[-2.8px] text-[#833e28]">
             Créer, transformer, révéler le potentiel d&apos;un espace
           </p>
         </div>
-
-        {/* Texte seul */}
         <div className="w-full pr-[580px] border-t border-b border-[#b8976d] py-[40px] font-normal text-[25px] text-black flex flex-col gap-[16px]">
           <p className="leading-[36px]">
             Romain Glémain est artisan menuisier et fondateur de{' '}
@@ -118,8 +147,6 @@ export default function AboutPage() {
             d&apos;aménagement, du plus simple au plus ambitieux.
           </p>
         </div>
-
-        {/* Image en absolute — dépasse vers le bas, alignée à droite */}
         <div className="absolute bottom-[-200px] right-[60px] h-[498px] w-[545px]">
           <Image
             src="/images/romain__ID.jpeg"
@@ -128,25 +155,23 @@ export default function AboutPage() {
             className="object-cover rounded-none"
           />
         </div>
-
       </section>
 
-      {/* Spacer pour compenser le débordement de l'image */}
-      <div className="h-[200px]" />
+      {/* Spacer desktop uniquement */}
+      <div className="hidden md:block h-[200px]" />
 
       <SectionAboutServices />
 
       {/* ── Manifeste ───────────────────────────────────────────────── */}
-      <section className="mt-[40px] px-[40px] py-[10px] flex flex-col items-start">
+      <section className="mt-[40px] pl-[10px] pr-[20px] md:px-[40px] py-[10px] flex flex-col items-start">
+        <div className="w-full flex items-end justify-between">
 
-        <div className="w-full flex items-end justify-between gap-[0px]">
-
-          {/* Colonne gauche — "Philosophie" vertical */}
+          {/* "Philosophie" vertical */}
           <div className="flex items-end self-stretch">
-            <div className="px-[10px] flex h-full items-start">
-              <div className="h-[438px] w-[80px] flex items-center justify-center">
+            <div className="px-[4px] flex h-full items-start">
+              <div className="h-[313px] md:h-[438px] w-[80px] flex items-center justify-center">
                 <div className="-rotate-90 flex-none">
-                  <p className="font-bold text-[70px] leading-[80px] tracking-[3.5px] text-[#b85a3c] text-center whitespace-nowrap">
+                  <p className="font-bold text-[50px] md:text-[70px] leading-[80px] tracking-[2.5px] md:tracking-[3.5px] text-[#b85a3c] text-center whitespace-nowrap">
                     Philosophie
                   </p>
                 </div>
@@ -154,14 +179,12 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Colonne droite — titre + texte */}
+          {/* Colonne droite */}
           <div className="flex-1 flex flex-col gap-[15px] items-start">
-
-            <p className="font-black text-[70px] leading-[80px] tracking-[-2.8px] text-[#b85a3c]">
+            <p className="font-black text-[47px] md:text-[70px] leading-[54px] md:leading-[80px] tracking-[-1.88px] md:tracking-[-2.8px] text-[#b85a3c]">
               Le mot de l&apos;artisan
             </p>
-
-            <div className="font-normal text-[25px] leading-[36px] text-black flex flex-col gap-[0px]">
+            <div className="font-normal text-[17px] md:text-[25px] leading-[24px] md:leading-[36px] text-black flex flex-col gap-[0px]">
               <p>
                 Pour moi, la menuiserie ne se limite pas à l&apos;assemblage de matériaux.
                 C&apos;est un métier d&apos;écoute, de vision et de précision. Chaque projet est
@@ -179,15 +202,11 @@ export default function AboutPage() {
                 Et je mets un point d&apos;honneur à accompagner mes clients du conseil à
                 la réalisation, avec honnêteté, transparence et exigence.
               </p>
-              <p>
-                Chaque chantier est pour moi l&apos;occasion d&apos;allier savoir-faire et créativité
-              </p>
+              <p>Chaque chantier est pour moi l&apos;occasion d&apos;allier savoir-faire et créativité</p>
             </div>
-
           </div>
 
         </div>
-
       </section>
 
       <div className="md:hidden"><SectionContact mobile /></div>

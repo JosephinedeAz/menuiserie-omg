@@ -32,7 +32,7 @@ export default function Navbar() {
       <div className="flex items-center justify-between">
         <div className="flex flex-1 items-center gap-10">
           {/* Logo */}
-          <div className="px-5 py-2">
+          <Link href="/" className="px-5 py-2">
             <div className="relative size-[60px] lg:size-[100px] rounded-full overflow-hidden shrink-0">
               <Image
                 src="/images/img-logo.svg"
@@ -41,12 +41,12 @@ export default function Navbar() {
                 className="object-cover"
               />
             </div>
-          </div>
+          </Link>
 
           {/* Links */}
           <div className="flex flex-1 items-center justify-center gap-4 lg:gap-[70px]">
             <Link
-              href="#propos"
+              href="/about"
               className="text-[15px] lg:text-[22px] text-black text-center whitespace-nowrap"
             >
               À propos
