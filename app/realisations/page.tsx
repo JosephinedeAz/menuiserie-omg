@@ -9,7 +9,7 @@ import SectionRealisationsGalerie from '@/components/SectionRealisationsGalerie'
 
 export interface Projet {
   titre: string
-  description: string
+  descriptionCourte: string
   images: any[]
   slug: { current: string }
   categorie: string
@@ -25,7 +25,7 @@ const CATEGORIES = ['menuiserie-interieure', 'menuiserie-exterieure', 'ameubleme
 
 export default async function RealisationsPage() {
   const [projets, pageRealisations]: [Projet[], { imageHero: any } | null] = await Promise.all([
-    client.fetch(`*[_type == "projet"]{ titre, description, images, slug, categorie }`),
+    client.fetch(`*[_type == "projet"]{ titre, "descriptionCourte": coalesce(descriptionCourte, description), images, slug, categorie }`),
     client.fetch(`*[_type == "pageRealisations"][0]{ imageHero }`),
   ])
 

@@ -39,6 +39,11 @@ export const projetType = defineType({
       type: 'text',
     }),
     defineField({
+      name: 'descriptionCourte',
+      title: 'Description courte',
+      type: 'string',
+    }),
+    defineField({
       name: 'images',
       title: 'Images',
       type: 'array',

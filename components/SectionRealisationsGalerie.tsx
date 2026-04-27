@@ -7,7 +7,7 @@ import { urlFor } from '@/lib/sanity'
 
 interface Projet {
   titre: string
-  description: string
+  descriptionCourte: string
   images: any[]
   slug: { current: string }
   categorie: string
@@ -36,7 +36,7 @@ export default function SectionRealisationsGalerie({ projetsParCategorie }: Prop
   const projets = projetsParCategorie[actif]
 
   return (
-    <section className="flex flex-col gap-[40px] px-[12px] py-[40px] md:px-[60px]">
+    <section className="flex flex-col gap-[40px] border-2 border-[#f6e9dd] rounded-[30px] px-[12px] pt-[4px] pb-[16px] md:border-0 md:rounded-none md:pt-[40px] md:pb-[40px] md:px-[60px]">
       {/* Onglets — mobile : pills scrollables / desktop : onglets texte */}
       <div className="md:hidden border-2 border-[#f6e9dd] rounded-[30px] px-[12px] py-[4px] overflow-x-auto flex gap-[3px]">
         {onglets.map((onglet) => {
@@ -82,7 +82,7 @@ export default function SectionRealisationsGalerie({ projetsParCategorie }: Prop
       ) : (
         <>
           {/* Mobile : cartes empilées */}
-          <div className="md:hidden flex flex-col gap-[12px]">
+          <div className="md:hidden flex flex-col gap-[12px] max-w-[300px] w-full mx-auto">
             {projets.map((projet) => {
               const imageSrc = projet.images?.[0]
                 ? urlFor(projet.images[0]).url()
@@ -114,7 +114,7 @@ export default function SectionRealisationsGalerie({ projetsParCategorie }: Prop
                         className="text-[12px] leading-[13px] text-center text-[#1d1d1d] font-normal"
                         style={{ fontFamily: 'Work Sans' }}
                       >
-                        {projet.description}
+                        {projet.descriptionCourte}
                       </p>
                     </div>
                     <Link
@@ -159,7 +159,7 @@ export default function SectionRealisationsGalerie({ projetsParCategorie }: Prop
                         {projet.titre}
                       </p>
                       <p className="text-[25px] leading-[36px] text-[#f1f1f1]">
-                        {projet.description}
+                        {projet.descriptionCourte}
                       </p>
                     </div>
                     <Link
