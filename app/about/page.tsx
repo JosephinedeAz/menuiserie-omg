@@ -81,7 +81,7 @@ export default function AboutPage() {
       <Navbar />
 
       {/* ── Header ──────────────────────────────────────────────────── */}
-
+      <div className="mb-[27px] md:mb-[40px]">
       {/* Mobile header + image — wrapper relatif pour le chevauchement */}
       <div className="md:hidden relative">
         <section className="bg-[#8c9e8c] mx-[16px] px-[12px] py-[10px] pb-[160px] flex flex-col gap-[10px] rounded-b-[30px]">
@@ -159,11 +159,12 @@ export default function AboutPage() {
 
       {/* Spacer desktop uniquement */}
       <div className="hidden md:block h-[200px]" />
+      </div>
 
-      <SectionAboutServices />
+      <div className="mb-[27px] md:mb-[40px]"><SectionAboutServices /></div>
 
       {/* ── Manifeste ───────────────────────────────────────────────── */}
-      <section className="mt-[40px] pl-[10px] pr-[20px] md:px-[40px] py-[10px] flex flex-col items-start">
+      <section className="mb-[27px] md:mb-[40px] mt-[40px] pl-[10px] pr-[20px] md:px-[40px] py-[10px] flex flex-col items-start">
         <div className="w-full flex items-end justify-between">
 
           {/* "Philosophie" vertical */}
@@ -209,10 +210,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <div className="md:hidden"><SectionContact mobile /></div>
-      <div className="hidden md:block"><SectionContact /></div>
-      <div className="md:hidden"><Footer mobile /></div>
-      <div className="hidden md:block"><Footer /></div>
+      <div className="mb-[40px] md:mb-[60px] md:hidden"><SectionContact mobile /></div>
+      <div className="mb-[40px] md:mb-[60px] hidden md:block"><SectionContact /></div>
+      <div className="mb-[40px] md:mb-[60px] md:hidden"><Footer mobile /></div>
+      <div className="mb-[40px] md:mb-[60px] hidden md:block"><Footer /></div>
     </main>
   )
 }

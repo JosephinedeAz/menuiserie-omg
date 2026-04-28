@@ -1,9 +1,10 @@
 import TestimonialCarousel from '@/components/TestimonialCarousel'
 
-const figmaGoogleIcon =
-  'https://www.figma.com/api/mcp/asset/f4171804-c472-42f4-9daa-bb484fc93f22'
+const figmaGoogleIcon = 
+'/images/Icon-google.svg'
+  
 const figmaGoogleStar =
-  'https://www.figma.com/api/mcp/asset/7a148378-1358-43d7-9fe1-15e284b69daa'
+  '/images/Icon-link.svg'
 
 export default function SectionConfiance() {
   return (
@@ -32,7 +33,7 @@ export default function SectionConfiance() {
         </div>
 
         {/* Google badge mobile */}
-        <div className="bg-white border border-[#e5e7eb] rounded-[14px] shadow-sm flex flex-col gap-3 px-4 py-3 w-[161px]">
+        <div className="bg-white border border-[#e5e7eb] rounded-[14px] shadow-sm flex flex-col gap-3 px-4 py-3 w-[161px] transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-md cursor-pointer">
           <div className="flex items-center gap-2">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={figmaGoogleIcon} alt="Google" className="size-[18px]" />
@@ -51,15 +52,15 @@ export default function SectionConfiance() {
       </div>
 
       {/* ── Confiance desktop ───────────────────────────────────────── */}
-      <div className="hidden md:block mx-[40px] px-[60px] py-[10px]">
-      <div className="flex flex-col gap-[69px]">
-        <p className="text-[60px] font-medium text-black leading-[72px]">
+      <div className="hidden md:block px-[60px] py-[10px]">
+      <div className="flex flex-col gap-[40px]">
+        <p className="text-[50px] font-normal leading-[56px] tracking-[-2px] text-black">
           Nous sommes votre partenaire de confiance.
         </p>
 
         {/* Stats */}
         <div className="flex gap-[68px] items-start">
-          <div className="flex-1 flex flex-col gap-2 border-r border-black pr-4">
+          <div className="flex-1 flex flex-col gap-2 border-r border-black">
             <p className="text-[60px] font-medium text-[#b85a3c] leading-[72px]">
               60 projets
             </p>
@@ -67,7 +68,7 @@ export default function SectionConfiance() {
               en 2025
             </p>
           </div>
-          <div className="flex-1 flex flex-col gap-2 border-r border-black pr-4">
+          <div className="flex-1 flex flex-col gap-2 border-r border-black">
             <p className="text-[60px] font-medium text-[#b85a3c] leading-[72px]">
               0 retard
             </p>
@@ -91,7 +92,7 @@ export default function SectionConfiance() {
 
           {/* Google badge */}
           <div className="py-[30px]">
-            <div className="bg-white border border-[#e5e7eb] rounded-[14px] shadow-sm flex flex-col gap-3 px-4 py-3 w-[161px]">
+            <div className="bg-white border border-[#e5e7eb] rounded-[14px] shadow-sm flex flex-col gap-3 px-4 py-3 w-[161px] transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-md cursor-pointer">
               <div className="flex items-center gap-2">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={figmaGoogleIcon} alt="Google" className="size-[18px]" />

@@ -14,71 +14,75 @@ function Hero() {
     <section id="hero" className="flex flex-col gap-[40px] mx-[40px] pt-[10px]">
 
       {/* ── Hero mobile ───────────────────────────────────────────── */}
-      <div className="md:hidden relative h-[169px] border border-[#b8976d] overflow-hidden">
-        <Image
-          src="/images/hero-facade-terrasse.jpg"
-          alt="Façade menuiserie"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-[#eb7a59] text-center">
-          <p
-            className="font-thunder font-black leading-none"
-            style={{ fontSize: "100px", letterSpacing: "20px" }}
-          >
-            OMG
-          </p>
-          <p
-            className="font-thunder font-bold leading-tight"
-            style={{ fontSize: "25px", letterSpacing: "4.5px" }}
-          >
-            Ouest Menuiserie Générale
-          </p>
-        </div>
-      </div>
-
-      {/* ── Hero desktop ──────────────────────────────────────────── */}
-      <div className="hidden md:block relative h-screen border border-[#b8976d] overflow-hidden">
-        <Image
-          src="/images/hero-facade-terrasse.jpg"
-          alt="Façade menuiserie"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-black/40" />
-
-        {/* OMG title + CTAs */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-[160px]">
-          <div className="flex flex-col items-center gap-0 text-[#eb7a59] text-center">
+      <div className="md:hidden border border-[#b8976d] p-[10px]">
+        <div className="border-2 border-[#b8976d] relative h-[169px] overflow-hidden">
+          <Image
+            src="/images/hero-facade-terrasse.jpg"
+            alt="Façade menuiserie"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-[#eb7a59] text-center">
             <p
               className="font-thunder font-black leading-none"
-              style={{ fontSize: "180px", letterSpacing: "36px" }}
+              style={{ fontSize: "100px", letterSpacing: "20px" }}
             >
               OMG
             </p>
             <p
-              className="font-bold leading-[72px]"
-              style={{ fontSize: "50px", letterSpacing: "9px" }}
+              className="font-thunder font-bold leading-tight"
+              style={{ fontSize: "25px", letterSpacing: "4.5px" }}
             >
               Ouest Menuiserie Générale
             </p>
           </div>
-          <div className="flex flex-col items-center gap-5 w-[400px]">
-            <Link
-              href="#services"
-              className="btn-primary text-[30px] leading-[36px] w-full"
-            >
-              Découvrir nos services
-            </Link>
-            <Link
-              href="#realisations"
-              className="btn-primary text-[30px] leading-[36px] w-full"
-            >
-              Voir nos réalisations
-            </Link>
+        </div>
+      </div>
+
+      {/* ── Hero desktop ──────────────────────────────────────────── */}
+      <div className="hidden md:block border border-[#b8976d] p-[10px]">
+        <div className="border-2 border-[#b8976d] relative h-screen overflow-hidden">
+          <Image
+            src="/images/hero-facade-terrasse.jpg"
+            alt="Façade menuiserie"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/40" />
+
+          {/* OMG title + CTAs */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-[160px]">
+            <div className="flex flex-col items-center gap-0 text-[#eb7a59] text-center">
+              <p
+                className="font-thunder font-black leading-none"
+                style={{ fontSize: "180px", letterSpacing: "36px" }}
+              >
+                OMG
+              </p>
+              <p
+                className="font-bold leading-[72px]"
+                style={{ fontSize: "50px", letterSpacing: "9px" }}
+              >
+                Ouest Menuiserie Générale
+              </p>
+            </div>
+            <div className="flex flex-col items-center gap-5 w-[400px]">
+              <Link
+                href="#services"
+                className="btn-primary text-[30px] leading-[36px] w-full"
+              >
+                Découvrir nos services
+              </Link>
+              <Link
+                href="#realisations"
+                className="btn-primary text-[30px] leading-[36px] w-full"
+              >
+                Voir nos réalisations
+              </Link>
+            </div>
           </div>
         </div>
       </div>
@@ -142,7 +146,7 @@ function SectionRealisation() {
         </p>
         <Link
           href="/realisations"
-          className="btn-secondary text-[15px] tracking-[0.15px] text-black font-medium"
+          className="btn-secondary text-[15px] tracking-[0.15px] text-black font-medium self-start"
         >
           Voir nos réalisations
         </Link>
@@ -150,14 +154,14 @@ function SectionRealisation() {
 
       {/* ── Réalisation desktop ─────────────────────────────────────── */}
       <div className="hidden md:flex gap-[40px] items-end mx-[40px] px-[60px] py-[10px]">
-        <div className="flex flex-col gap-[90px] items-start shrink-0">
+        <div className="flex flex-col gap-[20px] items-start shrink-0">
           <p className="text-[25px] text-black leading-[36px] w-[503px]">
             Découvrez nos nombreuses réalisations et inspirez vous&nbsp;: chaque
             chantier est unique, comme votre espace de vie.
           </p>
           <Link
             href="#realisations"
-            className="btn-tertiary text-[20px] font-medium text-black tracking-[0.2px]"
+            className="btn-tertiary text-[25px] font-medium text-black tracking-[0.2px]"
           >
             voir nos réalisations
           </Link>
@@ -272,12 +276,12 @@ export default function Home() {
   return (
     <main className="bg-[#f6e9dd]">
       <Navbar />
-      <Hero />
-      <SectionRealisation />
-      <SectionServices />
-      <SectionConfiance />
-      <div className="md:hidden"><SectionContact mobile /></div>
-      <div className="hidden md:block"><SectionContact /></div>
+      <div className="mb-[27px] md:mb-[40px]"><Hero /></div>
+      <div className="mb-[57px] md:mb-[85px]"><SectionRealisation /></div>
+      <div className="mb-[40px] md:mb-[60px]"><SectionServices /></div>
+      <div className="mb-[27px] md:mb-[40px]"><SectionConfiance /></div>
+      <div className="mb-[40px] md:mb-[60px] md:hidden"><SectionContact mobile /></div>
+      <div className="mb-[40px] md:mb-[60px] hidden md:block"><SectionContact /></div>
       <div className="md:hidden"><Footer mobile /></div>
       <div className="hidden md:block"><Footer /></div>
     </main>

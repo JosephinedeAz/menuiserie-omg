@@ -7,10 +7,10 @@ export default function ContactPage() {
   return (
     <main className="bg-[#f6e9dd]">
       <Navbar />
-      <ContactHeader />
-      <ContactForm />
-      <div className="hidden md:block"><Footer /></div>
-      <div className="md:hidden"><Footer mobile /></div>
+      <div className="mb-[27px] md:mb-[40px]"><ContactHeader /></div>
+      <div className="mb-[40px] md:mb-[60px]"><ContactForm /></div>
+      <div className="mb-[40px] md:mb-[60px] hidden md:block"><Footer /></div>
+      <div className="mb-[40px] md:mb-[60px] md:hidden"><Footer mobile /></div>
     </main>
   )
 }

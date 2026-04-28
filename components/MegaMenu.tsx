@@ -49,30 +49,30 @@ export default function MegaMenu({ isOpen = false, onClose = () => {} }: MegaMen
         </p>
         <div className="flex flex-col gap-[30px]">
           {services.map((s) => (
-            <div key={s.title} className="flex gap-[80px] items-center">
+            <Link
+              key={s.title}
+              href={s.href}
+              onClick={onClose}
+              className="group/item flex gap-[80px] items-center hover:no-underline"
+            >
               <div className="flex flex-1 gap-[30px] items-start min-w-0">
                 <div className="relative h-[150px] w-[259px] shrink-0 rounded-[10px] overflow-hidden">
                   <Image
                     src={s.img}
                     alt={s.alt}
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform duration-500 ease-in-out group-hover/item:scale-[1.04]"
                   />
                 </div>
                 <div className="flex flex-col gap-[5px] text-[#f1f1f1]">
-                  <Link href={s.href} className="text-[32px] leading-[38px] tracking-[-0.64px] hover:underline">
-                    {s.title}
-                  </Link>
+                  <p className="text-[32px] leading-[38px] tracking-[-0.64px]">{s.title}</p>
                   <p className="text-[25px] leading-[36px]">{s.subtitle}</p>
                 </div>
               </div>
-              <button
-                onClick={onClose}
-                className="btn-secondary text-[25px] font-medium text-[#f1f1f1] tracking-[0.25px] whitespace-nowrap"
-              >
+              <span className="btn-secondary group-hover/item:border-2 text-[25px] font-medium text-[#f1f1f1] tracking-[0.25px] whitespace-nowrap">
                 Découvrir
-              </button>
-            </div>
+              </span>
+            </Link>
           ))}
         </div>
       </div>

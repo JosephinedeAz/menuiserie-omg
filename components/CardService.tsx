@@ -12,8 +12,8 @@ export default function CardService({ img, alt, title, subtitle, mobile }: CardS
   if (mobile) {
     return (
       <div className="group bg-[#b8976d] flex flex-col gap-[14px] px-[20px] py-[16px]">
-        <div className="relative h-[261px] w-full">
-          <Image src={img} alt={alt} fill className="object-cover" />
+        <div className="relative h-[261px] w-full overflow-hidden">
+          <Image src={img} alt={alt} fill className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-[1.04]" />
         </div>
         <div className="flex items-start gap-[38px]">
           <div className="flex-1 text-black">
@@ -28,8 +28,8 @@ export default function CardService({ img, alt, title, subtitle, mobile }: CardS
 
   return (
     <div className="group bg-[#b8976d] flex-1 p-5 flex flex-col gap-[14px]">
-      <div className="relative h-[300px] lg:h-[655px] w-full">
-        <Image src={img} alt={alt} fill className="object-cover" />
+      <div className="relative h-[300px] lg:h-[655px] w-full overflow-hidden">
+        <Image src={img} alt={alt} fill className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-[1.04]" />
       </div>
       <div className="flex items-start gap-[38px]">
         <div className="flex-1 text-black">

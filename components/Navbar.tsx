@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import NavMobile from "@/components/NavMobile";
@@ -8,9 +9,23 @@ import MegaMenu from "@/components/MegaMenu";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setMenuOpen(false)
+      }
+    }
+    if (menuOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+    }
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [menuOpen])
 
   return (
-    <div className="relative">
+    <div className="relative" ref={menuRef}>
     <div className="md:hidden">
       <NavMobile />
     </div>
@@ -47,27 +62,31 @@ export default function Navbar() {
           <div className="flex flex-1 items-center justify-center gap-4 lg:gap-[70px]">
             <Link
               href="/about"
-              className="text-[15px] lg:text-[22px] text-black text-center whitespace-nowrap"
+              className="relative group text-[15px] lg:text-[22px] text-black text-center whitespace-nowrap"
             >
               À propos
+              <span className={`absolute -bottom-[3px] left-0 h-[1.5px] bg-[#b85a3c] transition-all duration-300 ease-in-out ${pathname === '/about' ? 'w-full' : 'w-0 group-hover:w-full'}`} />
             </Link>
             <button
-              className="text-[15px] lg:text-[22px] text-black text-center whitespace-nowrap"
+              className="relative group text-[15px] lg:text-[22px] text-black text-center whitespace-nowrap"
               onClick={() => setMenuOpen((m) => !m)}
             >
               Services
+              <span className={`absolute -bottom-[3px] left-0 h-[1.5px] bg-[#b85a3c] transition-all duration-300 ease-in-out ${pathname?.startsWith('/services') ? 'w-full' : 'w-0 group-hover:w-full'}`} />
             </button>
             <Link
               href="/realisations/une-chambre-douce"
-              className="text-[15px] lg:text-[22px] text-black text-center whitespace-nowrap"
+              className="relative group text-[15px] lg:text-[22px] text-black text-center whitespace-nowrap"
             >
               Réalisations
+              <span className={`absolute -bottom-[3px] left-0 h-[1.5px] bg-[#b85a3c] transition-all duration-300 ease-in-out ${pathname?.startsWith('/realisations') ? 'w-full' : 'w-0 group-hover:w-full'}`} />
             </Link>
             <Link
-              href="#contact"
-              className="text-[15px] lg:text-[22px] text-black text-center whitespace-nowrap"
+              href="/contact"
+              className="relative group text-[15px] lg:text-[22px] text-black text-center whitespace-nowrap"
             >
               Contact
+              <span className={`absolute -bottom-[3px] left-0 h-[1.5px] bg-[#b85a3c] transition-all duration-300 ease-in-out ${pathname === '/contact' ? 'w-full' : 'w-0 group-hover:w-full'}`} />
             </Link>
           </div>
         </div>
