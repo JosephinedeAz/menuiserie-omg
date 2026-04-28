@@ -29,22 +29,21 @@ export default function ContactForm() {
     setStatus(res.ok ? 'success' : 'error')
   }
 
-  const inputClass = "bg-[#fafaf9] border-2 border-[#e5e5e5] rounded-[10px] h-[60px] w-full px-[16px] text-[20px] outline-none focus:border-[#b85a3c] transition-colors"
-  const labelClass = "font-normal text-[25px] leading-[36px] text-[#4a544a]"
+  const di = "bg-[#fafaf9] border-2 border-[#e5e5e5] rounded-[10px] h-[60px] w-full px-[16px] text-[20px] outline-none focus:border-[#b85a3c] transition-colors" // desktop input
+  const mi = "bg-[#fafaf9] border-[1.5px] border-[#e5e5e5] rounded-[10px] h-[48px] w-full px-[14px] text-[16px] outline-none focus:border-[#b85a3c] transition-colors" // mobile input
+  const dl = "font-normal text-[25px] leading-[36px] text-[#4a544a]" // desktop label
+  const ml = "font-normal text-[16px] leading-[24px] text-[#4a544a]" // mobile label
 
   return (
-    <section className="px-[60px] py-[60px] flex flex-col items-center">
-      <div className="flex gap-[100px] items-start justify-center w-full">
+    <section className="px-[16px] md:px-[60px] py-[32px] md:py-[60px] flex flex-col items-center">
 
-        {/* Colonne gauche — image + coordonnées */}
+      {/* ── Desktop ── */}
+      <div className="hidden md:flex gap-[100px] items-start justify-center w-full">
+
+        {/* Colonne gauche */}
         <div className="flex-1 flex flex-col items-start">
           <div className="relative w-full aspect-[1024/1536]">
-            <Image
-              src="/images/atelier.png"
-              alt="Atelier Ouest Menuiserie Générale"
-              fill
-              className="object-cover"
-            />
+            <Image src="/images/atelier.png" alt="Atelier Ouest Menuiserie Générale" fill className="object-cover" />
           </div>
           <div className="flex flex-col gap-[10px] mt-[16px] font-normal text-[25px] leading-[36px] text-black">
             <p>téléphone: 06 71 23 48 58</p>
@@ -52,73 +51,87 @@ export default function ContactForm() {
           </div>
         </div>
 
-        {/* Colonne droite — formulaire */}
+        {/* Formulaire desktop */}
         <div className="flex flex-col gap-[32px] w-[672px]">
-
-          {/* Prénom + Nom */}
           <div className="grid grid-cols-2 gap-[24px]">
             <div className="flex flex-col gap-[12px]">
-              <label className={labelClass}>Prénom</label>
-              <input name="prenom" value={form.prenom} onChange={handleChange} className={inputClass} />
+              <label className={dl}>Prénom</label>
+              <input name="prenom" value={form.prenom} onChange={handleChange} className={di} />
             </div>
             <div className="flex flex-col gap-[12px]">
-              <label className={labelClass}>Nom</label>
-              <input name="nom" value={form.nom} onChange={handleChange} className={inputClass} />
+              <label className={dl}>Nom</label>
+              <input name="nom" value={form.nom} onChange={handleChange} className={di} />
             </div>
           </div>
-
-          {/* Email */}
           <div className="flex flex-col gap-[12px]">
-            <label className={labelClass}>Adresse e-mail</label>
-            <input name="email" type="email" value={form.email} onChange={handleChange} className={inputClass} />
+            <label className={dl}>Adresse e-mail</label>
+            <input name="email" type="email" value={form.email} onChange={handleChange} className={di} />
           </div>
-
-          {/* Téléphone */}
           <div className="flex flex-col gap-[12px]">
-            <label className={labelClass}>Téléphone</label>
-            <input name="telephone" type="tel" value={form.telephone} onChange={handleChange} className={inputClass} />
+            <label className={dl}>Téléphone</label>
+            <input name="telephone" type="tel" value={form.telephone} onChange={handleChange} className={di} />
           </div>
-
-          {/* Adresse postale */}
           <div className="flex flex-col gap-[12px]">
-            <label className={labelClass}>Adresse postale</label>
-            <input name="adresse" value={form.adresse} onChange={handleChange} className={inputClass} />
+            <label className={dl}>Adresse postale</label>
+            <input name="adresse" value={form.adresse} onChange={handleChange} className={di} />
           </div>
-
-          {/* Budget */}
           <div className="flex flex-col gap-[12px]">
-            <label className={labelClass}>
-              Budget <span className="text-[#808080]">(optionnel)</span>
-            </label>
-            <input name="budget" value={form.budget} onChange={handleChange} className={inputClass} />
+            <label className={dl}>Budget <span className="text-[#808080]">(optionnel)</span></label>
+            <input name="budget" value={form.budget} onChange={handleChange} className={di} />
           </div>
-
-          {/* Message */}
           <div className="flex flex-col gap-[12px]">
-            <label className={labelClass}>Message</label>
-            <textarea
-              name="message"
-              value={form.message}
-              onChange={handleChange}
-              className="bg-[#fafaf9] border-2 border-[#e5e5e5] rounded-[10px] h-[180px] w-full px-[16px] py-[12px] text-[20px] outline-none focus:border-[#b85a3c] transition-colors resize-none"
-            />
+            <label className={dl}>Message</label>
+            <textarea name="message" value={form.message} onChange={handleChange} className="bg-[#fafaf9] border-2 border-[#e5e5e5] rounded-[10px] h-[180px] w-full px-[16px] py-[12px] text-[20px] outline-none focus:border-[#b85a3c] transition-colors resize-none" />
           </div>
-
-          {/* CTA */}
-          <button
-            onClick={handleSubmit}
-            disabled={status === 'loading'}
-            className="btn-primary w-full text-[30px] leading-[36px] py-[10px] disabled:opacity-60"
-          >
+          <button onClick={handleSubmit} disabled={status === 'loading'} className="btn-primary w-full text-[30px] leading-[36px] py-[10px] disabled:opacity-60">
             {status === 'loading' ? 'Envoi en cours...' : status === 'success' ? 'Message envoyé ✓' : 'Réaliser votre projet'}
           </button>
-
-          {status === 'error' && (
-            <p className="text-red-600 text-[18px]">Une erreur est survenue, veuillez réessayer.</p>
-          )}
-
+          {status === 'error' && <p className="text-red-600 text-[18px]">Une erreur est survenue, veuillez réessayer.</p>}
         </div>
       </div>
+
+      {/* ── Mobile ── */}
+      <div className="md:hidden flex flex-col gap-[20px] w-full">
+        <div className="flex gap-[12px]">
+          <div className="flex flex-col gap-[10px] flex-1">
+            <label className={ml}>Prénom</label>
+            <input name="prenom" value={form.prenom} onChange={handleChange} className={mi} />
+          </div>
+          <div className="flex flex-col gap-[10px] flex-1">
+            <label className={ml}>Nom</label>
+            <input name="nom" value={form.nom} onChange={handleChange} className={mi} />
+          </div>
+        </div>
+        <div className="flex flex-col gap-[10px]">
+          <label className={ml}>Adresse e-mail</label>
+          <input name="email" type="email" value={form.email} onChange={handleChange} className={mi} />
+        </div>
+        <div className="flex flex-col gap-[10px]">
+          <label className={ml}>Téléphone</label>
+          <input name="telephone" type="tel" value={form.telephone} onChange={handleChange} className={mi} />
+        </div>
+        <div className="flex flex-col gap-[10px]">
+          <label className={ml}>Adresse postale</label>
+          <input name="adresse" value={form.adresse} onChange={handleChange} className={mi} />
+        </div>
+        <div className="flex flex-col gap-[10px]">
+          <label className={ml}>Budget <span className="text-[#808080]">(optionnel)</span></label>
+          <input name="budget" value={form.budget} onChange={handleChange} className={mi} />
+        </div>
+        <div className="flex flex-col gap-[10px]">
+          <label className={ml}>Message</label>
+          <textarea name="message" value={form.message} onChange={handleChange} className="bg-[#fafaf9] border-[1.5px] border-[#e5e5e5] rounded-[10px] h-[130px] w-full px-[14px] py-[10px] text-[16px] outline-none focus:border-[#b85a3c] transition-colors resize-none" />
+        </div>
+        <button onClick={handleSubmit} disabled={status === 'loading'} className="btn-primary w-full text-[18px] leading-[24px] py-[14px] disabled:opacity-60">
+          {status === 'loading' ? 'Envoi en cours...' : status === 'success' ? 'Message envoyé ✓' : 'Réaliser votre projet'}
+        </button>
+        {status === 'error' && <p className="text-red-600 text-[16px]">Une erreur est survenue, veuillez réessayer.</p>}
+        <div className="flex flex-col gap-[6px] font-normal text-[16px] leading-[24px] text-[#333]">
+          <p>téléphone: 06 71 23 48 58</p>
+          <p>mail: romain.glemain@gmail.com</p>
+        </div>
+      </div>
+
     </section>
   )
 }
