@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface MegaMenuProps {
-  isOpen: boolean;
-  onClose: () => void;
+  isOpen?: boolean;
+  onClose?: () => void;
 }
 
 const services = [
@@ -30,7 +30,7 @@ const services = [
   },
 ];
 
-export default function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
+export default function MegaMenu({ isOpen = false, onClose = () => {} }: MegaMenuProps) {
   return (
     // Clip wrapper — hides the panel when it's translated above this boundary
     <div
