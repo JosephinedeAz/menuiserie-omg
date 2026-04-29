@@ -27,10 +27,10 @@ export default function SectionContact({ mobile }: SectionContactProps) {
               </p>
             </div>
             <div className="flex flex-col gap-[8px] w-full">
-              <Link href="/contact" className="btn-primary text-[25px] font-medium tracking-[0.25px] w-full">
+              <Link href="/contact" className="btn-primary text-[20px] font-medium tracking-[0.25px] w-full">
                 Demander un devis gratuit
               </Link>
-              <Link href="/contact" className="btn-primary text-[25px] font-medium tracking-[0.25px] w-full">
+              <Link href="/contact" className="btn-primary text-[20px] font-medium tracking-[0.25px] w-full">
                 Parlons-en
               </Link>
             </div>
