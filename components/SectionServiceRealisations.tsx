@@ -51,12 +51,12 @@ export default function SectionServiceRealisations({
 
       <div
         ref={scrollRef}
-        className="w-full overflow-x-auto flex items-stretch snap-x snap-mandatory scroll-smooth gap-[70px]"
+        className="w-full overflow-x-auto flex items-stretch snap-x snap-mandatory scroll-smooth"
         style={{ scrollbarWidth: 'none' }}
       >
         <div className="flex items-stretch gap-[70px] px-[2px] py-[4px] min-w-full">
           {projets.map((projet) => (
-            <div key={projet.slug.current} className="w-[249px] shrink-0 snap-center h-full md:min-w-full md:h-full md:flex md:items-stretch">
+            <div key={projet.slug.current} className="w-[249px] shrink-0 snap-center md:w-full md:shrink-0 md:flex md:items-stretch">
               <CardRealisation
                 titre={projet.titre}
                 description={projet.description}

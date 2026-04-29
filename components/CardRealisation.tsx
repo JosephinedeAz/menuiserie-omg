@@ -21,16 +21,10 @@ export default function CardRealisation({
                     md:flex-row md:gap-[67px] md:items-stretch md:w-full md:shrink md:px-[20px] md:py-[40px]">
 
       {/* Image */}
-      <div className="aspect-[811/587] w-full border border-[#b8976d] p-[10px]
-                      md:aspect-auto md:flex-1 md:min-w-0">
+      <div className="w-full border border-[#b8976d] p-[10px] md:flex-1 md:min-w-0 md:self-stretch">
         <div className="relative w-full aspect-[811/587]">
-          <Image
-            src={imageSrc}
-            alt={imageAlt}
-            fill
-            className="object-cover"
-            sizes="(min-width: 768px) 50vw, 249px"
-          />
+          <Image src={imageSrc} alt={imageAlt} fill className="object-cover"
+            sizes="(min-width: 768px) 50vw, 249px" />
         </div>
       </div>
 
