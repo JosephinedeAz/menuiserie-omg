@@ -73,10 +73,10 @@ export default function TestimonialCarousel({ testimonials = [] }: TestimonialCa
               ref={(el) => { slideRefs.current[i] = el; }}
               className="snap-center shrink-0 w-full flex flex-col gap-[20px]"
             >
-              <p className="italic text-[33px] text-black tracking-[-1.32px] leading-[37px]">
+              <p className="italic text-[25px] leading-[36px] font-normal text-black w-full">
                 &ldquo;{t.contenu}&rdquo;
               </p>
-              <p className="text-[21px] text-black text-right">
+              <p className="text-[18px] leading-[19px] font-normal text-black text-right w-full">
                 {t.auteur}, {t.date}, {t.lieu}
               </p>
             </div>

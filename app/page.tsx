@@ -281,10 +281,10 @@ export default function Home() {
       <div className="mb-[57px] md:mb-[85px]"><SectionRealisation /></div>
       <div className="mb-[40px] md:mb-[60px]"><SectionServices /></div>
       <div className="mb-[27px] md:mb-[40px]"><SectionConfiance /></div>
-      <div className="mb-[40px] md:mb-[60px] md:hidden"><SectionContact mobile /></div>
-      <div className="mb-[40px] md:mb-[60px] hidden md:block"><SectionContact /></div>
-      <div className="md:hidden"><Footer mobile /></div>
-      <div className="hidden md:block"><Footer /></div>
+      <div className="mt-[130px] mb-[40px] md:hidden md:mb-[60px]"><SectionContact mobile /></div>
+      <div className="mt-[130px] mb-[40px] hidden md:block md:mb-[60px]"><SectionContact /></div>
+      <div className="mt-[130px] md:hidden"><Footer mobile /></div>
+      <div className="mt-[130px] hidden md:block"><Footer /></div>
     </main>
   );
 }

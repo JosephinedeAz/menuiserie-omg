@@ -210,10 +210,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <div className="mb-[40px] md:mb-[60px] md:hidden"><SectionContact mobile /></div>
-      <div className="mb-[40px] md:mb-[60px] hidden md:block"><SectionContact /></div>
-      <div className="mb-[40px] md:mb-[60px] md:hidden"><Footer mobile /></div>
-      <div className="mb-[40px] md:mb-[60px] hidden md:block"><Footer /></div>
+      <div className="mt-[130px] mb-[40px] md:hidden md:mb-[60px]"><SectionContact mobile /></div>
+      <div className="mt-[130px] mb-[40px] hidden md:block md:mb-[60px]"><SectionContact /></div>
+      <div className="mt-[130px] mb-[40px] md:hidden md:mb-[60px]"><Footer mobile /></div>
+      <div className="mt-[130px] mb-[40px] hidden md:block md:mb-[60px]"><Footer /></div>
     </main>
   )
 }

@@ -7,7 +7,7 @@ interface SectionContactProps {
 export default function SectionContact({ mobile }: SectionContactProps) {
   if (mobile) {
     return (
-      <section id="contact" className="mt-[80px]">
+      <section id="contact">
         <div className="mx-[10px] md:mx-[30px] p-[10px] border border-[#833e28]">
           <div className="bg-[#f5efe7] w-full flex flex-col items-center gap-[32px] px-[40px] md:px-[80px] py-[70px]">
             <div className="flex flex-col gap-[25px] items-center w-full">
@@ -41,7 +41,7 @@ export default function SectionContact({ mobile }: SectionContactProps) {
   }
 
   return (
-    <section id="contact" className="mt-[80px]">
+    <section id="contact">
       <div className="mx-[10px] md:mx-[30px] p-[10px] border border-[#833e28]">
         <div className="bg-[#f5efe7] w-full flex flex-col items-center gap-[32px] px-[40px] md:px-[80px] py-[70px]">
           {/* Texte */}
