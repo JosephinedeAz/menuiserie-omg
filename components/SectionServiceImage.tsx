@@ -6,11 +6,12 @@ interface SectionServiceImageProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   image: any
   titre: string
+  className?: string
 }
 
-export default function SectionServiceImage({ image, titre }: SectionServiceImageProps) {
+export default function SectionServiceImage({ image, titre, className }: SectionServiceImageProps) {
   return (
-    <section className="flex flex-col items-end gap-[30px] p-[10px]">
+    <section className={`flex flex-col items-end gap-10 px-[30px] ${className ?? ''}`}>
       <div className="w-full md:w-[959px] md:shrink-0">
         <div className="border border-[#b8976d] p-[10px]">
           <div className="relative w-full aspect-[1081/700]">
@@ -31,7 +32,7 @@ export default function SectionServiceImage({ image, titre }: SectionServiceImag
       <div className="w-full flex justify-center">
         <Link
           href="/contact"
-          className="btn-primary text-[30px] leading-[36px] px-[20px] py-[10px] w-[393px] text-center"
+          className="btn-primary text-[30px] leading-[36px] px-[20px] py-[10px] whitespace-nowrap"
         >
           Donnons vie à vos idées
         </Link>

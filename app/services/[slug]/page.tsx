@@ -62,6 +62,7 @@ export default async function ServicePage({
       />
       <SectionServiceFigures />
       <SectionServiceImage
+        className="mt-[50px] mb-[50px]"
         image={service?.imageSecondaire}
         titre={service?.titre ?? ''}
       />

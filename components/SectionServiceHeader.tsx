@@ -14,7 +14,7 @@ export default function SectionServiceHeader({
   imageHero,
 }: SectionServiceHeaderProps) {
   return (
-    <section className="flex flex-col items-start gap-[40px] px-[12px] py-[10px] md:flex-row md:px-[60px]">
+    <section className="flex flex-col items-start gap-[40px] px-[12px] py-[10px] pt-20 md:flex-row md:px-[60px]">
       <div className="border border-[#b8976d] w-full min-w-0 p-[10px] md:flex-1">
         <div className="relative h-[451px] w-full">
           {imageHero ? (
