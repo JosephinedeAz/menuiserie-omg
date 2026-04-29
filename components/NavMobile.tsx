@@ -165,7 +165,7 @@ export default function NavMobile() {
                 <Link
                   href="/contact"
                   onClick={close}
-                  className="btn-primary text-[25px] font-medium tracking-[0.25px] w-full text-center"
+                  className="btn-primary rounded-[10px] text-[25px] font-medium tracking-[0.25px] w-full text-center"
                 >
                   Devis gratuit
                 </Link>
