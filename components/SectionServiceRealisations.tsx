@@ -19,7 +19,8 @@ interface SectionServiceRealisationsProps {
 
 export default function SectionServiceRealisations({
   projets,
-}: SectionServiceRealisationsProps) {
+  className,
+}: SectionServiceRealisationsProps & { className?: string }) {
   const scrollRef = useRef<HTMLDivElement>(null)
   const [activeIndex, setActiveIndex] = useState(0)
 
@@ -43,31 +44,33 @@ export default function SectionServiceRealisations({
   if (!projets || projets.length === 0) return null
 
   return (
-    <section className="flex flex-col gap-[30px] items-center px-[60px] py-[10px]">
+    <section className={`flex flex-col gap-[30px] items-center px-[60px] py-[10px] ${className ?? ''}`}>
       <p className="font-semibold text-[40px] leading-[48px] tracking-[-1.6px] text-black w-full md:font-medium md:text-[60px] md:leading-[72px] md:tracking-normal">
         Nos plus belles réalisations.
       </p>
 
       <div
         ref={scrollRef}
-        className="w-full overflow-x-auto overflow-y-hidden flex items-stretch snap-x snap-mandatory scroll-smooth gap-[70px] px-[30px] py-[30px]"
+        className="w-full overflow-x-auto flex items-stretch snap-x snap-mandatory scroll-smooth gap-[70px]"
         style={{ scrollbarWidth: 'none' }}
       >
-        {projets.map((projet) => (
-          <div key={projet.slug.current} className="w-[249px] shrink-0 snap-center h-full md:w-full md:h-auto">
-            <CardRealisation
-              titre={projet.titre}
-              description={projet.description}
-              imageSrc={
-                projet.images?.[0]
-                  ? urlFor(projet.images[0]).url()
-                  : '/placeholder.jpg'
-              }
-              imageAlt={projet.titre}
-              slug={projet.slug.current}
-            />
-          </div>
-        ))}
+        <div className="flex items-stretch gap-[70px] px-[2px] py-[4px] min-w-full">
+          {projets.map((projet) => (
+            <div key={projet.slug.current} className="w-[249px] shrink-0 snap-center h-full md:min-w-full md:h-full md:flex md:items-stretch">
+              <CardRealisation
+                titre={projet.titre}
+                description={projet.description}
+                imageSrc={
+                  projet.images?.[0]
+                    ? urlFor(projet.images[0]).url()
+                    : '/placeholder.jpg'
+                }
+                imageAlt={projet.titre}
+                slug={projet.slug.current}
+              />
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="flex gap-[10px] items-center">

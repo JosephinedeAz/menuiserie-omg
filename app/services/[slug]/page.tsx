@@ -67,7 +67,7 @@ export default async function ServicePage({
         titre={service?.titre ?? ''}
       />
       <SectionServicePhilosophie />
-      <SectionServiceRealisations projets={projets} />
+      <SectionServiceRealisations className="mt-20" projets={projets} />
       <SectionConfiance />
       <div className="md:hidden"><SectionContact mobile /></div>
       <div className="hidden md:block"><SectionContact /></div>
