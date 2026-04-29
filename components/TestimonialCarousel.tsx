@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface Testimonial {
   auteur: string;
@@ -30,28 +30,66 @@ interface TestimonialCarouselProps {
 
 export default function TestimonialCarousel({ testimonials = [] }: TestimonialCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const slideRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const data = testimonials.length > 0 ? testimonials : MOCK_TESTIMONIALS;
   const current = data[activeIndex];
 
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+    const observers: IntersectionObserver[] = [];
+    slideRefs.current.forEach((slide, i) => {
+      if (!slide) return;
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setActiveIndex(i);
+        },
+        { root: container, threshold: 0.5 }
+      );
+      observer.observe(slide);
+      observers.push(observer);
+    });
+    return () => observers.forEach((o) => o.disconnect());
+  }, [data.length]);
+
+  function handleDotClick(i: number) {
+    setActiveIndex(i);
+    slideRefs.current[i]?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+  }
+
   return (
     <div className="flex flex-col gap-[20px] md:gap-[40px]">
-      <div className="flex flex-col gap-[20px] md:gap-[49px]">
-        {/* Verbatim mobile */}
-        <p className="italic text-[33px] text-black tracking-[-1.32px] leading-[37px] md:hidden">
-          &ldquo;{current.contenu}&rdquo;
-        </p>
-        {/* Verbatim desktop */}
-        <p className="hidden md:block italic text-[50px] text-black tracking-[-2px] leading-[56px]">
-          &ldquo;{current.contenu}&rdquo;
-        </p>
+      {/* Mobile: horizontal scroll carousel */}
+      <div className="md:hidden flex flex-col gap-[20px]">
+        <div
+          ref={scrollContainerRef}
+          className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide"
+        >
+          {data.map((t, i) => (
+            <div
+              key={i}
+              ref={(el) => { slideRefs.current[i] = el; }}
+              className="snap-center shrink-0 w-full flex flex-col gap-[20px]"
+            >
+              <p className="italic text-[33px] text-black tracking-[-1.32px] leading-[37px]">
+                &ldquo;{t.contenu}&rdquo;
+              </p>
+              <p className="text-[21px] text-black text-right">
+                {t.auteur}, {t.date}, {t.lieu}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
 
-        {/* Signature mobile */}
-        <p className="text-[21px] text-black text-right md:hidden">
-          {current.auteur}, {current.date}, {current.lieu}
+      {/* Desktop: index-based single slide */}
+      <div className="hidden md:flex flex-col gap-[49px]">
+        <p className="italic text-[50px] text-black tracking-[-2px] leading-[56px]">
+          &ldquo;{current.contenu}&rdquo;
         </p>
-        {/* Signature desktop */}
-        <p className="hidden md:block text-[32px] text-black text-right tracking-[-0.64px] leading-[38px]">
+        <p className="text-[32px] text-black text-right tracking-[-0.64px] leading-[38px]">
           {current.auteur}, {current.date}, {current.lieu}
         </p>
       </div>
@@ -62,7 +100,7 @@ export default function TestimonialCarousel({ testimonials = [] }: TestimonialCa
           {data.map((_, i) => (
             <button
               key={i}
-              onClick={() => setActiveIndex(i)}
+              onClick={() => handleDotClick(i)}
               aria-label={`Témoignage ${i + 1}`}
               className={`size-3 rounded-full transition-colors duration-200 ${
                 i === activeIndex ? "bg-[#b85a3c]" : "bg-[#b8976d]/40"

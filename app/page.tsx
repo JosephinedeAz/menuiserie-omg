@@ -77,7 +77,7 @@ function Hero() {
                 Découvrir nos services
               </Link>
               <Link
-                href="#realisations"
+                href="/realisations"
                 className="btn-primary text-[30px] leading-[36px] w-full"
               >
                 Voir nos réalisations
@@ -160,7 +160,7 @@ function SectionRealisation() {
             chantier est unique, comme votre espace de vie.
           </p>
           <Link
-            href="#realisations"
+            href="/realisations"
             className="btn-tertiary text-[25px] font-medium text-black tracking-[0.2px]"
           >
             voir nos réalisations
@@ -189,18 +189,21 @@ function SectionServices() {
       alt: "Parquet intérieur",
       title: "Menuiserie intérieure",
       subtitle: "parquet, cuisines, agencement",
+      slug: "menuiserie-interieure",
     },
     {
       img: "/images/service-menuiserie-exterieure.png",
       alt: "Terrasse extérieure",
       title: "Menuiserie extérieure",
       subtitle: "terrasse, palissade, aménagements durables",
+      slug: "menuiserie-exterieure",
     },
     {
       img: "/images/service-mobilier-lampe.png",
       alt: "Mobilier et lampe",
       title: "Ameublement",
       subtitle: "rangement & mobilier",
+      slug: "ameublement",
     },
   ];
 
@@ -209,33 +212,30 @@ function SectionServices() {
 
       {/* ── Services mobile ─────────────────────────────────────────── */}
       <div className="md:hidden flex flex-col gap-[10px] py-[20px] px-[10px]">
-        <Link href="/services/menuiserie-interieure">
-          <CardService
-            img="/images/service-menuiserie-interieure.png"
-            alt="Parquet intérieur"
-            title="Menuiserie intérieure"
-            subtitle="parquet, cuisines, agencement"
-            mobile
-          />
-        </Link>
-        <Link href="/services/menuiserie-exterieure">
-          <CardService
-            img="/images/service-menuiserie-exterieure.png"
-            alt="Terrasse extérieure"
-            title="Menuiserie extérieure"
-            subtitle="terrasse, palissade, aménagements durables"
-            mobile
-          />
-        </Link>
-        <Link href="/services/ameublement">
-          <CardService
-            img="/images/service-mobilier-lampe.png"
-            alt="Mobilier et lampe"
-            title="Ameublement"
-            subtitle="rangement & mobilier"
-            mobile
-          />
-        </Link>
+        <CardService
+          img="/images/service-menuiserie-interieure.png"
+          alt="Parquet intérieur"
+          title="Menuiserie intérieure"
+          subtitle="parquet, cuisines, agencement"
+          slug="menuiserie-interieure"
+          mobile
+        />
+        <CardService
+          img="/images/service-menuiserie-exterieure.png"
+          alt="Terrasse extérieure"
+          title="Menuiserie extérieure"
+          subtitle="terrasse, palissade, aménagements durables"
+          slug="menuiserie-exterieure"
+          mobile
+        />
+        <CardService
+          img="/images/service-mobilier-lampe.png"
+          alt="Mobilier et lampe"
+          title="Ameublement"
+          subtitle="rangement & mobilier"
+          slug="ameublement"
+          mobile
+        />
       </div>
 
       {/* ── Services desktop ────────────────────────────────────────── */}
@@ -251,7 +251,7 @@ function SectionServices() {
           </p>
         </div>
 
-        <div className="flex rounded-[10px] overflow-hidden">
+        <div className="flex rounded-[10px] overflow-hidden w-full">
           {services.map((s) => (
             <CardService
               key={s.title}
@@ -259,6 +259,7 @@ function SectionServices() {
               alt={s.alt}
               title={s.title}
               subtitle={s.subtitle}
+              slug={s.slug}
             />
           ))}
         </div>

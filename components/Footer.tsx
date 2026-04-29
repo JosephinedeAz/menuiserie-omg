@@ -78,7 +78,7 @@ export default function Footer({ mobile }: FooterProps) {
                 Menuiserie Ouest Générale — OMG
               </p>
               <p className="text-[14px] text-white/40 leading-5">
-                Réalisé par deazstudio
+                <a href="https://www.deazstudio.com" target="_blank" rel="noopener noreferrer" className="hover:underline">Réalisé par deazstudio</a>
               </p>
             </div>
           </div>
@@ -135,9 +135,9 @@ export default function Footer({ mobile }: FooterProps) {
             <p className="text-[14px] text-white/40 leading-5">
               Menuiserie Ouest Générale — OMG
             </p>
-            <p className="text-[14px] text-white/40 leading-5">
+            <a href="https://www.deazstudio.com" target="_blank" rel="noopener noreferrer" className="text-[14px] text-white/40 leading-5 hover:underline">
               Réalisé par deazstudio
-            </p>
+            </a>
           </div>
         </div>
       </div>

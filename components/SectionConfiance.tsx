@@ -33,6 +33,7 @@ export default function SectionConfiance() {
         </div>
 
         {/* Google badge mobile */}
+        <a href="https://www.google.com/maps/place/Ouest+Menuiserie+G%C3%A9n%C3%A9rale/@47.2578112,-1.5796054,17z/data=!4m17!1m8!3m7!1s0x4805edf7bb4b6fbb:0x18980d18ccd4f9ef!2sOuest+Menuiserie+G%C3%A9n%C3%A9rale!8m2!3d47.257771!4d-1.57971!10e5!16s%2Fg%2F11xcrvxpcq!3m7!1s0x4805edf7bb4b6fbb:0x18980d18ccd4f9ef!8m2!3d47.257771!4d-1.57971!9m1!1b1!16s%2Fg%2F11xcrvxpcq?entry=ttu&g_ep=EgoyMDI2MDQyNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
         <div className="bg-white border border-[#e5e7eb] rounded-[14px] shadow-sm flex flex-col gap-3 px-4 py-3 w-[161px] transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-md cursor-pointer">
           <div className="flex items-center gap-2">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -46,6 +47,7 @@ export default function SectionConfiance() {
             <span className="text-[14px] text-[#4a5565]">2 avis</span>
           </div>
         </div>
+        </a>
 
         {/* Verbatim mobile */}
         <TestimonialCarousel testimonials={[]} />
@@ -92,6 +94,7 @@ export default function SectionConfiance() {
 
           {/* Google badge */}
           <div className="py-[30px]">
+            <a href="https://www.google.com/maps/place/Ouest+Menuiserie+G%C3%A9n%C3%A9rale/@47.2578112,-1.5796054,17z/data=!4m17!1m8!3m7!1s0x4805edf7bb4b6fbb:0x18980d18ccd4f9ef!2sOuest+Menuiserie+G%C3%A9n%C3%A9rale!8m2!3d47.257771!4d-1.57971!10e5!16s%2Fg%2F11xcrvxpcq!3m7!1s0x4805edf7bb4b6fbb:0x18980d18ccd4f9ef!8m2!3d47.257771!4d-1.57971!9m1!1b1!16s%2Fg%2F11xcrvxpcq?entry=ttu&g_ep=EgoyMDI2MDQyNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
             <div className="bg-white border border-[#e5e7eb] rounded-[14px] shadow-sm flex flex-col gap-3 px-4 py-3 w-[161px] transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-md cursor-pointer">
               <div className="flex items-center gap-2">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -105,6 +108,7 @@ export default function SectionConfiance() {
                 <span className="text-[14px] text-[#4a5565]">2 avis</span>
               </div>
             </div>
+            </a>
           </div>
         </div>
       </div>

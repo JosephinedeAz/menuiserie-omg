@@ -94,13 +94,13 @@ export default function Navbar() {
         {/* CTAs */}
         <div className="flex items-center gap-2 lg:gap-[21px] border-l border-[#4a544a] px-5">
           <Link
-            href="#contact"
+            href="/contact"
             className="btn-secondary text-[16px] lg:text-[25px] font-medium tracking-[0.25px] text-black whitespace-nowrap"
           >
             Rencontrons-nous
           </Link>
           <Link
-            href="#contact"
+            href="/contact"
             className="btn-secondary bg-[#b85a3c] text-[16px] lg:text-[25px] font-medium tracking-[0.25px] text-black whitespace-nowrap"
           >
             Devis gratuit
