@@ -32,54 +32,95 @@ const services = [
 
 export default function MegaMenu({ isOpen = false, onClose = () => {} }: MegaMenuProps) {
   return (
-    // Clip wrapper — hides the panel when it's translated above this boundary
     <div
       className={`absolute top-full left-0 w-full z-50 overflow-hidden ${
         isOpen ? "pointer-events-auto" : "pointer-events-none"
       }`}
     >
-      {/* Animated panel */}
+      {/* Desktop */}
       <div
-        className={`bg-primary-100 md:bg-secondary-500 px-[16px] md:px-[40px] pb-[30px] pt-[10px] transition-transform duration-300 ${
+        className={`hidden md:block bg-secondary-500 px-[40px] pb-[30px] pt-[10px] transition-transform duration-300 ${
           isOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <p className="text-[#1d1d1d] md:text-[#f1f1f1] text-[17px] leading-[24px] md:text-[38px] md:leading-[44px] tracking-[0.38px] py-[10px] mb-[24px] md:mb-[64px]">
+        <p className="text-[#f1f1f1] text-[38px] leading-[44px] tracking-[0.38px] py-[10px] mb-[64px]">
           Découvrez tous nos services.
         </p>
-        <div className="flex flex-col gap-[28px] md:gap-[30px]">
+        <div className="flex flex-col gap-[30px]">
           {services.map((s) => (
             <Link
               key={s.title}
               href={s.href}
               onClick={onClose}
-              className="group/item flex items-center justify-between w-full gap-[8px] md:gap-[80px] hover:no-underline"
+              className="group/item flex gap-[80px] items-center hover:no-underline"
             >
-              {/* Image */}
-              <div className="relative h-[75px] w-[129px] md:h-[150px] md:w-[259px] shrink-0 rounded-[10px] overflow-hidden">
-                <Image
-                  src={s.img}
-                  alt={s.alt}
-                  fill
-                  className="object-cover transition-transform duration-500 ease-in-out group-hover/item:scale-[1.04]"
-                />
+              <div className="flex flex-1 gap-[30px] items-start min-w-0">
+                <div className="relative h-[150px] w-[259px] shrink-0 rounded-[10px] overflow-hidden">
+                  <Image
+                    src={s.img}
+                    alt={s.alt}
+                    fill
+                    className="object-cover transition-transform duration-500 ease-in-out group-hover/item:scale-[1.04]"
+                  />
+                </div>
+                <div className="flex flex-col gap-[5px] text-[#f1f1f1]">
+                  <p className="text-[32px] leading-[38px] tracking-[-0.64px]">{s.title}</p>
+                  <p className="text-[25px] leading-[36px]">{s.subtitle}</p>
+                </div>
               </div>
+              <span className="border border-[#f1f1f1] rounded-[10px] p-[10px] text-[25px] font-medium text-[#f1f1f1] tracking-[0.25px] whitespace-nowrap">
+                Découvrir
+              </span>
+            </Link>
+          ))}
+        </div>
+      </div>
 
-              {/* Texte */}
-              <div className="flex flex-col gap-[5px] flex-1 min-w-0 text-[#1d1d1d] md:text-[#f1f1f1]">
-                <p className="text-[21px] leading-[25px] tracking-[-0.42px] md:text-[32px] md:leading-[38px] md:tracking-[-0.64px]">
-                  {s.title}
-                </p>
-                <p className="text-[12px] leading-[13px] md:text-[25px] md:leading-[36px]">
-                  {s.subtitle}
-                </p>
+      {/* Mobile — panneau plein écran */}
+<div
+  className={`md:hidden fixed inset-0 z-50 bg-[#f6e9dd] flex flex-col px-[16px] pt-[56px] pb-[91px] transition-transform duration-300 ${
+    isOpen ? "translate-y-0" : "-translate-y-full"
+  }`}
+>
+  <div className="flex flex-col gap-[38px] w-full h-full">
+
+    {/* Header : logo + croix */}
+    <div className="flex items-center justify-between w-full">
+      <div className="px-[20px]">
+        <div className="relative size-[40px] rounded-full overflow-hidden">
+          <Image src="/images/img-logo.svg" alt="OMG logo" fill className="object-cover" />
+        </div>
+      </div>
+      <button onClick={onClose} className="size-[38px] flex items-center justify-center">
+        <span className="text-[#b85a3c] text-[24px] leading-none">✕</span>
+      </button>
+    </div>
+
+    {/* Corps : titre + items */}
+    <div className="flex flex-col justify-between flex-1">
+      <div className="flex flex-col gap-[28px] py-[10px]">
+        <p className="text-[#1d1d1d] text-[17px] leading-[24px] font-normal">
+          Découvrez tous nos services.
+        </p>
+        <div className="flex flex-col gap-[30px]">
+          {services.map((s) => (
+            <Link
+              key={s.title}
+              href={s.href}
+              onClick={onClose}
+              className="flex items-center justify-between w-full gap-[8px] hover:no-underline"
+            >
+              <div className="flex flex-1 gap-[8px] items-start min-w-0">
+                <div className="relative h-[75px] w-[129px] shrink-0 rounded-[10px] overflow-hidden">
+                  <Image src={s.img} alt={s.alt} fill className="object-cover" />
+                </div>
+                <div className="flex flex-col gap-[5px] flex-1 min-w-0 text-[#1d1d1d]">
+                  <p className="text-[21px] leading-[25px] tracking-[-0.42px] font-normal">{s.title}</p>
+                  <p className="text-[12px] leading-[13px] font-normal">{s.subtitle}</p>
+                </div>
               </div>
-
-              {/* Bouton Découvrir — styles directs, pas de classe btn-* */}
-              <div className="border border-[#b85a3c] rounded-[10px] p-[10px] shrink-0 flex items-center justify-center
-                              md:border-[#f1f1f1] md:p-[10px]">
-                <span className="text-[12px] leading-[13px] text-[#1d1d1d] whitespace-nowrap font-normal
-                                 md:text-[25px] md:leading-[normal] md:font-medium md:text-[#f1f1f1] md:tracking-[0.25px]">
+              <div className="shrink-0 border border-[#b85a3c] rounded-[10px] p-[10px] flex items-center justify-center">
+                <span className="text-[12px] leading-[13px] text-[#1d1d1d] whitespace-nowrap font-normal">
                   Découvrir
                 </span>
               </div>
@@ -87,6 +128,20 @@ export default function MegaMenu({ isOpen = false, onClose = () => {} }: MegaMen
           ))}
         </div>
       </div>
+
+      {/* CTAs bas de page */}
+      <div className="flex flex-col gap-[21px] px-[20px]">
+        <Link href="/contact" onClick={onClose} className="btn-secondary text-center font-medium text-[20px] tracking-[0.2px]">
+          Rencontrons-nous
+        </Link>
+        <Link href="/contact" onClick={onClose} className="btn-primary text-[20px] tracking-[0.2px]">
+          Devis gratuit
+        </Link>
+      </div>
+    </div>
+
+  </div>
+</div>
     </div>
   );
 }
