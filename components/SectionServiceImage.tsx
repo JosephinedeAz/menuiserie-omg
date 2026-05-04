@@ -11,7 +11,7 @@ interface SectionServiceImageProps {
 
 export default function SectionServiceImage({ image, titre, className }: SectionServiceImageProps) {
   return (
-    <section className={`flex flex-col items-end gap-10 px-[30px] ${className ?? ''}`}>
+    <section className={`flex flex-col items-end gap-10 px-[12px] md:px-[30px] ${className ?? ''}`}>
       <div className="w-full md:w-[959px] md:shrink-0">
         <div className="border border-[#b8976d] p-[10px]">
           <div className="relative w-full aspect-[1081/700]">
@@ -30,10 +30,7 @@ export default function SectionServiceImage({ image, titre, className }: Section
       </div>
 
       <div className="w-full flex justify-center">
-        <Link
-          href="/contact"
-          className="btn-primary text-[30px] leading-[36px] px-[20px] py-[10px] whitespace-nowrap"
-        >
+        <Link href="/contact" className="btn-primary">
           Donnons vie à vos idées
         </Link>
       </div>

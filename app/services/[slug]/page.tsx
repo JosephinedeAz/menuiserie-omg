@@ -53,7 +53,7 @@ export default async function ServicePage({
   console.log('projets:', projets)
 
   return (
-    <main className="bg-[#f6e9dd]">
+    <main className="bg-[#f6e9dd] overflow-x-hidden">
       <Navbar />
       <SectionServiceHeader
         titre={service?.titre}

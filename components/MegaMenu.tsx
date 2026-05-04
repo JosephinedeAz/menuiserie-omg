@@ -44,32 +44,30 @@ export default function MegaMenu({ isOpen = false, onClose = () => {} }: MegaMen
           isOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <p className="text-[#f1f1f1] text-[38px] leading-[44px] tracking-[0.38px] py-[10px] mb-[64px]">
+        <p className="text-[#1d1d1d] md:text-[#f1f1f1] text-[17px] leading-[24px] md:text-[38px] md:leading-[44px] tracking-[0.38px] py-[10px] mb-[64px]">
           Découvrez tous nos services.
         </p>
-        <div className="flex flex-col gap-[30px]">
+        <div className="flex flex-col gap-[28px] md:gap-[30px]">
           {services.map((s) => (
             <Link
               key={s.title}
               href={s.href}
               onClick={onClose}
-              className="group/item flex gap-[80px] items-center hover:no-underline"
+              className="group/item flex items-center justify-between w-full gap-[8px] md:gap-[80px] hover:no-underline"
             >
-              <div className="flex flex-1 gap-[30px] items-start min-w-0">
-                <div className="relative h-[150px] w-[259px] shrink-0 rounded-[10px] overflow-hidden">
-                  <Image
-                    src={s.img}
-                    alt={s.alt}
-                    fill
-                    className="object-cover transition-transform duration-500 ease-in-out group-hover/item:scale-[1.04]"
-                  />
-                </div>
-                <div className="flex flex-col gap-[5px] text-[#f1f1f1]">
-                  <p className="text-[32px] leading-[38px] tracking-[-0.64px]">{s.title}</p>
-                  <p className="text-[25px] leading-[36px]">{s.subtitle}</p>
-                </div>
+              <div className="relative h-[75px] w-[129px] md:h-[150px] md:w-[259px] shrink-0 rounded-[10px] overflow-hidden">
+                <Image
+                  src={s.img}
+                  alt={s.alt}
+                  fill
+                  className="object-cover transition-transform duration-500 ease-in-out group-hover/item:scale-[1.04]"
+                />
               </div>
-              <span className="btn-secondary pointer-events-none group-hover/item:border-2 text-[25px] font-medium text-[#f1f1f1] tracking-[0.25px] whitespace-nowrap">
+              <div className="flex flex-col gap-[5px] flex-1 min-w-0 text-[#1d1d1d] md:text-[#f1f1f1]">
+                <p className="text-[21px] leading-[25px] tracking-[-0.42px] md:text-[32px] md:leading-[38px] md:tracking-[-0.64px]">{s.title}</p>
+                <p className="text-[12px] leading-[13px] md:text-[25px] md:leading-[36px]">{s.subtitle}</p>
+              </div>
+              <span className="border border-[#b85a3c] rounded-[10px] p-[10px] text-[12px] shrink-0 pointer-events-none whitespace-nowrap md:text-[25px] md:font-medium md:text-[#f1f1f1] md:tracking-[0.25px]">
                 Découvrir
               </span>
             </Link>
