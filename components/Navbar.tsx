@@ -101,7 +101,7 @@ export default function Navbar() {
           </Link>
           <Link
             href="/contact"
-            className="btn-secondary bg-[#b85a3c] text-[16px] lg:text-[25px] font-medium tracking-[0.25px] text-black whitespace-nowrap"
+            className="btn-primary text-[16px] lg:text-[25px] font-medium tracking-[0.25px] whitespace-nowrap"
           >
             Devis gratuit
           </Link>

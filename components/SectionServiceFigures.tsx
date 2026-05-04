@@ -17,10 +17,10 @@ const etapes = [
 
 export default function SectionServiceFigures() {
   return (
-    <section className="flex flex-col gap-[35px] items-center px-[12px] py-[10px] mt-20 md:px-[40px]">
+    <section className="flex flex-col gap-[28px] items-center px-[12px] py-[10px] mt-20 md:px-[40px]">
       <div className="flex flex-col gap-[30px] items-start w-full md:flex-row md:gap-[50px]">
         {etapes.map((etape) => (
-          <div key={etape.numero} className="flex w-full flex-col gap-[5px] px-[5px] text-black md:flex-1">
+          <div key={etape.numero} className="flex w-full flex-col gap-[5px] text-black md:flex-1">
             <p className="font-black text-[47px] leading-[54px] tracking-[-1.88px] md:text-[70px] md:leading-[80px] md:tracking-[-0.04em]">
               {etape.numero}
             </p>
@@ -32,7 +32,7 @@ export default function SectionServiceFigures() {
       </div>
       <Link
         href="/about"
-        className="btn-secondary w-full text-center text-[25px] font-medium tracking-[0.01em] md:w-auto"
+        className="btn-secondary"
       >
         Découvrez notre philosophie
       </Link>

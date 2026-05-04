@@ -90,7 +90,7 @@ export default function SectionServiceRealisations({
 
       <Link
         href="/realisations"
-        className="btn-secondary w-full text-center text-[20px] font-medium tracking-[0.01em] md:w-auto md:text-[25px]"
+        className="btn-secondary"
       >
         voir toutes nos réalisations
       </Link>

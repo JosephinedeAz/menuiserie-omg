@@ -1,7 +1,7 @@
 export default function SectionServicePhilosophie() {
   return (
-    <section className="px-[60px] py-[10px]">
-      <div className="flex flex-col gap-[30px] px-[10px] text-black">
+    <section className="border border-[#b8976d] px-[12px] py-[10px]">
+      <div className="flex flex-col gap-[30px] py-[10px] text-black">
         <p className="font-medium text-[40px] leading-[48px] md:text-[60px] md:leading-[72px]">
           A la croisée entre le design d'espace et l'exécution
         </p>

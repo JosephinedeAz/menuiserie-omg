@@ -40,7 +40,7 @@ export default function MegaMenu({ isOpen = false, onClose = () => {} }: MegaMen
     >
       {/* Animated panel */}
       <div
-        className={`bg-[#645139] px-[40px] pb-[30px] pt-[10px] transition-transform duration-300 ${
+        className={`bg-primary-100 md:bg-secondary-500 px-[40px] pb-[30px] pt-[10px] transition-transform duration-300 ${
           isOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >
@@ -69,7 +69,7 @@ export default function MegaMenu({ isOpen = false, onClose = () => {} }: MegaMen
                   <p className="text-[25px] leading-[36px]">{s.subtitle}</p>
                 </div>
               </div>
-              <span className="btn-secondary group-hover/item:border-2 text-[25px] font-medium text-[#f1f1f1] tracking-[0.25px] whitespace-nowrap">
+              <span className="btn-secondary pointer-events-none group-hover/item:border-2 text-[25px] font-medium text-[#f1f1f1] tracking-[0.25px] whitespace-nowrap">
                 Découvrir
               </span>
             </Link>
