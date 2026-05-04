@@ -125,29 +125,27 @@ export default function NavMobile() {
                   </p>
                   <div className="flex flex-col gap-[30px] items-end w-full">
                     {services.map((s) => (
-                      <div
+                      <Link
                         key={s.title}
-                        className="flex items-center justify-between w-full"
+                        href={s.href}
+                        onClick={close}
+                        className="flex items-center justify-between w-full gap-[8px] hover:no-underline"
                       >
                         <div className="flex flex-1 gap-[8px] items-start min-w-0">
                           <div className="relative h-[75px] w-[129px] shrink-0 rounded-[10px] overflow-hidden">
                             <Image src={s.img} alt={s.alt} fill className="object-cover" />
                           </div>
                           <div className="flex flex-col gap-[5px] text-[#1d1d1d] min-w-0">
-                            <p className="text-[21px] leading-[25px] tracking-[-0.42px]">
-                              {s.title}
-                            </p>
+                            <p className="text-[21px] leading-[25px] tracking-[-0.42px]">{s.title}</p>
                             <p className="text-[12px] leading-[13px]">{s.subtitle}</p>
                           </div>
                         </div>
-                        <Link
-                          href={s.href}
-                          onClick={close}
-                          className="btn-secondary text-[12px] font-medium text-[#1d1d1d] whitespace-nowrap shrink-0"
-                        >
-                          Découvrir
-                        </Link>
-                      </div>
+                        <div className="shrink-0 border border-[#b85a3c] rounded-[10px] p-[10px]">
+                          <span className="text-[12px] font-normal text-[#1d1d1d] whitespace-nowrap">
+                            Découvrir
+                          </span>
+                        </div>
+                      </Link>
                     ))}
                   </div>
                 </div>
