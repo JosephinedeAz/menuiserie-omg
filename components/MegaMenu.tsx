@@ -40,11 +40,11 @@ export default function MegaMenu({ isOpen = false, onClose = () => {} }: MegaMen
     >
       {/* Animated panel */}
       <div
-        className={`bg-primary-100 md:bg-secondary-500 px-[40px] pb-[30px] pt-[10px] transition-transform duration-300 ${
+        className={`bg-primary-100 md:bg-secondary-500 px-[16px] md:px-[40px] pb-[30px] pt-[10px] transition-transform duration-300 ${
           isOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <p className="text-[#1d1d1d] md:text-[#f1f1f1] text-[17px] leading-[24px] md:text-[38px] md:leading-[44px] tracking-[0.38px] py-[10px] mb-[64px]">
+        <p className="text-[#1d1d1d] md:text-[#f1f1f1] text-[17px] leading-[24px] md:text-[38px] md:leading-[44px] tracking-[0.38px] py-[10px] mb-[24px] md:mb-[64px]">
           Découvrez tous nos services.
         </p>
         <div className="flex flex-col gap-[28px] md:gap-[30px]">
@@ -55,6 +55,7 @@ export default function MegaMenu({ isOpen = false, onClose = () => {} }: MegaMen
               onClick={onClose}
               className="group/item flex items-center justify-between w-full gap-[8px] md:gap-[80px] hover:no-underline"
             >
+              {/* Image */}
               <div className="relative h-[75px] w-[129px] md:h-[150px] md:w-[259px] shrink-0 rounded-[10px] overflow-hidden">
                 <Image
                   src={s.img}
@@ -63,13 +64,25 @@ export default function MegaMenu({ isOpen = false, onClose = () => {} }: MegaMen
                   className="object-cover transition-transform duration-500 ease-in-out group-hover/item:scale-[1.04]"
                 />
               </div>
+
+              {/* Texte */}
               <div className="flex flex-col gap-[5px] flex-1 min-w-0 text-[#1d1d1d] md:text-[#f1f1f1]">
-                <p className="text-[21px] leading-[25px] tracking-[-0.42px] md:text-[32px] md:leading-[38px] md:tracking-[-0.64px]">{s.title}</p>
-                <p className="text-[12px] leading-[13px] md:text-[25px] md:leading-[36px]">{s.subtitle}</p>
+                <p className="text-[21px] leading-[25px] tracking-[-0.42px] md:text-[32px] md:leading-[38px] md:tracking-[-0.64px]">
+                  {s.title}
+                </p>
+                <p className="text-[12px] leading-[13px] md:text-[25px] md:leading-[36px]">
+                  {s.subtitle}
+                </p>
               </div>
-              <span className="border border-[#b85a3c] rounded-[10px] p-[10px] text-[12px] shrink-0 pointer-events-none whitespace-nowrap md:text-[25px] md:font-medium md:text-[#f1f1f1] md:tracking-[0.25px]">
-                Découvrir
-              </span>
+
+              {/* Bouton Découvrir — styles directs, pas de classe btn-* */}
+              <div className="border border-[#b85a3c] rounded-[10px] p-[10px] shrink-0 flex items-center justify-center
+                              md:border-[#f1f1f1] md:p-[10px]">
+                <span className="text-[12px] leading-[13px] text-[#1d1d1d] whitespace-nowrap font-normal
+                                 md:text-[25px] md:leading-[normal] md:font-medium md:text-[#f1f1f1] md:tracking-[0.25px]">
+                  Découvrir
+                </span>
+              </div>
             </Link>
           ))}
         </div>
