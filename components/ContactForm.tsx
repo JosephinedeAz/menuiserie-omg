@@ -14,7 +14,8 @@ export default function ContactForm() {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
     setStatus('loading')
     const res = await fetch('/api/contact', {
       method: 'POST',
@@ -52,7 +53,7 @@ export default function ContactForm() {
         </div>
 
         {/* Formulaire desktop */}
-        <div className="flex flex-col gap-[32px] w-[672px]">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-[32px] w-[672px]">
           <div className="grid grid-cols-2 gap-[24px]">
             <div className="flex flex-col gap-[12px]">
               <label className={dl}>Prénom</label>
@@ -83,15 +84,16 @@ export default function ContactForm() {
             <label className={dl}>Message</label>
             <textarea name="message" value={form.message} onChange={handleChange} className="bg-[#fafaf9] border-2 border-[#e5e5e5] rounded-[10px] h-[180px] w-full px-[16px] py-[12px] text-[20px] outline-none focus:border-[#b85a3c] transition-colors resize-none" />
           </div>
-          <button onClick={handleSubmit} disabled={status === 'loading'} className="btn-primary w-full text-[30px] leading-[36px] py-[10px] disabled:opacity-60">
-            {status === 'loading' ? 'Envoi en cours...' : status === 'success' ? 'Message envoyé ✓' : 'Réaliser votre projet'}
+          <button type="submit" disabled={status === 'loading'} className="btn-primary w-full text-[30px] leading-[36px] py-[10px] disabled:opacity-60">
+            {status === 'loading' ? 'Envoi en cours...' : 'Réaliser votre projet'}
           </button>
-          {status === 'error' && <p className="text-red-600 text-[18px]">Une erreur est survenue, veuillez réessayer.</p>}
-        </div>
+          {status === 'success' && <p className="text-green-700 text-[18px]">Votre message a bien été envoyé, nous vous répondrons rapidement.</p>}
+          {status === 'error' && <p className="text-red-600 text-[18px]">Une erreur est survenue, veuillez réessayer ou nous contacter directement.</p>}
+        </form>
       </div>
 
       {/* ── Mobile ── */}
-      <div className="md:hidden flex flex-col gap-[20px] w-full">
+      <form onSubmit={handleSubmit} className="md:hidden flex flex-col gap-[20px] w-full">
         <div className="flex gap-[12px]">
           <div className="flex flex-col gap-[10px] flex-1">
             <label className={ml}>Prénom</label>
@@ -122,15 +124,16 @@ export default function ContactForm() {
           <label className={ml}>Message</label>
           <textarea name="message" value={form.message} onChange={handleChange} className="bg-[#fafaf9] border-[1.5px] border-[#e5e5e5] rounded-[10px] h-[130px] w-full px-[14px] py-[10px] text-[16px] outline-none focus:border-[#b85a3c] transition-colors resize-none" />
         </div>
-        <button onClick={handleSubmit} disabled={status === 'loading'} className="btn-primary w-full text-[18px] leading-[24px] py-[14px] disabled:opacity-60">
-          {status === 'loading' ? 'Envoi en cours...' : status === 'success' ? 'Message envoyé ✓' : 'Réaliser votre projet'}
+        <button type="submit" disabled={status === 'loading'} className="btn-primary w-full text-[18px] leading-[24px] py-[14px] disabled:opacity-60">
+          {status === 'loading' ? 'Envoi en cours...' : 'Réaliser votre projet'}
         </button>
-        {status === 'error' && <p className="text-red-600 text-[16px]">Une erreur est survenue, veuillez réessayer.</p>}
+        {status === 'success' && <p className="text-green-700 text-[16px]">Votre message a bien été envoyé, nous vous répondrons rapidement.</p>}
+        {status === 'error' && <p className="text-red-600 text-[16px]">Une erreur est survenue, veuillez réessayer ou nous contacter directement.</p>}
         <div className="flex flex-col gap-[6px] font-normal text-[16px] leading-[24px] text-[#333]">
           <p>téléphone: 06 71 23 48 58</p>
           <p>mail: romain.glemain@gmail.com</p>
         </div>
-      </div>
+      </form>
 
     </section>
   )
