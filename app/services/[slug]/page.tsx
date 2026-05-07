@@ -39,6 +39,7 @@ export default async function ServicePage({
     client.fetch(
       `*[_type == "projet" && categorie == $slug]{
         titre,
+        "sousTitre": descriptionCourte,
         description,
         images,
         slug
