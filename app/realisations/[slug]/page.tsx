@@ -6,7 +6,7 @@ import { client } from '@/lib/sanity'
 import Navbar from '@/components/Navbar'
 import SectionHeroRealisation from '@/components/SectionHeroRealisation'
 import SectionDescriptionRealisation from '@/components/SectionDescriptionRealisation'
-import SectionGalerieRealisation from '@/components/SectionGalerieRealisation'
+import SectionIllustrationRealisation from '@/components/SectionIllustrationRealisation'
 import SectionCTARealisation from '@/components/SectionCTARealisation'
 import SectionContact from '@/components/SectionContact'
 import Footer from '@/components/Footer'
@@ -54,7 +54,7 @@ export default async function RealisationPage({
         description={realisation.description}
         detailsTechniques={realisation.detailsTechniques}
       />
-      <SectionGalerieRealisation images={realisation.imagesGalerie ?? []} />
+      <SectionIllustrationRealisation images={realisation.imagesGalerie ?? []} />
       <SectionCTARealisation />
       <div className="mt-[50px] md:hidden"><SectionContact mobile /></div>
       <div className="mt-[50px] hidden md:block"><SectionContact /></div>
