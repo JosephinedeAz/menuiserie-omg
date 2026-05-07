@@ -7,7 +7,7 @@ interface Props {
   imageHero: SanityImageSource | null
 }
 
-export default function SectionRealisationsHero({ imageHero }: Props) {
+export default function SectionHeaderRealisations({ imageHero }: Props) {
   return (
     <section className="relative w-full h-[500px] md:h-[771px]">
       {imageHero ? (
@@ -47,7 +47,7 @@ export default function SectionRealisationsHero({ imageHero }: Props) {
             </p>
           </div>
 
-          <Link href="/#contact" className="btn-primary shrink-0 w-full md:w-auto">
+          <Link href="/contact" className="btn-primary shrink-0 w-full md:w-auto">
             Echangeons sur votre projet
           </Link>
         </div>

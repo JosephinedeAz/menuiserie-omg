@@ -110,7 +110,7 @@ export default function NavMobile() {
                   >
                     Services
                   </button>
-                  <Link href="/realisations/une-chambre-douce" onClick={close} className="text-[22px] text-black">
+                  <Link href="/realisations/" onClick={close} className="text-[22px] text-black">
                     Réalisations
                   </Link>
                   <Link href="/contact" onClick={close} className="text-[22px] text-black">

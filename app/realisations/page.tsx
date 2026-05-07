@@ -4,7 +4,7 @@ import { client } from '@/lib/sanity'
 import Navbar from '@/components/Navbar'
 import SectionContact from '@/components/SectionContact'
 import Footer from '@/components/Footer'
-import SectionRealisationsHero from '@/components/SectionRealisationsHero'
+import SectionHeaderRealisations from '@/components/SectionHeaderRealisations'
 import SectionRealisationsGalerie from '@/components/SectionRealisationsGalerie'
 
 export interface Projet {
@@ -44,7 +44,7 @@ export default async function RealisationsPage() {
   return (
     <main className="bg-[#f6e9dd]">
       <Navbar />
-      <div className="mb-[27px] md:mb-[40px]"><SectionRealisationsHero imageHero={pageRealisations?.imageHero ?? null} /></div>
+      <div className="mb-[27px] md:mb-[40px]"><SectionHeaderRealisations imageHero={pageRealisations?.imageHero ?? null} /></div>
       <div className="mb-[27px] md:mb-[40px]"><SectionRealisationsGalerie projetsParCategorie={projetsParCategorie} /></div>
       <div className="mt-[130px] mb-[40px] md:hidden md:mb-[60px]"><SectionContact mobile /></div>
       <div className="mt-[130px] mb-[40px] hidden md:block md:mb-[60px]"><SectionContact /></div>
