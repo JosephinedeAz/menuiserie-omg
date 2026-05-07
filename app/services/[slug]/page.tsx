@@ -66,7 +66,7 @@ export default async function ServicePage({
         image={service?.imageSecondaire}
         titre={service?.titre ?? ''}
       />
-      <SectionServicePhilosophie />
+      <div className="px-[30px]"><SectionServicePhilosophie /></div>
       <SectionServiceRealisations className="mt-20" projets={projets} />
       <SectionConfiance />
       <div className="mt-[130px] md:hidden"><SectionContact mobile /></div>

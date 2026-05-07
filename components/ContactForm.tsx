@@ -84,7 +84,7 @@ export default function ContactForm() {
             <label className={dl}>Message</label>
             <textarea name="message" value={form.message} onChange={handleChange} className="bg-[#fafaf9] border-2 border-[#e5e5e5] rounded-[10px] h-[180px] w-full px-[16px] py-[12px] text-[20px] outline-none focus:border-[#b85a3c] transition-colors resize-none" />
           </div>
-          <button type="submit" disabled={status === 'loading'} className="btn-primary w-full text-[30px] leading-[36px] py-[10px] disabled:opacity-60">
+          <button type="submit" disabled={status === 'loading' || status === 'success'} className="btn-primary w-full text-[30px] leading-[36px] py-[10px] disabled:opacity-60">
             {status === 'loading' ? 'Envoi en cours...' : 'Réaliser votre projet'}
           </button>
           {status === 'success' && <p className="text-green-700 text-[18px]">Votre message a bien été envoyé, nous vous répondrons rapidement.</p>}
@@ -124,7 +124,7 @@ export default function ContactForm() {
           <label className={ml}>Message</label>
           <textarea name="message" value={form.message} onChange={handleChange} className="bg-[#fafaf9] border-[1.5px] border-[#e5e5e5] rounded-[10px] h-[130px] w-full px-[14px] py-[10px] text-[16px] outline-none focus:border-[#b85a3c] transition-colors resize-none" />
         </div>
-        <button type="submit" disabled={status === 'loading'} className="btn-primary w-full text-[18px] leading-[24px] py-[14px] disabled:opacity-60">
+        <button type="submit" disabled={status === 'loading' || status === 'success'} className="btn-primary w-full text-[18px] leading-[24px] py-[14px] disabled:opacity-60">
           {status === 'loading' ? 'Envoi en cours...' : 'Réaliser votre projet'}
         </button>
         {status === 'success' && <p className="text-green-700 text-[16px]">Votre message a bien été envoyé, nous vous répondrons rapidement.</p>}

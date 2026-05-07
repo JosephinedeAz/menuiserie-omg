@@ -5,7 +5,7 @@ import Footer from '@/components/Footer'
 
 export default function ContactPage() {
   return (
-    <main className="bg-[#f6e9dd]">
+    <main className="bg-[#f6e9dd] [&_.btn-fab]:hidden">
       <Navbar />
       <div className="mb-[27px] md:mb-[40px]"><ContactHeader /></div>
       <div className="mb-[40px] md:mb-[60px]"><ContactForm /></div>

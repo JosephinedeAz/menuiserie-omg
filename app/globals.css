@@ -70,6 +70,10 @@
     @apply bg-[#b85a3c] text-[#f1f1f1] rounded-[10px] px-4 py-[8px] text-[16px] font-medium tracking-[0.2px] text-center transition-colors duration-200 w-full;
   }
   .btn-primary:hover { background-color: #eb7a59; }
+  .btn-primary:disabled {
+    background-color: #a5a5a5;
+    cursor: not-allowed;
+  }
 
   @media (min-width: 768px) {
     .btn-primary {
