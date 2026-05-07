@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useMenu } from "@/context/MenuContext";
 
 const services = [
   {
@@ -63,11 +64,11 @@ function Logo() {
 }
 
 export default function NavMobile() {
-  const [isOpen, setIsOpen] = useState(false);
+  const { isMenuOpen: isOpen, setIsMenuOpen } = useMenu();
   const [showServices, setShowServices] = useState(false);
 
   function close() {
-    setIsOpen(false);
+    setIsMenuOpen(false);
     setShowServices(false);
   }
 
@@ -76,7 +77,7 @@ export default function NavMobile() {
       {/* Top bar */}
       <div className="flex items-center justify-between px-[20px] py-3 w-full">
         <Logo />
-        <button onClick={() => setIsOpen(true)} aria-label="Ouvrir le menu">
+        <button onClick={() => setIsMenuOpen(true)} aria-label="Ouvrir le menu">
           <BurgerIcon />
         </button>
       </div>

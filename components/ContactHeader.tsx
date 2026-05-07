@@ -2,7 +2,7 @@ export default function ContactHeader() {
   return (
     <>
       {/* Mobile */}
-      <section className="md:hidden bg-[#b85a3c] mx-[16px] px-[12px] py-[10px] pb-[70px] rounded-b-[30px] flex flex-col gap-[10px]">
+      <section className="md:hidden bg-[#b85a3c] px-[12px] py-[10px] pb-[70px] rounded-b-[30px] flex flex-col gap-[10px]">
         <div className="px-[10px] py-[10px]">
           <p className="font-black text-[40px] leading-[48px] tracking-[-1.6px] text-[#2c332c]">
             Donnez vie à votre projet.
