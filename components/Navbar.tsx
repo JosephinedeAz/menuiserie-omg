@@ -75,7 +75,7 @@ export default function Navbar() {
               <span className={`absolute -bottom-[3px] left-0 h-[1.5px] bg-[#b85a3c] transition-all duration-300 ease-in-out ${pathname?.startsWith('/services') ? 'w-full' : 'w-0 group-hover:w-full'}`} />
             </button>
             <Link
-              href="/realisations/une-chambre-douce"
+              href="/realisations/"
               className="relative group text-[15px] lg:text-[22px] text-black text-center whitespace-nowrap"
             >
               Réalisations

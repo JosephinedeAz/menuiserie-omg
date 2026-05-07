@@ -77,7 +77,7 @@
 
   @media (min-width: 768px) {
     .btn-primary {
-      @apply rounded-[18px] px-5 py-[10px] text-[20px] w-auto;
+      @apply rounded-[10px] px-5 py-[10px] text-[20px] w-auto;
     }
   }
 
@@ -88,7 +88,7 @@
 
   @media (min-width: 768px) {
     .btn-secondary {
-      @apply text-[20px] w-auto;
+      @apply text-[20px] w-auto rounded-[10px];
     }
   }
 

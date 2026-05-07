@@ -8,7 +8,11 @@ export default function ContactForm() {
     prenom: '', nom: '', email: '', telephone: '',
     adresse: '', budget: '', message: '',
   })
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>(() => {
+    if (typeof window !== 'undefined' && localStorage.getItem('contact_sent') === 'true') return 'success'
+    return 'idle'
+  })
+  const [validationError, setValidationError] = useState<string | null>(null)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value })
@@ -16,6 +20,13 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    const required = ['prenom', 'nom', 'email', 'telephone', 'message'] as const
+    const missing = required.some(f => !form[f].trim())
+    if (missing) {
+      setValidationError('Merci de remplir tous les champs obligatoires.')
+      return
+    }
+    setValidationError(null)
     setStatus('loading')
     const res = await fetch('/api/contact', {
       method: 'POST',
@@ -27,7 +38,13 @@ export default function ContactForm() {
         message: `Adresse: ${form.adresse}\nBudget: ${form.budget}\n\n${form.message}`,
       }),
     })
-    setStatus(res.ok ? 'success' : 'error')
+    if (res.ok) {
+      setStatus('success')
+      localStorage.setItem('contact_sent', 'true')
+      setForm({ prenom: '', nom: '', email: '', telephone: '', adresse: '', budget: '', message: '' })
+    } else {
+      setStatus('error')
+    }
   }
 
   const di = "bg-[#fafaf9] border-2 border-[#e5e5e5] rounded-[10px] h-[60px] w-full px-[16px] text-[20px] outline-none focus:border-[#b85a3c] transition-colors" // desktop input
@@ -84,6 +101,7 @@ export default function ContactForm() {
             <label className={dl}>Message</label>
             <textarea name="message" value={form.message} onChange={handleChange} className="bg-[#fafaf9] border-2 border-[#e5e5e5] rounded-[10px] h-[180px] w-full px-[16px] py-[12px] text-[20px] outline-none focus:border-[#b85a3c] transition-colors resize-none" />
           </div>
+          {validationError && <p className="text-red-600 text-[18px]">{validationError}</p>}
           <button type="submit" disabled={status === 'loading' || status === 'success'} className="btn-primary w-full text-[30px] leading-[36px] py-[10px] disabled:opacity-60">
             {status === 'loading' ? 'Envoi en cours...' : 'Réaliser votre projet'}
           </button>
@@ -124,6 +142,7 @@ export default function ContactForm() {
           <label className={ml}>Message</label>
           <textarea name="message" value={form.message} onChange={handleChange} className="bg-[#fafaf9] border-[1.5px] border-[#e5e5e5] rounded-[10px] h-[130px] w-full px-[14px] py-[10px] text-[16px] outline-none focus:border-[#b85a3c] transition-colors resize-none" />
         </div>
+        {validationError && <p className="text-red-600 text-[18px]">{validationError}</p>}
         <button type="submit" disabled={status === 'loading' || status === 'success'} className="btn-primary w-full text-[18px] leading-[24px] py-[14px] disabled:opacity-60">
           {status === 'loading' ? 'Envoi en cours...' : 'Réaliser votre projet'}
         </button>
