@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Work_Sans } from "next/font/google";
 import "./globals.css";
-import FabContact from "@/components/FabContact";
+import FabWrapper from "@/components/FabWrapper";
 
 const workSans = Work_Sans({
   subsets: ["latin"],
@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en" className={`${workSans.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         {children}
-        <FabContact />
+        <FabWrapper />
       </body>
     </html>
   );
