@@ -277,14 +277,16 @@ export default function Home() {
   return (
     <main className="bg-[#f6e9dd]">
       <Navbar />
-      <div className="mb-[27px] md:mb-[40px]"><Hero /></div>
-      <div className="mb-[57px] md:mb-[85px]"><SectionRealisation /></div>
-      <div className="mb-[40px] md:mb-[60px]"><SectionServices /></div>
-      <div className="mb-[27px] md:mb-[40px]"><SectionConfiance /></div>
-      <div className="mt-[130px] mb-[40px] md:hidden md:mb-[60px]"><SectionContact mobile /></div>
-      <div className="mt-[130px] mb-[40px] hidden md:block md:mb-[60px]"><SectionContact /></div>
-      <div className="mt-[130px] md:hidden"><Footer mobile /></div>
-      <div className="mt-[130px] hidden md:block"><Footer /></div>
+      <Hero />
+      <div className="mt-[50px]"><SectionRealisation /></div>
+      <div className="mt-[50px]"><SectionServices /></div>
+      <div className="mt-[50px]"><SectionConfiance /></div>
+      <div className="mt-[130px]">
+        <SectionContact mobile className="md:hidden" />
+        <SectionContact className="hidden md:block" />
+      </div>
+      <Footer mobile className="md:hidden" />
+      <Footer className="hidden md:block" />
     </main>
   );
 }

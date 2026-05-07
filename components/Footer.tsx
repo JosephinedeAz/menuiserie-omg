@@ -3,6 +3,7 @@ import Link from "next/link";
 
 interface FooterProps {
   mobile?: boolean;
+  className?: string;
 }
 
 const columns = [
@@ -28,11 +29,11 @@ const columns = [
   },
 ];
 
-export default function Footer({ mobile }: FooterProps) {
+export default function Footer({ mobile, className }: FooterProps) {
   if (mobile) {
     return (
       <footer
-        className="relative overflow-hidden"
+        className={`relative overflow-hidden${className ? ` ${className}` : ''}`}
         style={{ backgroundColor: "var(--primary-500)" }}
       >
         <div className="flex flex-col gap-[32px] px-[24px] py-[32px]">
@@ -89,7 +90,7 @@ export default function Footer({ mobile }: FooterProps) {
 
   return (
     <footer
-      className="relative flex items-stretch overflow-hidden"
+      className={`relative flex items-stretch overflow-hidden${className ? ` ${className}` : ''}`}
       style={{ backgroundColor: "var(--primary-500)" }}
     >
       {/* Main content */}
