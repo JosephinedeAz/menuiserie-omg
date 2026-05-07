@@ -56,8 +56,10 @@ export default async function RealisationPage({
       />
       <SectionGalerieRealisation images={realisation.imagesGalerie ?? []} />
       <SectionCTARealisation />
-      <SectionContact />
-      <Footer />
+      <div className="mt-[50px] md:hidden"><SectionContact mobile /></div>
+      <div className="mt-[50px] hidden md:block"><SectionContact /></div>
+      <div className="mt-[50px] md:hidden"><Footer mobile /></div>
+      <div className="mt-[50px] hidden md:block"><Footer /></div>
     </main>
   )
 }
