@@ -89,7 +89,7 @@ export default function SectionRealisationsGalerie({ projetsParCategorie }: Prop
                 : null
 
               return (
-                <div key={projet.slug.current} className="flex flex-col w-full overflow-hidden">
+                <Link key={projet.slug.current} href={`/realisations/${projet.slug.current}`} className="flex flex-col w-full overflow-hidden">
                   <div className="relative h-[254px] w-full">
                     {imageSrc ? (
                       <Image
@@ -117,15 +117,14 @@ export default function SectionRealisationsGalerie({ projetsParCategorie }: Prop
                         {projet.descriptionCourte}
                       </p>
                     </div>
-                    <Link
-                      href={`/realisations/${projet.slug.current}`}
+                    <span
                       className="border border-[#6a786a] rounded-[10px] px-[8px] py-[4px] text-[12px] leading-[13px] tracking-[0.12px] text-[#1d1d1d] font-medium shrink-0"
                       style={{ fontFamily: 'Work Sans' }}
                     >
                       Voir le projet
-                    </Link>
+                    </span>
                   </div>
-                </div>
+                </Link>
               )
             })}
           </div>
@@ -138,8 +137,9 @@ export default function SectionRealisationsGalerie({ projetsParCategorie }: Prop
                 : null
 
               return (
-                <div
+                <Link
                   key={projet.slug.current}
+                  href={`/realisations/${projet.slug.current}`}
                   className="group relative flex-1 h-[447px] overflow-hidden"
                 >
                   {imageSrc ? (
@@ -162,14 +162,11 @@ export default function SectionRealisationsGalerie({ projetsParCategorie }: Prop
                         {projet.descriptionCourte}
                       </p>
                     </div>
-                    <Link
-                      href={`/realisations/${projet.slug.current}`}
-                      className="btn-tertiary text-[#f1f1f1] border-[#6a786a]"
-                    >
+                    <span className="btn-tertiary text-[#f1f1f1] border-[#6a786a]">
                       Voir le projet
-                    </Link>
+                    </span>
                   </div>
-                </div>
+                </Link>
               )
             })}
           </div>
