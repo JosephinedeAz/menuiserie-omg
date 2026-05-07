@@ -41,7 +41,7 @@ export default function CardRealisation({
             {description}
           </p>
         </div>
-        <Link href={`/realisations/${slug}`} className="btn-tertiary text-[20px] font-medium text-black tracking-[0.2px]">
+        <Link href={`/realisations/${slug}`} className="btn-tertiary text-[20px] font-medium text-black tracking-[0.2px] text-center">
           Voir le projet
         </Link>
       </div>

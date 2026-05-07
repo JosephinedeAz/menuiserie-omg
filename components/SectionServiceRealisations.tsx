@@ -92,7 +92,7 @@ export default function SectionServiceRealisations({
         href="/realisations"
         className="btn-secondary"
       >
-        voir toutes nos réalisations
+        Voir toutes nos réalisations
       </Link>
     </section>
   )
