@@ -84,7 +84,7 @@ export default function AboutPage() {
       <div className="mb-[27px] md:mb-[40px]">
       {/* Mobile header + image — wrapper relatif pour le chevauchement */}
       <div className="md:hidden relative">
-        <section className="bg-[#8c9e8c] mx-[16px] px-[12px] py-[10px] pb-[160px] flex flex-col gap-[10px] rounded-b-[30px]">
+        <section className="bg-[#8c9e8c] px-[12px] py-[10px] pb-[160px] flex flex-col gap-[10px] rounded-b-[30px]">
           <div className="px-[10px] py-[10px]">
             <p className="font-black text-[40px] leading-[48px] tracking-[-1.6px] text-[#833e28]">
               &ldquo;Créer, transformer, révéler le potentiel d&apos;un espace&rdquo;
