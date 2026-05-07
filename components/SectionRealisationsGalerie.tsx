@@ -102,7 +102,7 @@ export default function SectionRealisationsGalerie({ projetsParCategorie }: Prop
                       <div className="absolute inset-0 bg-[#d6c4ad]" />
                     )}
                   </div>
-                  <div className="bg-[#f6e9dd] flex items-end justify-end gap-[8px] pb-[12px] pl-[4px] pr-[8px] pt-[4px]">
+                  <div className="bg-[#e5bc89] flex items-end justify-end gap-[8px] pb-[12px] pl-[4px] pr-[8px] pt-[4px]">
                     <div className="flex-1 flex flex-col">
                       <p
                         className="text-[12px] leading-[13px] text-center text-[#1d1d1d] font-bold"
