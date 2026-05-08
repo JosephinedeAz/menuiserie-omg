@@ -9,8 +9,7 @@ export default function ContactPage() {
       <Navbar />
       <div className="mb-[27px] md:mb-[40px]"><ContactHeader /></div>
       <div className="mb-[40px] md:mb-[60px]"><ContactForm /></div>
-      <div className="mt-[130px] md:hidden"><Footer mobile /></div>
-      <div className="mt-[130px] hidden md:block"><Footer /></div>
+      <div className="mt-[130px]"><Footer /></div>
     </main>
   )
 }

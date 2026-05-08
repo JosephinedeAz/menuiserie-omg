@@ -77,10 +77,8 @@ export default async function ServicePage({
       <div className="px-[30px]"><SectionServicePhilosophie /></div>
       <SectionServiceRealisations className="mt-20" projets={projets} />
       <SectionConfiance testimonials={testimonials} />
-      <div className="mt-[130px] md:hidden"><SectionContact mobile /></div>
-      <div className="mt-[130px] hidden md:block"><SectionContact /></div>
-      <div className="mt-[130px] md:hidden"><Footer mobile /></div>
-      <div className="mt-[130px] hidden md:block"><Footer /></div>
+      <div className="mt-[130px]"><SectionContact /></div>
+      <div className="mt-[130px]"><Footer /></div>
     </main>
   )
 }

@@ -293,10 +293,8 @@ export default async function Home() {
       <div className="mt-[50px]"><SectionRealisation /></div>
       <div className="mt-[50px]"><SectionServices /></div>
       <div className="mt-[50px]"><SectionConfiance testimonials={testimonials} /></div>
-      <div className="mt-[130px] md:hidden"><SectionContact mobile /></div>
-      <div className="mt-[130px] hidden md:block"><SectionContact /></div>
-      <div className="mt-[130px] md:hidden"><Footer mobile /></div>
-      <div className="mt-[130px] hidden md:block"><Footer /></div>
+      <div className="mt-[130px]"><SectionContact /></div>
+      <div className="mt-[130px]"><Footer /></div>
     </main>
   );
 }

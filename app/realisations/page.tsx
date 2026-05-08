@@ -46,10 +46,8 @@ export default async function RealisationsPage() {
       <Navbar />
       <div className="mb-[27px] md:mb-[40px]"><SectionHeaderRealisations imageHero={pageRealisations?.imageHero ?? null} /></div>
       <div className="mb-[27px] px-[30px] md:px-0 md:mb-[40px]"><SectionRealisationsGalerie realisationsParCategorie={realisationsParCategorie} /></div>
-      <div className="mt-[130px] md:hidden"><SectionContact mobile /></div>
-      <div className="mt-[130px] hidden md:block"><SectionContact /></div>
-      <div className="mt-[130px] md:hidden"><Footer mobile /></div>
-      <div className="mt-[130px] hidden md:block"><Footer /></div>
+      <div className="mt-[130px]"><SectionContact /></div>
+      <div className="mt-[130px]"><Footer /></div>
     </main>
   )
 }
