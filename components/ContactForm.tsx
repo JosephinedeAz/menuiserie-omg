@@ -8,10 +8,7 @@ export default function ContactForm() {
     prenom: '', nom: '', email: '', telephone: '',
     adresse: '', budget: '', message: '',
   })
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>(() => {
-    if (typeof window !== 'undefined' && localStorage.getItem('contact_sent') === 'true') return 'success'
-    return 'idle'
-  })
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [validationError, setValidationError] = useState<string | null>(null)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -40,7 +37,6 @@ export default function ContactForm() {
     })
     if (res.ok) {
       setStatus('success')
-      localStorage.setItem('contact_sent', 'true')
       setForm({ prenom: '', nom: '', email: '', telephone: '', adresse: '', budget: '', message: '' })
     } else {
       setStatus('error')
