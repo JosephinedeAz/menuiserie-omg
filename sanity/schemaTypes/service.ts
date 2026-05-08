@@ -34,12 +34,33 @@ export const serviceType = defineType({
       name: 'imageHero',
       title: 'Image hero',
       type: 'image',
+      options: { hotspot: true },
+      fields: [
+        defineField({
+          name: 'alt',
+          title: 'Texte alternatif',
+          type: 'string',
+        }),
+      ],
     }),
     defineField({
       name: 'imageSecondaire',
       title: 'Image secondaire (section milieu de page)',
       type: 'image',
       options: { hotspot: true },
+      fields: [
+        defineField({
+          name: 'alt',
+          title: 'Texte alternatif',
+          type: 'string',
+        }),
+      ],
+    }),
+    defineField({
+      name: 'ordre',
+      title: "Ordre d'affichage",
+      type: 'number',
+      description: "Nombre entier — le plus petit s'affiche en premier",
     }),
   ],
 })
