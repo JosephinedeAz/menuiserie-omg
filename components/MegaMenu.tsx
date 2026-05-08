@@ -24,7 +24,7 @@ const services = [
   {
     img: "/images/service-mobilier-lampe.png",
     alt: "Mobilier et lampe",
-    title: "Agencement",
+    title: "Ameublement",
     subtitle: "rangement & mobilier",
     href: "/services/ameublement",
   },

@@ -4,32 +4,16 @@ import Navbar from '@/components/Navbar'
 import CardService from '@/components/CardService'
 import SectionContact from '@/components/SectionContact'
 import Footer from '@/components/Footer'
+import { client } from '@/lib/sanity'
 
-const services = [
-  {
-    img: '/images/service-menuiserie-interieure.png',
-    alt: 'Parquet intérieur',
-    title: 'Menuiserie intérieure',
-    subtitle: 'parquet, cuisines, agencement',
-    href: '/services/menuiserie-interieure',
-  },
-  {
-    img: '/images/service-menuiserie-exterieure.png',
-    alt: 'Terrasse extérieure',
-    title: 'Menuiserie extérieure',
-    subtitle: 'terrasse, palissade, aménagements durables',
-    href: '/services/menuiserie-exterieure',
-  },
-  {
-    img: '/images/service-mobilier-lampe.png',
-    alt: 'Mobilier et lampe',
-    title: 'Ameublement',
-    subtitle: 'rangement & mobilier',
-    href: '/services/ameublement',
-  },
-]
+interface Service {
+  titre: string
+  sousTitre: string
+  imageHero: { asset: { url: string }; alt?: string }
+  slug: { current: string }
+}
 
-function SectionAboutServices() {
+function SectionAboutServices({ services }: { services: Service[] }) {
   return (
     <section className="mt-[60px]">
 
@@ -39,8 +23,13 @@ function SectionAboutServices() {
           Découvrez nos services
         </p>
         {services.map((s) => (
-          <Link key={s.href} href={s.href}>
-            <CardService img={s.img} alt={s.alt} title={s.title} subtitle={s.subtitle} />
+          <Link key={s.slug.current} href={`/services/${s.slug.current}`}>
+            <CardService
+              img={s.imageHero?.asset?.url}
+              alt={s.imageHero?.alt ?? s.titre}
+              title={s.titre}
+              subtitle={s.sousTitre}
+            />
           </Link>
         ))}
       </div>
@@ -60,11 +49,11 @@ function SectionAboutServices() {
           <div className="flex rounded-[10px] overflow-hidden">
             {services.map((s) => (
               <CardService
-                key={s.href}
-                img={s.img}
-                alt={s.alt}
-                title={s.title}
-                subtitle={s.subtitle}
+                key={s.slug.current}
+                img={s.imageHero?.asset?.url}
+                alt={s.imageHero?.alt ?? s.titre}
+                title={s.titre}
+                subtitle={s.sousTitre}
               />
             ))}
           </div>
@@ -75,7 +64,13 @@ function SectionAboutServices() {
   )
 }
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const services = await client.fetch<Service[]>(
+    `*[_type == "service"] | order(ordre asc){
+      titre, sousTitre, slug, "imageHero": imageHero{ alt, "asset": asset->{ url } }
+    }`
+  )
+
   return (
     <main className="bg-[#f6e9dd]">
       <Navbar />
@@ -161,7 +156,7 @@ export default function AboutPage() {
       <div className="hidden md:block h-[200px]" />
       </div>
 
-      <div className="mb-[27px] md:mb-[40px]"><SectionAboutServices /></div>
+      <div className="mb-[27px] md:mb-[40px]"><SectionAboutServices services={services} /></div>
 
       {/* ── Manifeste ───────────────────────────────────────────────── */}
       <section className="mb-[27px] md:mb-[40px] mt-[40px] pl-[10px] pr-[20px] md:px-[40px] py-[10px] flex flex-col items-start">

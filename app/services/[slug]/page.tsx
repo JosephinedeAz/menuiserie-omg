@@ -19,10 +19,11 @@ interface Testimonial {
   contenu: string
 }
 
-const SLUGS = ['menuiserie-exterieure', 'menuiserie-interieure', 'ameublement'] as const
-
-export function generateStaticParams() {
-  return SLUGS.map((slug) => ({ slug }))
+export async function generateStaticParams() {
+  const slugs = await client.fetch<string[]>(
+    `*[_type == "service" && defined(slug.current)].slug.current`
+  )
+  return slugs.map((slug) => ({ slug }))
 }
 
 export default async function ServicePage({

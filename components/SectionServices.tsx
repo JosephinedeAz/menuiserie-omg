@@ -1,30 +1,17 @@
 import CardService from "@/components/CardService";
 
-const services = [
-  {
-    img: "/images/service-menuiserie-interieure.png",
-    alt: "Parquet intérieur",
-    title: "Menuiserie intérieure",
-    subtitle: "parquet, cuisines, agencement",
-    slug: "menuiserie-interieure",
-  },
-  {
-    img: "/images/service-menuiserie-exterieure.png",
-    alt: "Terrasse extérieure",
-    title: "Menuiserie extérieure",
-    subtitle: "terrasse, palissade, aménagements durables",
-    slug: "menuiserie-exterieure",
-  },
-  {
-    img: "/images/service-mobilier-lampe.png",
-    alt: "Mobilier et lampe",
-    title: "Ameublement",
-    subtitle: "rangement & mobilier",
-    slug: "ameublement",
-  },
-];
+interface Service {
+  titre: string
+  sousTitre: string
+  imageHero: { asset: { url: string }; alt?: string }
+  slug: { current: string }
+}
 
-export default function SectionServices() {
+interface SectionServicesProps {
+  services: Service[]
+}
+
+export default function SectionServices({ services }: SectionServicesProps) {
   return (
     <section id="services" className="mt-[60px] px-[10px] py-[20px] md:mx-[40px] md:px-[60px]">
       <div className="hidden md:flex flex-col gap-[10px] mb-[30px]">
@@ -40,12 +27,12 @@ export default function SectionServices() {
       <div className="flex flex-col gap-[10px] md:flex-row md:rounded-[10px] md:overflow-hidden md:gap-0">
         {services.map((s) => (
           <CardService
-            key={s.title}
-            img={s.img}
-            alt={s.alt}
-            title={s.title}
-            subtitle={s.subtitle}
-            slug={s.slug}
+            key={s.slug.current}
+            img={s.imageHero?.asset?.url}
+            alt={s.imageHero?.alt ?? s.titre}
+            title={s.titre}
+            subtitle={s.sousTitre}
+            slug={s.slug.current}
           />
         ))}
       </div>
