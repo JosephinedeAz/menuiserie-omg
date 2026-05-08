@@ -281,12 +281,10 @@ export default function Home() {
       <div className="mt-[50px]"><SectionRealisation /></div>
       <div className="mt-[50px]"><SectionServices /></div>
       <div className="mt-[50px]"><SectionConfiance /></div>
-      <div className="mt-[130px]">
-        <SectionContact mobile className="md:hidden" />
-        <SectionContact className="hidden md:block" />
-      </div>
-      <Footer mobile className="md:hidden" />
-      <Footer className="hidden md:block" />
+      <div className="mt-[130px] md:hidden"><SectionContact mobile /></div>
+      <div className="mt-[130px] hidden md:block"><SectionContact /></div>
+      <div className="mt-[130px] md:hidden"><Footer mobile /></div>
+      <div className="mt-[130px] hidden md:block"><Footer /></div>
     </main>
   );
 }
