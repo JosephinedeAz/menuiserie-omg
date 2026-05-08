@@ -1,12 +1,20 @@
 import TestimonialCarousel from '@/components/TestimonialCarousel'
 
-const figmaGoogleIcon = 
-'/images/Icon-google.svg'
-  
-const figmaGoogleStar =
-  '/images/Icon-link.svg'
+const figmaGoogleIcon = '/images/Icon-google.svg'
+const figmaGoogleStar = '/images/Icon-link.svg'
 
-export default function SectionConfiance() {
+interface Testimonial {
+  auteur: string
+  date: string
+  lieu: string
+  contenu: string
+}
+
+interface Props {
+  testimonials: Testimonial[]
+}
+
+export default function SectionConfiance({ testimonials }: Props) {
   return (
     <section id="confiance" className="mt-[80px]">
 
@@ -50,7 +58,7 @@ export default function SectionConfiance() {
         </a>
 
         {/* Verbatim mobile */}
-        <TestimonialCarousel testimonials={[]} />
+        <TestimonialCarousel testimonials={testimonials} />
       </div>
 
       {/* ── Confiance desktop ───────────────────────────────────────── */}
@@ -90,7 +98,7 @@ export default function SectionConfiance() {
 
         {/* Testimonial */}
         <div className="flex flex-col gap-[40px]">
-          <TestimonialCarousel testimonials={[]} />
+          <TestimonialCarousel testimonials={testimonials} />
 
           {/* Google badge */}
           <div className="py-[30px]">

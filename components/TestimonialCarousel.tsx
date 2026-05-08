@@ -9,31 +9,19 @@ interface Testimonial {
   contenu: string;
 }
 
-const MOCK_TESTIMONIALS: Testimonial[] = [
-  {
-    auteur: "Laurent",
-    date: "mars 2025",
-    lieu: "Nantes",
-    contenu: "Très satisfait de ma nouvelle terrasse, excellent devis et délais de chantier plus court que prévu, je recommande vivement",
-  },
-  {
-    auteur: "Marie",
-    date: "février 2025",
-    lieu: "Saint-Nazaire",
-    contenu: "Travail soigné et équipe très professionnelle. Notre cuisine a été entièrement rénovée dans les délais prévus. Parfait.",
-  },
-];
-
 interface TestimonialCarouselProps {
-  testimonials?: Testimonial[];
+  testimonials: Testimonial[];
 }
 
-export default function TestimonialCarousel({ testimonials = [] }: TestimonialCarouselProps) {
+export default function TestimonialCarousel({ testimonials }: TestimonialCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const slideRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  const data = testimonials.length > 0 ? testimonials : MOCK_TESTIMONIALS;
+  const data = testimonials;
+
+  if (data.length === 0) return null;
+
   const current = data[activeIndex];
 
   useEffect(() => {
