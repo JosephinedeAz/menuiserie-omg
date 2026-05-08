@@ -5,24 +5,24 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { urlFor } from '@/lib/sanity'
 
-interface Projet {
+interface Realisation {
   titre: string
   descriptionCourte: string
-  images: any[]
+  imageHero: any
   slug: { current: string }
   categorie: string
 }
 
 type Categorie = 'menuiserie-interieure' | 'menuiserie-exterieure' | 'ameublement'
 
-type ProjetsParCategorie = {
-  'menuiserie-interieure': Projet[]
-  'menuiserie-exterieure': Projet[]
-  'ameublement': Projet[]
+type RealisationsParCategorie = {
+  'menuiserie-interieure': Realisation[]
+  'menuiserie-exterieure': Realisation[]
+  'ameublement': Realisation[]
 }
 
 interface Props {
-  projetsParCategorie: ProjetsParCategorie
+  realisationsParCategorie: RealisationsParCategorie
 }
 
 const onglets: { id: Categorie; label: string }[] = [
@@ -31,9 +31,9 @@ const onglets: { id: Categorie; label: string }[] = [
   { id: 'ameublement', label: 'Ameublement' },
 ]
 
-export default function SectionRealisationsGalerie({ projetsParCategorie }: Props) {
+export default function SectionRealisationsGalerie({ realisationsParCategorie }: Props) {
   const [actif, setActif] = useState<Categorie>('menuiserie-interieure')
-  const projets = projetsParCategorie[actif]
+  const realisations = realisationsParCategorie[actif]
 
   return (
     <section className="flex flex-col gap-[40px] bg-[#f6e9dd] border-2 border-[#e5bc89] rounded-[30px] px-[12px] pt-[12px] pb-[16px] md:bg-transparent md:border-0 md:rounded-none md:pt-[40px] md:pb-[40px] md:px-[60px]">
@@ -77,24 +77,22 @@ export default function SectionRealisationsGalerie({ projetsParCategorie }: Prop
       </div>
 
       {/* Grille */}
-      {projets.length === 0 ? (
+      {realisations.length === 0 ? (
         <p className="text-black text-[20px]">Aucun projet dans cette catégorie.</p>
       ) : (
         <>
           {/* Mobile : cartes empilées */}
           <div className="md:hidden flex flex-col gap-[12px] max-w-[300px] w-full mx-auto">
-            {projets.map((projet) => {
-              const imageSrc = projet.images?.[0]
-                ? urlFor(projet.images[0]).url()
-                : null
+            {realisations.map((realisation) => {
+              const imageSrc = realisation.imageHero ? urlFor(realisation.imageHero).url() : null
 
               return (
-                <Link key={projet.slug.current} href={`/realisations/${projet.slug.current}`} className="flex flex-col w-full overflow-hidden">
+                <Link key={realisation.slug.current} href={`/realisations/${realisation.slug.current}`} className="flex flex-col w-full overflow-hidden">
                   <div className="relative h-[254px] w-full">
                     {imageSrc ? (
                       <Image
                         src={imageSrc}
-                        alt={projet.titre}
+                        alt={realisation.titre}
                         fill
                         className="object-cover w-full h-full"
                       />
@@ -108,13 +106,13 @@ export default function SectionRealisationsGalerie({ projetsParCategorie }: Prop
                         className="text-[12px] leading-[13px] text-center text-[#1d1d1d] font-bold"
                         style={{ fontFamily: 'Work Sans' }}
                       >
-                        {projet.titre}
+                        {realisation.titre}
                       </p>
                       <p
                         className="text-[12px] leading-[13px] text-center text-[#1d1d1d] font-normal"
                         style={{ fontFamily: 'Work Sans' }}
                       >
-                        {projet.descriptionCourte}
+                        {realisation.descriptionCourte}
                       </p>
                     </div>
                     <span
@@ -131,21 +129,19 @@ export default function SectionRealisationsGalerie({ projetsParCategorie }: Prop
 
           {/* Desktop : grille avec overlay hover */}
           <div className="hidden md:flex gap-[30px]">
-            {projets.map((projet) => {
-              const imageSrc = projet.images?.[0]
-                ? urlFor(projet.images[0]).url()
-                : null
+            {realisations.map((realisation) => {
+              const imageSrc = realisation.imageHero ? urlFor(realisation.imageHero).url() : null
 
               return (
                 <Link
-                  key={projet.slug.current}
-                  href={`/realisations/${projet.slug.current}`}
+                  key={realisation.slug.current}
+                  href={`/realisations/${realisation.slug.current}`}
                   className="group relative flex-1 h-[447px] overflow-hidden"
                 >
                   {imageSrc ? (
                     <Image
                       src={imageSrc}
-                      alt={projet.titre}
+                      alt={realisation.titre}
                       fill
                       className="object-cover w-full h-full"
                     />
@@ -156,10 +152,10 @@ export default function SectionRealisationsGalerie({ projetsParCategorie }: Prop
                   <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-[20px] px-[20px] text-center">
                     <div className="flex flex-col gap-[10px]">
                       <p className="text-[32px] leading-[38px] tracking-[-0.64px] text-[#f1f1f1]">
-                        {projet.titre}
+                        {realisation.titre}
                       </p>
                       <p className="text-[25px] leading-[36px] text-[#f1f1f1]">
-                        {projet.descriptionCourte}
+                        {realisation.descriptionCourte}
                       </p>
                     </div>
                     <span className="btn-tertiary text-[#f1f1f1] border-[#6a786a]">
