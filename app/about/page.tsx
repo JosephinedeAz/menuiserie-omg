@@ -40,7 +40,7 @@ function SectionAboutServices() {
         </p>
         {services.map((s) => (
           <Link key={s.href} href={s.href}>
-            <CardService img={s.img} alt={s.alt} title={s.title} subtitle={s.subtitle} mobile />
+            <CardService img={s.img} alt={s.alt} title={s.title} subtitle={s.subtitle} />
           </Link>
         ))}
       </div>
