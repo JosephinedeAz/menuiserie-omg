@@ -46,13 +46,15 @@ export default function RootLayout({
               "name": "Ouest Menuiserie Générale",
               "description": "Artisan menuisier à Nantes et alentours. Fenêtres, portes, volets, parquet et agencement sur mesure.",
               "url": "https://www.ouestmenuiseriegenerale.fr",
-              "telephone": "",
+              "telephone": "+33 6 71 23 48 58",
               "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Nantes",
-                "addressRegion": "Pays de la Loire",
-                "addressCountry": "FR"
-              },
+  "@type": "PostalAddress",
+  "streetAddress": "165 Rte de Rennes",
+  "addressLocality": "Nantes",
+  "postalCode": "44700",
+  "addressRegion": "Pays de la Loire",
+  "addressCountry": "FR"
+},
               "areaServed": "Nantes et alentours",
               "priceRange": "€€",
               "openingHours": "Mo-Fr 08:00-18:00"
