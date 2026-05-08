@@ -30,6 +30,6 @@ export default function CardService({ img, alt, title, subtitle, slug }: CardSer
   return slug ? (
     <Link href={`/services/${slug}`} className={cls}>{inner}</Link>
   ) : (
-    <div className={cls}>{inner}</div>
+    <article className={cls}>{inner}</article>
   );
 }

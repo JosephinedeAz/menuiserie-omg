@@ -9,7 +9,7 @@ interface MegaMenuProps {
 
 export default function MegaMenu({ isOpen = false, onClose = () => {} }: MegaMenuProps) {
   return (
-    <div
+    <nav
       className={`absolute top-full left-0 w-full z-50 overflow-hidden ${
         isOpen ? "pointer-events-auto" : "pointer-events-none"
       }`}
@@ -20,9 +20,9 @@ export default function MegaMenu({ isOpen = false, onClose = () => {} }: MegaMen
           isOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <p className="text-[#f1f1f1] text-[38px] leading-[44px] tracking-[0.38px] py-[10px] mb-[64px]">
+        <span className="text-[#f1f1f1] text-[38px] leading-[44px] tracking-[0.38px] py-[10px] mb-[64px]">
           Découvrez tous nos services.
-        </p>
+        </span>
         <div className="flex flex-col gap-[30px]">
           {servicesData.map((s) => (
             <Link
@@ -59,9 +59,9 @@ export default function MegaMenu({ isOpen = false, onClose = () => {} }: MegaMen
           isOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <p className="text-[#1d1d1d] text-[17px] leading-[24px] py-[10px] mb-[24px]">
+        <span className="text-[#1d1d1d] text-[17px] leading-[24px] py-[10px] mb-[24px]">
           Découvrez tous nos services.
-        </p>
+        </span>
         <div className="flex flex-col gap-[28px]">
           {servicesData.map((s) => (
             <Link
@@ -86,6 +86,6 @@ export default function MegaMenu({ isOpen = false, onClose = () => {} }: MegaMen
           ))}
         </div>
       </div>
-    </div>
+    </nav>
   );
 }

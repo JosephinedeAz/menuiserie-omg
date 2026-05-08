@@ -52,12 +52,12 @@ export default function NavMobile() {
   return (
     <>
       {/* Top bar */}
-      <div className="flex items-center justify-between px-[20px] py-3 w-full">
+      <nav className="flex items-center justify-between px-[20px] py-3 w-full">
         <Logo />
         <button onClick={() => setIsMenuOpen(true)} aria-label="Ouvrir le menu">
           <BurgerIcon />
         </button>
-      </div>
+      </nav>
 
       {/* Full-screen overlay */}
       {isOpen && (

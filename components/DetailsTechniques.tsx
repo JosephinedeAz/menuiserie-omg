@@ -33,13 +33,13 @@ export default function DetailsTechniques({ contenu }: Props) {
       </button>
 
       <div className={`flex flex-col gap-[10px] ${!isOpen ? 'cursor-pointer' : ''}`} onClick={!isOpen ? () => setIsOpen(true) : undefined}>
-        <p
+        <h3
           className={`font-bold text-[21px] leading-[25px] tracking-[-0.42px] md:text-[32px] md:leading-[38px] md:tracking-[-0.64px] transition-colors duration-200 ${
             isOpen ? 'text-[#eb7a59]' : 'text-[#1d1d1d]'
           }`}
         >
           Les détails techniques
-        </p>
+        </h3>
 
         {isOpen && (
           <div className="text-[12px] leading-[13px] md:text-[25px] md:leading-[36px]">

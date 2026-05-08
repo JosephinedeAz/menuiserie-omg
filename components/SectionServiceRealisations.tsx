@@ -45,9 +45,9 @@ export default function SectionServiceRealisations({
 
   return (
     <section className={`flex flex-col gap-[30px] items-center px-[12px] py-[10px] md:px-[60px] ${className ?? ''}`}>
-      <p className="font-semibold text-[40px] leading-[48px] tracking-[-1.6px] text-black w-full md:font-medium md:text-[60px] md:leading-[72px] md:tracking-normal">
+      <h2 className="font-semibold text-[40px] leading-[48px] tracking-[-1.6px] text-black w-full md:font-medium md:text-[60px] md:leading-[72px] md:tracking-normal">
         Nos plus belles réalisations.
-      </p>
+      </h2>
 
       <div
         ref={scrollRef}

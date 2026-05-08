@@ -20,9 +20,9 @@ export default function SectionConfiance({ testimonials }: Props) {
 
       {/* ── Confiance mobile ────────────────────────────────────────── */}
       <div className="md:hidden flex flex-col gap-[40px] px-[20px] py-[10px]">
-        <p className="text-[40px] font-medium text-black leading-[48px]">
+        <h2 className="text-[40px] font-medium text-black leading-[48px]">
           Nous sommes votre partenaire de confiance.
-        </p>
+        </h2>
 
         {/* Stats mobile */}
         <div className="flex flex-col gap-[20px]">
@@ -64,9 +64,9 @@ export default function SectionConfiance({ testimonials }: Props) {
       {/* ── Confiance desktop ───────────────────────────────────────── */}
       <div className="hidden md:block px-[60px] py-[10px]">
       <div className="flex flex-col gap-[40px]">
-        <p className="text-[50px] font-normal leading-[56px] tracking-[-2px] text-black">
+        <h2 className="text-[50px] font-normal leading-[56px] tracking-[-2px] text-black">
           Nous sommes votre partenaire de confiance.
-        </p>
+        </h2>
 
         {/* Stats */}
         <div className="flex gap-[68px] items-start">

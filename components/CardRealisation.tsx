@@ -17,7 +17,7 @@ export default function CardRealisation({
   slug,
 }: CardRealisationProps) {
   return (
-    <div className="flex flex-col gap-[12px] border border-[#645139] rounded-[10px] p-[10px] w-[249px] shrink-0
+    <article className="flex flex-col gap-[12px] border border-[#645139] rounded-[10px] p-[10px] w-[249px] shrink-0
                     md:flex-row md:gap-[67px] md:items-stretch md:w-full md:shrink md:px-[20px] md:py-[40px]">
 
       {/* Image */}
@@ -45,6 +45,6 @@ export default function CardRealisation({
           Voir le projet
         </Link>
       </div>
-    </div>
+    </article>
   );
 }

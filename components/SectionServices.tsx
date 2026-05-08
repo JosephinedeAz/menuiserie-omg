@@ -5,9 +5,9 @@ export default function SectionServices() {
   return (
     <section id="services" className="mt-[60px] px-[10px] py-[20px] md:mx-[40px] md:px-[60px]">
       <div className="hidden md:flex flex-col gap-[10px] mb-[30px]">
-        <p className="text-[50px] text-black tracking-[-2px] leading-[56px] whitespace-nowrap">
+        <h2 className="text-[50px] text-black tracking-[-2px] leading-[56px] whitespace-nowrap">
           Découvrez nos services.
-        </p>
+        </h2>
         <p className="text-[32px] text-black tracking-[-0.64px] leading-[38px]">
           Quel que soit votre besoin, nous avons l&apos;expertise pour y
           répondre.

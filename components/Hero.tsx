@@ -23,12 +23,12 @@ export default function Hero() {
             >
               OMG
             </p>
-            <p
+            <h1
               className="font-thunder font-bold leading-tight"
               style={{ fontSize: "25px", letterSpacing: "4.5px" }}
             >
               Ouest Menuiserie Générale
-            </p>
+            </h1>
           </div>
         </div>
       </div>
@@ -54,12 +54,12 @@ export default function Hero() {
               >
                 OMG
               </p>
-              <p
+              <h1
                 className="font-bold leading-[72px]"
                 style={{ fontSize: "50px", letterSpacing: "9px" }}
               >
                 Ouest Menuiserie Générale
-              </p>
+              </h1>
             </div>
             <div className="flex flex-col items-center gap-5 w-[400px]">
               <Link
@@ -81,9 +81,9 @@ export default function Hero() {
 
       {/* Description text box — mobile */}
       <div className="md:hidden border-2 border-[#b8976d] flex flex-col gap-[30px] px-[20px] py-[30px]">
-        <p className="text-[28px] font-medium text-black leading-[30px]">
+        <h2 className="text-[28px] font-medium text-black leading-[30px]">
           Ouest Menuiserie Générale, aménagements intérieurs ou extérieurs.
-        </p>
+        </h2>
         <div className="border-t border-[#b8976d]" />
         <div className="text-[18px] text-black leading-[22px]">
           <p className="mb-0">
@@ -98,9 +98,9 @@ export default function Hero() {
 
       {/* Description text box — desktop */}
       <div className="hidden md:flex items-center gap-[50px] border-2 border-[#b8976d] px-5 py-[30px] min-h-[296px]">
-        <p className="flex-1 text-[50px] text-black tracking-[-2px] leading-[56px]">
+        <h2 className="flex-1 text-[50px] text-black tracking-[-2px] leading-[56px]">
           Ouest Menuiserie Générale, aménagements intérieurs et extérieurs.
-        </p>
+        </h2>
         <div className="w-px self-stretch bg-[#b8976d]" />
         <div className="flex-1 text-[32px] text-black tracking-[-0.64px] leading-[38px]">
           <p className="mb-0">

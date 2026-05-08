@@ -36,9 +36,9 @@ export default function Footer() {
         <div className="flex flex-col gap-[32px] md:flex-row md:gap-8">
           {columns.map((col) => (
             <div key={col.heading} className="flex flex-col gap-4 md:flex-1 md:gap-6">
-              <p className="font-semibold text-[18px] leading-7" style={{ color: "var(--secondary-300)" }}>
+              <h3 className="font-semibold text-[18px] leading-7" style={{ color: "var(--secondary-300)" }}>
                 {col.heading}
-              </p>
+              </h3>
               <div className="flex flex-col gap-3">
                 {col.links.map((link) => (
                   <Link key={link.label} href={link.href} className="text-[16px] text-white/80 leading-6">
@@ -51,9 +51,9 @@ export default function Footer() {
 
           {/* Contact column */}
           <div className="flex flex-col gap-4 md:flex-1 md:gap-6">
-            <p className="font-semibold text-[18px] leading-7" style={{ color: "var(--secondary-300)" }}>
+            <h3 className="font-semibold text-[18px] leading-7" style={{ color: "var(--secondary-300)" }}>
               Contact
-            </p>
+            </h3>
             <Link href="/contact" className="btn-primary text-[16px] font-medium w-fit leading-6">
               Nous contacter
             </Link>
