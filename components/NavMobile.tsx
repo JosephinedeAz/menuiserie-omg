@@ -4,30 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useMenu } from "@/context/MenuContext";
-
-const services = [
-  {
-    img: "/images/service-menuiserie-interieure.png",
-    alt: "Parquet intérieur",
-    title: "Menuiserie intérieure",
-    subtitle: "parquet, cuisines, agencement",
-    href: "/services/menuiserie-interieure",
-  },
-  {
-    img: "/images/service-menuiserie-exterieure.png",
-    alt: "Terrasse extérieure",
-    title: "Menuiserie extérieure",
-    subtitle: "terrasse, palissade, aménagements durables",
-    href: "/services/menuiserie-exterieure",
-  },
-  {
-    img: "/images/service-mobilier-lampe.png",
-    alt: "Mobilier et lampe",
-    title: "Ameublement",
-    subtitle: "rangement & mobilier",
-    href: "/services/ameublement",
-  },
-];
+import { servicesData } from "@/lib/services-data";
 
 function BurgerIcon() {
   return (
@@ -125,7 +102,7 @@ export default function NavMobile() {
                     Découvrez tous nos services.
                   </p>
                   <div className="flex flex-col gap-[30px] items-end w-full">
-                    {services.map((s) => (
+                    {servicesData.map((s) => (
                       <Link
                         key={s.title}
                         href={s.href}

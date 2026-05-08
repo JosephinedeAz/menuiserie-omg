@@ -1,34 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import { servicesData } from "@/lib/services-data";
 
 interface MegaMenuProps {
   isOpen?: boolean;
   onClose?: () => void;
 }
-
-const services = [
-  {
-    img: "/images/service-menuiserie-interieure.png",
-    alt: "Parquet intérieur",
-    title: "Menuiserie intérieure",
-    subtitle: "parquet, cuisines, agencement",
-    href: "/services/menuiserie-interieure",
-  },
-  {
-    img: "/images/service-menuiserie-exterieure.png",
-    alt: "Terrasse extérieure",
-    title: "Menuiserie extérieure",
-    subtitle: "terrasse, palissade, aménagements durables",
-    href: "/services/menuiserie-exterieure",
-  },
-  {
-    img: "/images/service-mobilier-lampe.png",
-    alt: "Mobilier et lampe",
-    title: "Ameublement",
-    subtitle: "rangement & mobilier",
-    href: "/services/ameublement",
-  },
-];
 
 export default function MegaMenu({ isOpen = false, onClose = () => {} }: MegaMenuProps) {
   return (
@@ -47,7 +24,7 @@ export default function MegaMenu({ isOpen = false, onClose = () => {} }: MegaMen
           Découvrez tous nos services.
         </p>
         <div className="flex flex-col gap-[30px]">
-          {services.map((s) => (
+          {servicesData.map((s) => (
             <Link
               key={s.title}
               href={s.href}
@@ -86,7 +63,7 @@ export default function MegaMenu({ isOpen = false, onClose = () => {} }: MegaMen
           Découvrez tous nos services.
         </p>
         <div className="flex flex-col gap-[28px]">
-          {services.map((s) => (
+          {servicesData.map((s) => (
             <Link
               key={s.title}
               href={s.href}

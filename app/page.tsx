@@ -15,23 +15,16 @@ interface Testimonial {
 }
 
 export default async function Home() {
-  const [testimonials, services] = await Promise.all([
-    client.fetch<Testimonial[]>(
-      `*[_type == "testimonial"] | order(ordre asc){ auteur, date, lieu, contenu }`
-    ),
-    client.fetch(
-      `*[_type == "service"] | order(ordre asc){
-        titre, sousTitre, slug, "imageHero": imageHero{ alt, "asset": asset->{ url } }
-      }`
-    ),
-  ])
+  const testimonials: Testimonial[] = await client.fetch(
+    `*[_type == "testimonial"] | order(ordre asc){ auteur, date, lieu, contenu }`
+  )
 
   return (
     <main className="bg-[#f6e9dd]">
       <Navbar />
       <Hero />
       <div className="mt-[50px]"><SectionRealisation /></div>
-      <div className="mt-[50px]"><SectionServices services={services} /></div>
+      <div className="mt-[50px]"><SectionServices /></div>
       <div className="mt-[50px]"><SectionConfiance testimonials={testimonials} /></div>
       <div className="mt-[130px]"><SectionContact /></div>
       <div className="mt-[130px]"><Footer /></div>

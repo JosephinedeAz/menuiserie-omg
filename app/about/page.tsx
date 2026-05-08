@@ -4,16 +4,9 @@ import Navbar from '@/components/Navbar'
 import CardService from '@/components/CardService'
 import SectionContact from '@/components/SectionContact'
 import Footer from '@/components/Footer'
-import { client } from '@/lib/sanity'
+import { servicesData } from '@/lib/services-data'
 
-interface Service {
-  titre: string
-  sousTitre: string
-  imageHero: { asset: { url: string }; alt?: string }
-  slug: { current: string }
-}
-
-function SectionAboutServices({ services }: { services: Service[] }) {
+function SectionAboutServices() {
   return (
     <section className="mt-[60px]">
 
@@ -22,14 +15,9 @@ function SectionAboutServices({ services }: { services: Service[] }) {
         <p className="font-normal text-[33px] leading-[37px] tracking-[-1.32px] text-black">
           Découvrez nos services
         </p>
-        {services.map((s) => (
-          <Link key={s.slug.current} href={`/services/${s.slug.current}`}>
-            <CardService
-              img={s.imageHero?.asset?.url}
-              alt={s.imageHero?.alt ?? s.titre}
-              title={s.titre}
-              subtitle={s.sousTitre}
-            />
+        {servicesData.map((s) => (
+          <Link key={s.href} href={s.href}>
+            <CardService img={s.img} alt={s.alt} title={s.title} subtitle={s.subtitle} />
           </Link>
         ))}
       </div>
@@ -47,13 +35,13 @@ function SectionAboutServices({ services }: { services: Service[] }) {
           </div>
 
           <div className="flex rounded-[10px] overflow-hidden">
-            {services.map((s) => (
+            {servicesData.map((s) => (
               <CardService
-                key={s.slug.current}
-                img={s.imageHero?.asset?.url}
-                alt={s.imageHero?.alt ?? s.titre}
-                title={s.titre}
-                subtitle={s.sousTitre}
+                key={s.href}
+                img={s.img}
+                alt={s.alt}
+                title={s.title}
+                subtitle={s.subtitle}
               />
             ))}
           </div>
@@ -64,13 +52,7 @@ function SectionAboutServices({ services }: { services: Service[] }) {
   )
 }
 
-export default async function AboutPage() {
-  const services = await client.fetch<Service[]>(
-    `*[_type == "service"] | order(ordre asc){
-      titre, sousTitre, slug, "imageHero": imageHero{ alt, "asset": asset->{ url } }
-    }`
-  )
-
+export default function AboutPage() {
   return (
     <main className="bg-[#f6e9dd]">
       <Navbar />
@@ -156,7 +138,7 @@ export default async function AboutPage() {
       <div className="hidden md:block h-[200px]" />
       </div>
 
-      <div className="mb-[27px] md:mb-[40px]"><SectionAboutServices services={services} /></div>
+      <div className="mb-[27px] md:mb-[40px]"><SectionAboutServices /></div>
 
       {/* ── Manifeste ───────────────────────────────────────────────── */}
       <section className="mb-[27px] md:mb-[40px] mt-[40px] pl-[10px] pr-[20px] md:px-[40px] py-[10px] flex flex-col items-start">
