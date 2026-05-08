@@ -1,5 +1,6 @@
 export const revalidate = 60
 
+import type { Metadata } from 'next'
 import { client } from '@/lib/sanity'
 import Navbar from '@/components/Navbar'
 import SectionContact from '@/components/SectionContact'
@@ -22,6 +23,16 @@ type RealisationsParCategorie = {
 }
 
 const CATEGORIES = ['menuiserie-interieure', 'menuiserie-exterieure', 'ameublement'] as const
+
+export const metadata: Metadata = {
+  title: 'Nos Réalisations — Menuiserie intérieure, extérieure et ameublement',
+  description: 'Découvrez les réalisations d\'Ouest Menuiserie Générale : menuiserie intérieure, extérieure et ameublement sur mesure à Nantes et alentours.',
+  openGraph: {
+    title: 'Nos Réalisations — Ouest Menuiserie Générale',
+    description: 'Galerie de réalisations en menuiserie intérieure, extérieure et ameublement.',
+    url: '/realisations',
+  },
+}
 
 export default async function RealisationsPage() {
   const [realisations, pageRealisations]: [Realisation[], { imageHero: any } | null] = await Promise.all([

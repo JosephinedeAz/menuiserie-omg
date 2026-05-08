@@ -1,6 +1,7 @@
 export const revalidate = 60
 export const dynamicParams = true
 
+import type { Metadata, ResolvingMetadata } from 'next'
 import { notFound } from 'next/navigation'
 import { client } from '@/lib/sanity'
 import Navbar from '@/components/Navbar'
@@ -16,6 +17,32 @@ export async function generateStaticParams() {
     `*[_type == "realisation"]{ "slug": slug.current }`
   )
   return slugs.map(({ slug }) => ({ slug }))
+}
+
+export async function generateMetadata(
+  { params }: { params: Promise<{ slug: string }> },
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const { slug } = await params
+  const realisation = await client.fetch<{ titre: string; descriptionCourte: string; imageHeroUrl: string } | null>(
+    `*[_type == "realisation" && slug.current == $slug][0]{
+      titre,
+      descriptionCourte,
+      "imageHeroUrl": imageHero.asset->url
+    }`,
+    { slug }
+  )
+  if (!realisation) return {}
+  return {
+    title: realisation.titre,
+    description: realisation.descriptionCourte ?? `Réalisation de menuiserie : ${realisation.titre}`,
+    openGraph: {
+      title: realisation.titre,
+      description: realisation.descriptionCourte ?? '',
+      url: `/realisations/${slug}`,
+      images: realisation.imageHeroUrl ? [{ url: realisation.imageHeroUrl }] : [],
+    },
+  }
 }
 
 export default async function RealisationPage({

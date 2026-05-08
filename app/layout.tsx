@@ -36,6 +36,30 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className={`${workSans.variable} h-full antialiased`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "Ouest Menuiserie Générale",
+              "description": "Artisan menuisier à Nantes et alentours. Fenêtres, portes, volets, parquet et agencement sur mesure.",
+              "url": "https://www.ouestmenuiseriegenerale.fr",
+              "telephone": "",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Nantes",
+                "addressRegion": "Pays de la Loire",
+                "addressCountry": "FR"
+              },
+              "areaServed": "Nantes et alentours",
+              "priceRange": "€€",
+              "openingHours": "Mo-Fr 08:00-18:00"
+            })
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col">
         <MenuProvider>
           {children}

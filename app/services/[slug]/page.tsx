@@ -1,5 +1,6 @@
 export const revalidate = 60
 
+import type { Metadata, ResolvingMetadata } from 'next'
 import { notFound } from 'next/navigation'
 import { client } from '@/lib/sanity'
 import Navbar from '@/components/Navbar'
@@ -24,6 +25,33 @@ export async function generateStaticParams() {
     `*[_type == "service" && defined(slug.current)].slug.current`
   )
   return slugs.map((slug) => ({ slug }))
+}
+
+const SERVICE_LABELS: Record<string, string> = {
+  'menuiserie-interieure': 'Menuiserie intérieure',
+  'menuiserie-exterieure': 'Menuiserie extérieure',
+  'ameublement': 'Ameublement sur mesure',
+}
+
+export async function generateMetadata(
+  { params }: { params: Promise<{ slug: string }> },
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const { slug } = await params
+  const service = await client.fetch<{ titre: string; sousTitre: string } | null>(
+    `*[_type == "service" && slug.current == $slug][0]{ titre, sousTitre }`,
+    { slug }
+  )
+  const label = SERVICE_LABELS[slug] ?? service?.titre ?? slug
+  return {
+    title: label,
+    description: service?.sousTitre ?? `Découvrez nos prestations de ${label.toLowerCase()} à Nantes et alentours.`,
+    openGraph: {
+      title: `${label} — Ouest Menuiserie Générale`,
+      description: service?.sousTitre ?? '',
+      url: `/services/${slug}`,
+    },
+  }
 }
 
 export default async function ServicePage({
