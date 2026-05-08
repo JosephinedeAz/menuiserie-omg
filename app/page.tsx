@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import SectionRealisation from "@/components/SectionRealisation";
@@ -12,6 +13,16 @@ interface Testimonial {
   date: string
   lieu: string
   contenu: string
+}
+
+export const metadata: Metadata = {
+  title: 'Menuisier Nantes — Fenêtres, Portes, Parquet sur mesure',
+  description: 'Artisan menuisier à Nantes et alentours. Pose de fenêtres, portes, volets, parquet et agencement sur mesure. Devis gratuit.',
+  openGraph: {
+    title: 'Ouest Menuiserie Générale — Menuisier Nantes',
+    description: 'Artisan menuisier à Nantes et alentours. Devis gratuit.',
+    url: '/',
+  },
 }
 
 export default async function Home() {

@@ -12,8 +12,21 @@ const workSans = Work_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Ouest Menuiserie Générale — Menuisier Nantes et alentours",
-  description: "Artisan menuisier à Nantes et alentours. Pose de fenêtres, portes, volets, parquet et agencement sur mesure. Devis gratuit.",
+  metadataBase: new URL('https://www.ouestmenuiseriegenerale.fr'),
+  title: {
+    default: 'Ouest Menuiserie Générale — Menuisier Nantes et alentours',
+    template: '%s — Ouest Menuiserie Générale',
+  },
+  description: 'Artisan menuisier à Nantes et alentours. Pose de fenêtres, portes, volets, parquet et agencement sur mesure. Devis gratuit.',
+  openGraph: {
+    siteName: 'Ouest Menuiserie Générale',
+    locale: 'fr_FR',
+    type: 'website',
+    images: [{ url: '/og-default.jpg', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+  },
 };
 
 export default function RootLayout({
