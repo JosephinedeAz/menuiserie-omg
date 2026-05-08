@@ -9,7 +9,7 @@ interface Projet {
   titre: string
   description: string
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  images: any[]
+  imageHero: any
   slug: { current: string }
 }
 
@@ -61,8 +61,8 @@ export default function SectionServiceRealisations({
                 titre={projet.titre}
                 description={projet.description}
                 imageSrc={
-                  projet.images?.[0]
-                    ? urlFor(projet.images[0]).url()
+                  projet.imageHero
+                    ? urlFor(projet.imageHero).url()
                     : '/placeholder.jpg'
                 }
                 imageAlt={projet.titre}
