@@ -12,6 +12,13 @@ import SectionConfiance from '@/components/SectionConfiance'
 import SectionContact from '@/components/SectionContact'
 import Footer from '@/components/Footer'
 
+interface Testimonial {
+  auteur: string
+  date: string
+  lieu: string
+  contenu: string
+}
+
 const SLUGS = ['menuiserie-exterieure', 'menuiserie-interieure', 'ameublement'] as const
 
 export function generateStaticParams() {
@@ -25,7 +32,7 @@ export default async function ServicePage({
 }) {
   const { slug } = await params
 
-  const [service, projets] = await Promise.all([
+  const [service, projets, testimonials]: [any, any[], Testimonial[]] = await Promise.all([
     client.fetch(
       `*[_type == "service" && slug.current == $slug][0]{
         titre,
@@ -37,21 +44,21 @@ export default async function ServicePage({
       { slug }
     ),
     client.fetch(
-      `*[_type == "projet" && categorie == $slug]{
+      `*[_type == "realisation" && categorie == $slug] | order(ordre asc){
         titre,
         "sousTitre": descriptionCourte,
         description,
-        images,
+        imageHero,
         slug
       }`,
       { slug }
     ),
+    client.fetch(
+      `*[_type == "testimonial"] | order(ordre asc){ auteur, date, lieu, contenu }`
+    ),
   ])
 
   if (!service) { notFound() }
-
-  console.log('slug:', slug)
-  console.log('projets:', projets)
 
   return (
     <main className="bg-[#f6e9dd] overflow-x-hidden">
@@ -69,7 +76,7 @@ export default async function ServicePage({
       />
       <div className="px-[30px]"><SectionServicePhilosophie /></div>
       <SectionServiceRealisations className="mt-20" projets={projets} />
-      <SectionConfiance />
+      <SectionConfiance testimonials={testimonials} />
       <div className="mt-[130px] md:hidden"><SectionContact mobile /></div>
       <div className="mt-[130px] hidden md:block"><SectionContact /></div>
       <div className="mt-[130px] md:hidden"><Footer mobile /></div>
