@@ -3,7 +3,7 @@ import { Work_Sans } from "next/font/google";
 import "./globals.css";
 import FabWrapper from "@/components/FabWrapper";
 import { MenuProvider } from "@/context/MenuContext";
-import { SanityLive } from "@/lib/live";
+import { SanityLive } from "@/sanity/lib/live";
 
 const workSans = Work_Sans({
   subsets: ["latin"],
