@@ -50,6 +50,15 @@
   --grid-gutter: 24px;
 }
 
+/* ─── Dette technique — breakpoints ────────────────────────────────
+   Les variables CSS ci-dessous changent de valeur à max-width: 390px,
+   alors que les composants utilisent des valeurs px hardcodées avec
+   les breakpoints Tailwind (md: = min-width: 768px).
+   Les deux systèmes ne sont pas alignés — entre 390px et 768px,
+   les variables restent aux valeurs desktop mais ne sont pas utilisées
+   dans les composants. À aligner si le projet évolue vers un système
+   de design tokens centralisé.
+   ─────────────────────────────────────────────────────────────────── */
 /* ─── Mobile – all type sizes ÷ 1.5 ────────────────────────────── */
 @media (max-width: 390px) {
   :root {

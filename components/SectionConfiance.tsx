@@ -1,7 +1,8 @@
+import Image from 'next/image'
 import TestimonialCarousel from '@/components/TestimonialCarousel'
 
 const figmaGoogleIcon = '/images/Icon-google.svg'
-const figmaGoogleStar = '/images/Icon-link.svg'
+const googleLinkIcon = '/images/Icon-link.svg'
 
 interface Testimonial {
   auteur: string
@@ -44,11 +45,9 @@ export default function SectionConfiance({ testimonials }: Props) {
         <a href="https://www.google.com/maps/place/Ouest+Menuiserie+G%C3%A9n%C3%A9rale/@47.2578112,-1.5796054,17z/data=!4m17!1m8!3m7!1s0x4805edf7bb4b6fbb:0x18980d18ccd4f9ef!2sOuest+Menuiserie+G%C3%A9n%C3%A9rale!8m2!3d47.257771!4d-1.57971!10e5!16s%2Fg%2F11xcrvxpcq!3m7!1s0x4805edf7bb4b6fbb:0x18980d18ccd4f9ef!8m2!3d47.257771!4d-1.57971!9m1!1b1!16s%2Fg%2F11xcrvxpcq?entry=ttu&g_ep=EgoyMDI2MDQyNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
         <div className="bg-white border border-[#e5e7eb] rounded-[14px] shadow-sm flex flex-col gap-3 px-4 py-3 w-[161px] transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-md cursor-pointer">
           <div className="flex items-center gap-2">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={figmaGoogleIcon} alt="Google" className="size-[18px]" />
+            <Image src={figmaGoogleIcon} alt="Google" width={18} height={18} className="size-[18px]" />
             <span className="font-medium text-[16px] text-[#101828]">Google</span>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={figmaGoogleStar} alt="" className="size-[16px] ml-auto" />
+            <Image src={googleLinkIcon} alt="" width={16} height={16} className="size-[16px] ml-auto" />
           </div>
           <div className="flex items-end justify-between">
             <span className="font-semibold text-[24px] text-[#9810fa] leading-5">5/5</span>
@@ -105,11 +104,9 @@ export default function SectionConfiance({ testimonials }: Props) {
             <a href="https://www.google.com/maps/place/Ouest+Menuiserie+G%C3%A9n%C3%A9rale/@47.2578112,-1.5796054,17z/data=!4m17!1m8!3m7!1s0x4805edf7bb4b6fbb:0x18980d18ccd4f9ef!2sOuest+Menuiserie+G%C3%A9n%C3%A9rale!8m2!3d47.257771!4d-1.57971!10e5!16s%2Fg%2F11xcrvxpcq!3m7!1s0x4805edf7bb4b6fbb:0x18980d18ccd4f9ef!8m2!3d47.257771!4d-1.57971!9m1!1b1!16s%2Fg%2F11xcrvxpcq?entry=ttu&g_ep=EgoyMDI2MDQyNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
             <div className="bg-white border border-[#e5e7eb] rounded-[14px] shadow-sm flex flex-col gap-3 px-4 py-3 w-[161px] transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-md cursor-pointer">
               <div className="flex items-center gap-2">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={figmaGoogleIcon} alt="Google" className="size-[18px]" />
+                <Image src={figmaGoogleIcon} alt="Google" width={18} height={18} className="size-[18px]" />
                 <span className="font-medium text-[16px] text-[#101828]">Google</span>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={figmaGoogleStar} alt="" className="size-[16px] ml-auto" />
+                <Image src={googleLinkIcon} alt="" width={16} height={16} className="size-[16px] ml-auto" />
               </div>
               <div className="flex items-end justify-between">
                 <span className="font-semibold text-[24px] text-[#9810fa] leading-5">5/5</span>
