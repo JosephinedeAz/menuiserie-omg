@@ -67,9 +67,14 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-white/20 pt-[25px] md:px-6">
           <div className="flex flex-col items-center gap-2 text-center md:flex-row md:justify-between md:text-left md:gap-0">
-            <Link href="#" className="text-[14px] text-white/60 leading-5">
-              Mentions légales
-            </Link>
+            <div className="flex flex-col gap-2 md:flex-row md:gap-6">
+              <Link href="/mentions-legales" className="text-[14px] text-white/60 leading-5">
+                Mentions légales
+              </Link>
+              <Link href="/politique-de-confidentialite" className="text-[14px] text-white/60 leading-5">
+                Politique de confidentialité
+              </Link>
+            </div>
             <p className="text-[14px] text-white/40 leading-5">
               Menuiserie Ouest Générale — OMG
             </p>
