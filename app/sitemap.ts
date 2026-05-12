@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 import { client } from '@/lib/sanity'
 
-const BASE_URL = 'https://www.ouestmenuiseriegenerale.fr'
+const BASE_URL = 'https://menuiserie-omg.fr'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const realisations: { slug: string }[] = await client.fetch(

@@ -13,7 +13,7 @@ const workSans = Work_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.ouestmenuiseriegenerale.fr'),
+  metadataBase: new URL('https://menuiserie-omg.fr'),
   title: {
     default: 'Ouest Menuiserie Générale — Menuisier Nantes et alentours',
     template: '%s — Ouest Menuiserie Générale',
@@ -46,7 +46,7 @@ export default function RootLayout({
               "@type": "LocalBusiness",
               "name": "Ouest Menuiserie Générale",
               "description": "Artisan menuisier à Nantes et alentours. Fenêtres, portes, volets, parquet et agencement sur mesure.",
-              "url": "https://www.ouestmenuiseriegenerale.fr",
+              "url": "https://menuiserie-omg.fr",
               "telephone": "+33 6 71 23 48 58",
               "address": {
   "@type": "PostalAddress",

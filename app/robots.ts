@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://www.ouestmenuiseriegenerale.fr/sitemap.xml',
+    sitemap: 'https://menuiserie-omg.fr/sitemap.xml',
   }
 }
