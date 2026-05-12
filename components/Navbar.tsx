@@ -33,10 +33,10 @@ export default function Navbar() {
       {/* Top info bar */}
       <div className="bg-[#e5bc89] flex items-center px-[30px] py-[10px]">
         <p className="flex-1 text-center text-[16px] lg:text-[25px] text-black">
-          contact@email.com
+          romain.glemain@gmail.com
         </p>
         <p className="flex-1 text-center text-[16px] lg:text-[25px] text-black">
-          tel: 06 01 02 03 04
+          +33 6 71 23 48 58
         </p>
         <p className="flex-1 text-center text-[16px] lg:text-[25px] text-black">
           OMG, Menuiserie à Nantes et sa région

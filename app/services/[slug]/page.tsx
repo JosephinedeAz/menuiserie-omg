@@ -3,6 +3,7 @@ export const revalidate = 60
 import type { Metadata, ResolvingMetadata } from 'next'
 import { notFound } from 'next/navigation'
 import { client } from '@/lib/sanity'
+import { TESTIMONIALS_QUERY } from '@/lib/queries'
 import Navbar from '@/components/Navbar'
 import SectionServiceHeader from '@/components/SectionServiceHeader'
 import SectionServiceFigures from '@/components/SectionServiceFigures'
@@ -82,9 +83,7 @@ export default async function ServicePage({
       }`,
       { slug }
     ),
-    client.fetch(
-      `*[_type == "testimonial"] | order(ordre asc){ auteur, date, lieu, contenu }`
-    ),
+    client.fetch(TESTIMONIALS_QUERY),
   ])
 
   if (!service) { notFound() }

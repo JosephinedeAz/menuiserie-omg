@@ -7,6 +7,7 @@ import SectionContact from "@/components/SectionContact";
 import Footer from "@/components/Footer";
 import SectionConfiance from "@/components/SectionConfiance";
 import { client } from "@/lib/sanity";
+import { TESTIMONIALS_QUERY } from "@/lib/queries";
 
 interface Testimonial {
   auteur: string
@@ -26,9 +27,7 @@ export const metadata: Metadata = {
 }
 
 export default async function Home() {
-  const testimonials: Testimonial[] = await client.fetch(
-    `*[_type == "testimonial"] | order(ordre asc){ auteur, date, lieu, contenu }`
-  )
+  const testimonials: Testimonial[] = await client.fetch(TESTIMONIALS_QUERY)
 
   return (
     <main className="bg-[#f6e9dd]">
