@@ -1,0 +1,479 @@
+[
+  {
+    "fields": [
+      {
+        "options": {
+          "source": "titre"
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "titre",
+        "type": "string"
+      },
+      {
+        "name": "sousTitre",
+        "type": "string",
+        "title": "Sous-titre"
+      },
+      {
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "fields": [
+          {
+            "name": "alt",
+            "type": "string",
+            "title": "Texte alternatif"
+          }
+        ],
+        "name": "imageHero",
+        "type": "image",
+        "title": "Image hero"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "fields": [
+          {
+            "name": "alt",
+            "type": "string",
+            "title": "Texte alternatif"
+          }
+        ],
+        "name": "imageSecondaire",
+        "type": "image",
+        "title": "Image secondaire (section milieu de page)"
+      },
+      {
+        "description": "Nombre entier — le plus petit s'affiche en premier",
+        "name": "ordre",
+        "type": "number",
+        "title": "Ordre d'affichage"
+      }
+    ],
+    "name": "service",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "titre",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "fields": [
+          {
+            "name": "alt",
+            "type": "string",
+            "title": "Texte alternatif"
+          }
+        ],
+        "name": "imageHero",
+        "type": "image",
+        "title": "Image principale"
+      },
+      {
+        "of": [
+          {
+            "marks": {
+              "annotations": [
+                {
+                  "i18nTitleKey": "inputs.portable-text.annotation.link",
+                  "options": {
+                    "modal": {
+                      "type": "popover"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "validation": [
+                        {
+                          "rules": [
+                            {
+                              "flag": "uri",
+                              "constraint": {
+                                "options": {
+                                  "scheme": [
+                                    "/^http$/",
+                                    "/^https$/",
+                                    "/^tel$/",
+                                    "/^mailto$/"
+                                  ],
+                                  "allowRelative": true,
+                                  "relativeOnly": false,
+                                  "allowCredentials": false
+                                }
+                              }
+                            }
+                          ],
+                          "level": "error"
+                        }
+                      ],
+                      "description": "A valid web, email, phone, or relative link.",
+                      "name": "href",
+                      "type": "url",
+                      "title": "Link"
+                    }
+                  ],
+                  "name": "link",
+                  "type": "object"
+                }
+              ],
+              "decorators": [
+                {
+                  "value": "strong",
+                  "title": "Strong"
+                },
+                {
+                  "value": "em",
+                  "title": "Italic"
+                },
+                {
+                  "value": "code",
+                  "title": "Code"
+                },
+                {
+                  "value": "underline",
+                  "title": "Underline"
+                },
+                {
+                  "value": "strike-through",
+                  "title": "Strike"
+                }
+              ]
+            },
+            "lists": [
+              {
+                "value": "bullet",
+                "title": "Bulleted list"
+              },
+              {
+                "value": "number",
+                "title": "Numbered list"
+              }
+            ],
+            "styles": [
+              {
+                "value": "normal",
+                "title": "Normal"
+              },
+              {
+                "value": "h1",
+                "title": "Heading 1"
+              },
+              {
+                "value": "h2",
+                "title": "Heading 2"
+              },
+              {
+                "value": "h3",
+                "title": "Heading 3"
+              },
+              {
+                "value": "h4",
+                "title": "Heading 4"
+              },
+              {
+                "value": "h5",
+                "title": "Heading 5"
+              },
+              {
+                "value": "h6",
+                "title": "Heading 6"
+              },
+              {
+                "value": "blockquote",
+                "title": "Quote"
+              }
+            ],
+            "of": [],
+            "type": "block"
+          }
+        ],
+        "name": "detailsTechniques",
+        "type": "array",
+        "title": "Détails techniques"
+      },
+      {
+        "of": [
+          {
+            "options": {
+              "hotspot": true
+            },
+            "fields": [
+              {
+                "name": "alt",
+                "type": "string",
+                "title": "Texte alternatif"
+              }
+            ],
+            "type": "image"
+          }
+        ],
+        "name": "imagesGalerie",
+        "type": "array",
+        "title": "Galerie d'images"
+      },
+      {
+        "options": {
+          "source": "titre"
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Menuiserie extérieure",
+              "value": "menuiserie-exterieure"
+            },
+            {
+              "title": "Menuiserie intérieure",
+              "value": "menuiserie-interieure"
+            },
+            {
+              "title": "Ameublement",
+              "value": "ameublement"
+            }
+          ]
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "valid",
+                "constraint": [
+                  "menuiserie-exterieure",
+                  "menuiserie-interieure",
+                  "ameublement"
+                ]
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "categorie",
+        "type": "string",
+        "title": "Catégorie"
+      },
+      {
+        "description": "Affichée sur les cards (max ~80 caractères)",
+        "name": "descriptionCourte",
+        "type": "string",
+        "title": "Description courte"
+      },
+      {
+        "description": "Nombre entier — le plus petit s'affiche en premier",
+        "name": "ordre",
+        "type": "number",
+        "title": "Ordre d'affichage"
+      }
+    ],
+    "name": "realisation",
+    "type": "document",
+    "title": "Réalisation"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "auteur",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Ex: mars 2025",
+        "name": "date",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Ex: Nantes",
+        "name": "lieu",
+        "type": "string"
+      },
+      {
+        "rows": 4,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "contenu",
+        "type": "text",
+        "title": "Témoignage"
+      },
+      {
+        "description": "Nombre entier — le plus petit s'affiche en premier",
+        "name": "ordre",
+        "type": "number",
+        "title": "Ordre d'affichage"
+      }
+    ],
+    "name": "testimonial",
+    "type": "document",
+    "title": "Témoignage"
+  },
+  {
+    "fields": [
+      {
+        "options": {
+          "hotspot": true
+        },
+        "fields": [
+          {
+            "name": "alt",
+            "type": "string",
+            "title": "Texte alternatif"
+          }
+        ],
+        "name": "imageHero",
+        "type": "image",
+        "title": "Image hero"
+      },
+      {
+        "description": "Affiché dans les résultats Google (max 60 caractères)",
+        "name": "titreSeo",
+        "type": "string",
+        "title": "Titre SEO"
+      },
+      {
+        "rows": 3,
+        "description": "Affiché dans les résultats Google (max 160 caractères)",
+        "name": "descriptionSeo",
+        "type": "text",
+        "title": "Description SEO"
+      }
+    ],
+    "name": "pageRealisations",
+    "type": "document",
+    "title": "Page Réalisations"
+  }
+]
