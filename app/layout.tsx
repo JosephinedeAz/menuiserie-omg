@@ -4,6 +4,7 @@ import "./globals.css";
 import FabWrapper from "@/components/FabWrapper";
 import { MenuProvider } from "@/context/MenuContext";
 import { SanityLive } from "@/sanity/lib/live";
+import { Analytics } from "@vercel/analytics/next";
 
 const workSans = Work_Sans({
   subsets: ["latin"],
@@ -68,6 +69,7 @@ export default function RootLayout({
           <FabWrapper />
         </MenuProvider>
         <SanityLive />
+        <Analytics />
       </body>
     </html>
   );
