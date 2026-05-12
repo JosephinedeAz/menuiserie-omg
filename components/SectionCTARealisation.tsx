@@ -15,7 +15,7 @@ export default function SectionCTARealisation() {
             <p className="text-[21px] leading-[25px] font-normal flex-1 flex flex-col justify-center md:text-[30px] md:leading-[40px]">
               Nous prenons en charge tous vos projets de rénovations ou créations extérieures et intérieures. Confiez-nous la création de vos rangements et de votre mobilier.
             </p>
-            <Link href="/#contact" className="btn-secondary text-[20px] md:text-[25px]">
+            <Link href="/contact" className="btn-secondary text-[20px] md:text-[25px]">
               Parlons de votre projet
             </Link>
           </div>
