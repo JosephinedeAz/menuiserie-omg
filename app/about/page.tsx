@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import CardService from '@/components/CardService'
 import SectionContact from '@/components/SectionContact'
@@ -16,9 +15,7 @@ function SectionAboutServices() {
           Découvrez nos services
         </p>
         {servicesData.map((s) => (
-          <Link key={s.href} href={s.href}>
-            <CardService img={s.img} alt={s.alt} title={s.title} subtitle={s.subtitle} />
-          </Link>
+          <CardService key={s.slug} img={s.img} alt={s.alt} title={s.title} subtitle={s.subtitle} slug={s.slug} />
         ))}
       </div>
 
@@ -37,11 +34,12 @@ function SectionAboutServices() {
           <div className="flex rounded-[10px] overflow-hidden">
             {servicesData.map((s) => (
               <CardService
-                key={s.href}
+                key={s.slug}
                 img={s.img}
                 alt={s.alt}
                 title={s.title}
                 subtitle={s.subtitle}
+                slug={s.slug}
               />
             ))}
           </div>
