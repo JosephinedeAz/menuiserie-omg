@@ -1,0 +1,554 @@
+[
+  {
+    "fields": [
+      {
+        "options": {
+          "source": "titre"
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "titre",
+        "type": "string"
+      },
+      {
+        "name": "sousTitre",
+        "type": "string",
+        "title": "Sous-titre"
+      },
+      {
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "fields": [
+          {
+            "name": "alt",
+            "type": "string",
+            "title": "Texte alternatif"
+          }
+        ],
+        "name": "imageHero",
+        "type": "image",
+        "title": "Image hero"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "fields": [
+          {
+            "name": "alt",
+            "type": "string",
+            "title": "Texte alternatif"
+          }
+        ],
+        "name": "imageSecondaire",
+        "type": "image",
+        "title": "Image secondaire (section milieu de page)"
+      },
+      {
+        "description": "Nombre entier — le plus petit s'affiche en premier",
+        "name": "ordre",
+        "type": "number",
+        "title": "Ordre d'affichage"
+      }
+    ],
+    "name": "service",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "titre",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "fields": [
+          {
+            "name": "alt",
+            "type": "string",
+            "title": "Texte alternatif"
+          }
+        ],
+        "name": "imageHero",
+        "type": "image",
+        "title": "Image principale"
+      },
+      {
+        "of": [
+          {
+            "lists": [
+              {
+                "value": "bullet",
+                "title": "Bulleted list"
+              },
+              {
+                "value": "number",
+                "title": "Numbered list"
+              }
+            ],
+            "marks": {
+              "annotations": [
+                {
+                  "i18nTitleKey": "inputs.portable-text.annotation.link",
+                  "options": {
+                    "modal": {
+                      "type": "popover"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "validation": [
+                        {
+                          "level": "error",
+                          "rules": [
+                            {
+                              "flag": "uri",
+                              "constraint": {
+                                "options": {
+                                  "scheme": [
+                                    "/^http$/",
+                                    "/^https$/",
+                                    "/^tel$/",
+                                    "/^mailto$/"
+                                  ],
+                                  "allowRelative": true,
+                                  "relativeOnly": false,
+                                  "allowCredentials": false
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      "description": "A valid web, email, phone, or relative link.",
+                      "name": "href",
+                      "type": "url",
+                      "title": "Link"
+                    }
+                  ],
+                  "name": "link",
+                  "type": "object"
+                }
+              ],
+              "decorators": [
+                {
+                  "value": "strong",
+                  "title": "Strong"
+                },
+                {
+                  "value": "em",
+                  "title": "Italic"
+                },
+                {
+                  "value": "code",
+                  "title": "Code"
+                },
+                {
+                  "value": "underline",
+                  "title": "Underline"
+                },
+                {
+                  "value": "strike-through",
+                  "title": "Strike"
+                }
+              ]
+            },
+            "of": [],
+            "styles": [
+              {
+                "value": "normal",
+                "title": "Normal"
+              },
+              {
+                "value": "h1",
+                "title": "Heading 1"
+              },
+              {
+                "value": "h2",
+                "title": "Heading 2"
+              },
+              {
+                "value": "h3",
+                "title": "Heading 3"
+              },
+              {
+                "value": "h4",
+                "title": "Heading 4"
+              },
+              {
+                "value": "h5",
+                "title": "Heading 5"
+              },
+              {
+                "value": "h6",
+                "title": "Heading 6"
+              },
+              {
+                "value": "blockquote",
+                "title": "Quote"
+              }
+            ],
+            "type": "block"
+          }
+        ],
+        "name": "detailsTechniques",
+        "type": "array",
+        "title": "Détails techniques"
+      },
+      {
+        "of": [
+          {
+            "options": {
+              "hotspot": true
+            },
+            "fields": [
+              {
+                "name": "alt",
+                "type": "string",
+                "title": "Texte alternatif"
+              }
+            ],
+            "type": "image"
+          }
+        ],
+        "name": "imagesGalerie",
+        "type": "array",
+        "title": "Galerie d'images"
+      },
+      {
+        "options": {
+          "source": "titre"
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Menuiserie extérieure",
+              "value": "menuiserie-exterieure"
+            },
+            {
+              "title": "Menuiserie intérieure",
+              "value": "menuiserie-interieure"
+            },
+            {
+              "title": "Ameublement",
+              "value": "ameublement"
+            }
+          ]
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "valid",
+                "constraint": [
+                  "menuiserie-exterieure",
+                  "menuiserie-interieure",
+                  "ameublement"
+                ]
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "categorie",
+        "type": "string",
+        "title": "Catégorie"
+      },
+      {
+        "description": "Affichée sur les cards (max ~80 caractères)",
+        "name": "descriptionCourte",
+        "type": "string",
+        "title": "Description courte"
+      },
+      {
+        "description": "Nombre entier — le plus petit s'affiche en premier",
+        "name": "ordre",
+        "type": "number",
+        "title": "Ordre d'affichage"
+      }
+    ],
+    "name": "realisation",
+    "type": "document",
+    "title": "Réalisation"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "auteur",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "description": "Ex: mars 2025",
+        "name": "date",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "description": "Ex: Nantes",
+        "name": "lieu",
+        "type": "string"
+      },
+      {
+        "rows": 4,
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "contenu",
+        "type": "text",
+        "title": "Témoignage"
+      },
+      {
+        "description": "Nombre entier — le plus petit s'affiche en premier",
+        "name": "ordre",
+        "type": "number",
+        "title": "Ordre d'affichage"
+      }
+    ],
+    "name": "testimonial",
+    "type": "document",
+    "title": "Témoignage"
+  },
+  {
+    "fields": [
+      {
+        "options": {
+          "hotspot": true
+        },
+        "fields": [
+          {
+            "name": "alt",
+            "type": "string",
+            "title": "Texte alternatif"
+          }
+        ],
+        "name": "imageHero",
+        "type": "image",
+        "title": "Image hero"
+      },
+      {
+        "description": "Affiché dans les résultats Google (max 60 caractères)",
+        "name": "titreSeo",
+        "type": "string",
+        "title": "Titre SEO"
+      },
+      {
+        "rows": 3,
+        "description": "Affiché dans les résultats Google (max 160 caractères)",
+        "name": "descriptionSeo",
+        "type": "text",
+        "title": "Description SEO"
+      }
+    ],
+    "name": "pageRealisations",
+    "type": "document",
+    "title": "Page Réalisations"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "description": "Ex: 60 projets",
+        "name": "stat1Valeur",
+        "type": "string",
+        "title": "Stat 1 — Valeur"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "description": "Ex: en 2025",
+        "name": "stat1Label",
+        "type": "string",
+        "title": "Stat 1 — Label"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "description": "Ex: 100%",
+        "name": "stat2Valeur",
+        "type": "string",
+        "title": "Stat 2 — Valeur"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "description": "Ex: satisfaction client",
+        "name": "stat2Label",
+        "type": "string",
+        "title": "Stat 2 — Label"
+      }
+    ],
+    "name": "confiance",
+    "type": "document",
+    "title": "Section Confiance"
+  }
+]
