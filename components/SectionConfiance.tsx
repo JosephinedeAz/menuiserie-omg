@@ -99,7 +99,7 @@ export default function SectionConfiance({ testimonials, confiance }: Props) {
               </div>
               <div className="flex items-end justify-between">
                 <span className="font-semibold text-[24px] text-[#9810fa] leading-5">5/5</span>
-                <span className="text-[14px] text-[#4a5565]">2 avis</span>
+                <span className="text-[14px] text-[#4a5565]">20 avis</span>
               </div>
             </div>
             </a>
