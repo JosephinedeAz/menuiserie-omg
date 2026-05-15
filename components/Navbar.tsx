@@ -50,7 +50,7 @@ export default function Navbar() {
           <Link href="/" className="px-5 py-2">
             <div className="relative size-[60px] lg:size-[100px] rounded-full overflow-hidden shrink-0">
               <Image
-                src="/images/img-logo.svg"
+                src="/images/logo-V2.svg"
                 alt="OMG logo"
                 fill
                 className="object-cover"

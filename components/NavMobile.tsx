@@ -30,7 +30,7 @@ function Logo() {
     <Link href="/">
       <div className="relative size-[40px] rounded-full overflow-hidden shrink-0">
         <Image
-          src="/images/img-logo.svg"
+          src="/images/logo-V2.svg"
           alt="OMG logo"
           fill
           className="object-cover"

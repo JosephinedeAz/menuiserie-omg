@@ -89,7 +89,7 @@ export default function Footer() {
       <div className="hidden md:flex absolute right-0 inset-y-0 items-center justify-center p-[10px] opacity-30 w-[278px]">
         <div className="relative size-[258px] rounded-full overflow-hidden blur-sm">
           <div className="absolute inset-0 bg-black/50 rounded-full z-10" />
-          <Image src="/images/img-logo.svg" alt="" fill className="object-cover opacity-60" />
+          <Image src="/images/logo-V2.svg" alt="" fill className="object-cover opacity-60" />
         </div>
       </div>
     </footer>
