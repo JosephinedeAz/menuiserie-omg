@@ -21,7 +21,7 @@ interface Confiance {
 
 interface Props {
   testimonials: Testimonial[]
-  confiance: Confiance | null
+  confiance?: Confiance | null
 }
 
 export default function SectionConfiance({ testimonials, confiance }: Props) {
