@@ -7,13 +7,20 @@ import SectionContact from "@/components/SectionContact";
 import Footer from "@/components/Footer";
 import SectionConfiance from "@/components/SectionConfiance";
 import { client } from "@/lib/sanity";
-import { TESTIMONIALS_QUERY } from "@/lib/queries";
+import { TESTIMONIALS_QUERY, CONFIANCE_QUERY } from "@/lib/queries";
 
 interface Testimonial {
   auteur: string
   date: string
   lieu: string
   contenu: string
+}
+
+interface Confiance {
+  stat1Valeur: string
+  stat1Label: string
+  stat2Valeur: string
+  stat2Label: string
 }
 
 export const metadata: Metadata = {
@@ -27,7 +34,10 @@ export const metadata: Metadata = {
 }
 
 export default async function Home() {
-  const testimonials: Testimonial[] = await client.fetch(TESTIMONIALS_QUERY)
+  const [testimonials, confiance]: [Testimonial[], Confiance | null] = await Promise.all([
+    client.fetch(TESTIMONIALS_QUERY),
+    client.fetch(CONFIANCE_QUERY),
+  ])
 
   return (
     <main className="bg-[#f6e9dd]">
@@ -35,7 +45,7 @@ export default async function Home() {
       <Hero />
       <div className="mt-[50px]"><SectionRealisation /></div>
       <div className="mt-[50px]"><SectionServices /></div>
-      <div className="mt-[50px]"><SectionConfiance testimonials={testimonials} /></div>
+      <div className="mt-[50px]"><SectionConfiance testimonials={testimonials} confiance={confiance} /></div>
       <div className="mt-[130px]"><SectionContact /></div>
       <div className="mt-[130px]"><Footer /></div>
     </main>

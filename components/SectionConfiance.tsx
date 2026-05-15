@@ -3,6 +3,7 @@ import TestimonialCarousel from '@/components/TestimonialCarousel'
 
 const figmaGoogleIcon = '/images/Icon-google.svg'
 const googleLinkIcon = '/images/Icon-link.svg'
+const GOOGLE_MAPS_URL = "https://www.google.com/maps/place/Ouest+Menuiserie+G%C3%A9n%C3%A9rale/@47.3451308,-2.4454434,9z/data=!4m10!1m2!2m1!1smenuisierie+omg+all%C3%A9e+des+liards!3m6!1s0x4805efdd2801437d:0x909cb761e26f124b!8m2!3d47.2631932!4d-1.4919423!15sCiBtZW51aXNlcmllIG9tZyBhbGzDqWUgZGVzIGxpYXJkc1oiIiBtZW51aXNlcmllIG9tZyBhbGzDqWUgZGVzIGxpYXJkc5IBCndvb2R3b3JrZXKaAURDaTlEUVVsUlFVTnZaRU5vZEhsalJqbHZUMnRTVkZJeFduQlpWMUY0VkZob1NWWkdUalJTVlhCVlpXZHJlVlpZWXhBQuABAPoBBAgAEB8!16s%2Fg%2F11x7y_kr4v?entry=ttu&g_ep=EgoyMDI2MDUxMi4wIKXMDSoASAFQAw%3D%3D"
 
 interface Testimonial {
   auteur: string
@@ -11,11 +12,19 @@ interface Testimonial {
   contenu: string
 }
 
-interface Props {
-  testimonials: Testimonial[]
+interface Confiance {
+  stat1Valeur: string
+  stat1Label: string
+  stat2Valeur: string
+  stat2Label: string
 }
 
-export default function SectionConfiance({ testimonials }: Props) {
+interface Props {
+  testimonials: Testimonial[]
+  confiance: Confiance | null
+}
+
+export default function SectionConfiance({ testimonials, confiance }: Props) {
   return (
     <section id="confiance" className="mt-[80px]">
 
@@ -28,21 +37,17 @@ export default function SectionConfiance({ testimonials }: Props) {
         {/* Stats mobile */}
         <div className="flex flex-col gap-[20px]">
           <div className="flex flex-col gap-1 pb-[20px] border-b border-[#645139]">
-            <p className="text-[40px] font-medium text-[#b85a3c]">60 projets</p>
-            <p className="text-[21px] text-black tracking-[-0.42px]">en 2025</p>
-          </div>
-          <div className="flex flex-col gap-1 pb-[20px] border-b border-[#645139]">
-            <p className="text-[40px] font-medium text-[#b85a3c]">0 retard</p>
-            <p className="text-[21px] text-black tracking-[-0.42px]">sur les chantiers</p>
+            <p className="text-[40px] font-medium text-[#b85a3c]">{confiance?.stat1Valeur ?? '—'}</p>
+            <p className="text-[21px] text-black tracking-[-0.42px]">{confiance?.stat1Label ?? ''}</p>
           </div>
           <div className="flex flex-col gap-1">
-            <p className="text-[40px] font-medium text-[#b85a3c]">100%</p>
-            <p className="text-[21px] text-black tracking-[-0.42px]">satisfaction client</p>
+            <p className="text-[40px] font-medium text-[#b85a3c]">{confiance?.stat2Valeur ?? '—'}</p>
+            <p className="text-[21px] text-black tracking-[-0.42px]">{confiance?.stat2Label ?? ''}</p>
           </div>
         </div>
 
         {/* Google badge mobile */}
-        <a href="https://www.google.com/maps/place/Ouest+Menuiserie+G%C3%A9n%C3%A9rale/@47.2578112,-1.5796054,17z/data=!4m17!1m8!3m7!1s0x4805edf7bb4b6fbb:0x18980d18ccd4f9ef!2sOuest+Menuiserie+G%C3%A9n%C3%A9rale!8m2!3d47.257771!4d-1.57971!10e5!16s%2Fg%2F11xcrvxpcq!3m7!1s0x4805edf7bb4b6fbb:0x18980d18ccd4f9ef!8m2!3d47.257771!4d-1.57971!9m1!1b1!16s%2Fg%2F11xcrvxpcq?entry=ttu&g_ep=EgoyMDI2MDQyNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
+        <a href={GOOGLE_MAPS_URL} target="_blank" rel="noopener noreferrer">
         <div className="bg-white border border-[#e5e7eb] rounded-[14px] shadow-sm flex flex-col gap-3 px-4 py-3 w-[161px] transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-md cursor-pointer">
           <div className="flex items-center gap-2">
             <Image src={figmaGoogleIcon} alt="Google" width={18} height={18} className="size-[18px]" />
@@ -67,31 +72,15 @@ export default function SectionConfiance({ testimonials }: Props) {
           Nous sommes votre partenaire de confiance.
         </h2>
 
-        {/* Stats */}
+        {/* Stats desktop */}
         <div className="flex gap-[68px] items-start">
           <div className="flex-1 flex flex-col gap-2 border-r border-black">
-            <p className="text-[60px] font-medium text-[#b85a3c] leading-[72px]">
-              60 projets
-            </p>
-            <p className="text-[32px] text-black tracking-[-0.64px] leading-[38px]">
-              en 2025
-            </p>
-          </div>
-          <div className="flex-1 flex flex-col gap-2 border-r border-black">
-            <p className="text-[60px] font-medium text-[#b85a3c] leading-[72px]">
-              0 retard
-            </p>
-            <p className="text-[32px] text-black tracking-[-0.64px] leading-[38px]">
-              sur les chantiers
-            </p>
+            <p className="text-[60px] font-medium text-[#b85a3c] leading-[72px]">{confiance?.stat1Valeur ?? '—'}</p>
+            <p className="text-[32px] text-black tracking-[-0.64px] leading-[38px]">{confiance?.stat1Label ?? ''}</p>
           </div>
           <div className="flex-1 flex flex-col gap-2">
-            <p className="text-[60px] font-medium text-[#b85a3c] leading-[72px]">
-              100%
-            </p>
-            <p className="text-[32px] text-black tracking-[-0.64px] leading-[38px]">
-              satisfaction client
-            </p>
+            <p className="text-[60px] font-medium text-[#b85a3c] leading-[72px]">{confiance?.stat2Valeur ?? '—'}</p>
+            <p className="text-[32px] text-black tracking-[-0.64px] leading-[38px]">{confiance?.stat2Label ?? ''}</p>
           </div>
         </div>
 
@@ -101,7 +90,7 @@ export default function SectionConfiance({ testimonials }: Props) {
 
           {/* Google badge */}
           <div className="py-[30px]">
-            <a href="https://www.google.com/maps/place/Ouest+Menuiserie+G%C3%A9n%C3%A9rale/@47.2578112,-1.5796054,17z/data=!4m17!1m8!3m7!1s0x4805edf7bb4b6fbb:0x18980d18ccd4f9ef!2sOuest+Menuiserie+G%C3%A9n%C3%A9rale!8m2!3d47.257771!4d-1.57971!10e5!16s%2Fg%2F11xcrvxpcq!3m7!1s0x4805edf7bb4b6fbb:0x18980d18ccd4f9ef!8m2!3d47.257771!4d-1.57971!9m1!1b1!16s%2Fg%2F11xcrvxpcq?entry=ttu&g_ep=EgoyMDI2MDQyNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
+            <a href={GOOGLE_MAPS_URL} target="_blank" rel="noopener noreferrer">
             <div className="bg-white border border-[#e5e7eb] rounded-[14px] shadow-sm flex flex-col gap-3 px-4 py-3 w-[161px] transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-md cursor-pointer">
               <div className="flex items-center gap-2">
                 <Image src={figmaGoogleIcon} alt="Google" width={18} height={18} className="size-[18px]" />
